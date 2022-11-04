@@ -1,0 +1,39 @@
+/*Footer*/
+
+.footer {
+    background-color: gray;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left {
+    display: block;
+    margin: 10px 10px 5px 10px;
+}
+
+.left a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.right {
+    display: block;
+    margin: 10px 10px 5px 10px;
+}
+
+.right img {
+    width: 17px;
+    height: 17px;
+    margin: 5px;
+}
+
+.second-row {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
