@@ -1,0 +1,116 @@
+/*Card Topics*/
+
+.topic {
+    display: inline-block;
+    font-size: 19px;
+    background-color: rgb(195, 194, 194);
+    font-family:'Times New Roman', Times, serif;
+    padding: 10px 20px 10px 15px;
+    margin: 25px 15px 5px 175px;
+    border-radius: 3.5px;
+}
+
+#topic-break {
+    margin: 5px 150px 15px 175px;
+}
+
+/*Cards*/
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 175px;
+    transition: margin 0.3s ease;
+}
+
+.card {
+    background-color: gray;
+    width: 282.5px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card-image {
+    background-color: rgb(173, 169, 163);
+    height: 150px;
+    margin-bottom: 12px;
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+}
+
+.asset-type {
+    position: absolute;
+    left: 8px;
+    bottom: 5px;
+    display: block;
+    background-color: rgb(193, 186, 186);
+    padding: 5px;
+    border-radius: 7px;
+}
+
+
+/*Game Images*/
+.game-1 {
+    background-image: url('images/home/Riley\ &\ Rochelle.png');
+}
+
+.game-2 {
+    background-image: url('images/home/Late\ night\ mop.png');
+}
+
+.game-3 {
+    background-image: url('images/home/Spirit\ and\ mouse.png');
+}
+
+.game-4 {
+    background-image: url('images/home/World\ of\ Anterra.png');
+}
+
+/*Asset Images*/
+
+.asset-1 {
+    background-image: url('images/home/skybox\ \(1\).png');
+}
+
+.asset-2 {
+    background-image: url('images/home/pixelart.png');
+}
+
+.asset-3 {
+    background-image: url('images/home/tileset.png');
+}
+
+.asset-4 {
+    background-image: url('images/home/character.png');
+}
+
+.game-intro {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px 2px 10px;
+}
+
+.tagline{
+    padding: 10px;
+    margin-bottom: 7px;
+    text-align: justify;
+}
+
+.card a {
+    background-color: rgb(162, 212, 212);
+    color: black;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+    text-decoration: none;
+}
+
+.card:hover {
+    background-color: rgb(49, 46, 46);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+}

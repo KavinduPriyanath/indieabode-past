@@ -11,6 +11,13 @@
 <br>
 <br>
 
+<!--Including Home Content-->
+
+<style>
+    <?php include('src/css/home.css'); ?>
+</style>
+<?php include("pages/home.php"); ?>
+
 <!--Including Footer-->
 
 <style>
