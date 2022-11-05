@@ -23,6 +23,11 @@ body {
     margin: 15px 20px 15px 180px;
 }
 
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
 .navbar-links .ul {
     padding: 0;
     margin: 0;
@@ -196,7 +201,7 @@ a:hover .double{
     background-color: rgb(185, 175, 175);
     margin-right: 5px;
     border-radius: 10px;
-    background-image: url('images/navbar/profile.png');
+    background-image: url('/indieabode/images/navbar/profile.png');
     background-size: cover;
 }
 

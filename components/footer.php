@@ -10,10 +10,10 @@
             <a href="#">Help</a>
         </div>
         <div class="right">
-            <a href="#"><img src="images/footer/twitter.png" alt="" /></a>
-            <a href="#"><img src="images/footer/facebook.png" alt="" /></a>
-            <a href="#"><img src="images/footer/social.png" alt="" /></a>
-            <a href="#"><img src="images/footer/twitch.png" alt="" /></a>
+            <a href="#"><img src="/indieabode/images/footer/twitter.png" alt="" /></a>
+            <a href="#"><img src="/indieabode/images/footer/facebook.png" alt="" /></a>
+            <a href="#"><img src="/indieabode/images/footer/social.png" alt="" /></a>
+            <a href="#"><img src="/indieabode/images/footer/twitch.png" alt="" /></a>
         </div>
     </div>
     <div class="second-row">

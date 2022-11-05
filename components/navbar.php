@@ -4,12 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/indieabode/src/css/navbar.css" />
     <title>IndieAbode</title>
 </head>
 
 <body>
     <div class="navbar">
-        <div class="logo">IndieAbode</div>
+        <div class="logo"><a href="/indieabode">IndieAbode</a></div>
         <a href="#" class="toggle-button">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -41,7 +42,7 @@
                 </div>
 
                 <div class="dropdown" data-dropdown>
-                    <a href="#" data-dropdown-button>Assets<i class="fa fa-angle-down droparrow"></i></a>
+                    <a href="/indieabode/pages/assets.php" data-dropdown-button>Assets<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
                         <div class="arrow"></div>
@@ -54,7 +55,7 @@
                             <a>Textures <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Maps <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Tools <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a>Browse&nbsp;all&nbsp;assets
+                            <a href="/indieabode/pages/assets.php">Browse&nbsp;all&nbsp;assets
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
                     <form action="" class="search-bar">
                         <input type="text" placeholder="search anything" name="search" />
                         <button type="submit">
-                            <img src="images/navbar/search.png" alt="" />
+                            <img src="/indieabode/images/navbar/search.png" alt="" />
                         </button>
                     </form>
                 </div>
