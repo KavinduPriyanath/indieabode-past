@@ -1,0 +1,112 @@
+.upload-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.outer-box{
+    /*background: linear-gradient(rgb(5, 5, 5),rgb(34, 3, 34));*/
+    background-color: white;
+    background-size:cover;
+    background-position: center;
+}
+
+.form-box{
+    /*background:rgb(28,4,28);*/
+    background-color: white;
+    width:75%;
+    height:1500px;
+    position:relative;
+    padding:10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin:auto;
+    overflow:hidden;
+}
+
+.btn-box{
+    margin:35px auto;
+    position: relative;
+    border-radius: 30px;
+    box-shadow:0 0 20px 3px rgb(122, 120, 122);
+    width:320px;
+}
+
+.toggle-btn{
+    padding:10px 50px;
+    cursor:pointer;
+    background:transparent;
+    outline:none;
+    border:0;
+    position:relative;
+
+}
+
+#btn{
+    top:0;
+    left:0;
+    position:absolute;
+    align-items: center;
+    width:160px;
+    height:35px;
+    background:linear-gradient(to right, rgb(105, 101, 104), rgb(245, 240, 245));
+    border-radius:30px;
+    border-width:2px;
+    transition:.5s;
+}
+
+.input-upload-group{
+    top:180px;
+    position:absolute;
+    transition:.5s;
+}
+
+input,select,textarea{
+    width:75%;
+    padding:10px 0;
+    margin:5px 0;
+    border-left:0;
+    border-top:0;
+    border-right:0;
+    border-bottom: 2px solid rgb(150,129,150);
+    background:transparent;
+    outline:none;
+}
+
+input[type=radio]{
+    width:auto;
+}
+p{
+    color:rgb(79, 74, 74);
+    font-style:italic;
+}
+
+textarea{
+    border:2px solid rgb(150,129,150);
+}
+
+select option{
+    background:rgb(169, 166, 169);
+}
+
+.submit-btn{
+    width:50%;
+    height:35px;
+    padding:10px 30px;
+    cursor:pointer;
+    display: block;
+    margin:auto;
+    background:linear-gradient(to right, rgb(114, 111, 114), rgb(216, 214, 216));
+    border: 0;
+    outline:none;
+    border-radius:30px;
+}
+
+#upload-game{
+    left:5px;
+}
+
+#upload-asset{
+    left:1405px;
+}
