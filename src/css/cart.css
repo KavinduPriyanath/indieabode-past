@@ -1,0 +1,146 @@
+
+
+
+/* body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(211, 210, 211);
+  justify-content: center;
+  align-items: center;
+} */
+
+.checkout-panel {
+  
+  width: 800px;
+  height: 366px;
+  background-color: rgb(255, 254, 255);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+  
+  border: 2px solid rgb(112, 10, 72);
+  position: relative;
+  top: 280px;
+  right: 500px;
+  
+  
+}
+
+.panel-body {
+  padding: 30px 30px ;
+  
+}
+ 
+.title {
+  
+  right: 350px;
+  bottom: 230px;
+  position: relative;
+}
+
+ 
+div[class*='column'] {
+  width: 382px;
+}
+ 
+.game1{
+    width: 682px;
+    height: 120px;
+    border: 2px solid rgb(112, 10, 72);
+    padding: 0.5em
+}
+.g1name{
+  position: relative;
+  left: 100px;
+  bottom: 75px;
+}
+
+.g1price{
+  position:relative;
+  left: 570px;
+  bottom: 100px;
+  
+}
+
+ 
+.game2{
+    width: 682px;
+    height: 120px;
+    border: 2px solid rgb(112, 10, 72);
+    padding: 0.5em;
+    position: relative;
+    top: 10px;
+}
+.g2name{
+  position: relative;
+  left: 100px;
+  bottom: 75px;
+}
+
+.g2price{
+  position:relative;
+  left: 570px;
+  bottom: 100px;
+  
+}
+
+
+.remove1{
+    position:relative;
+    left: 580px;
+    bottom: 65px;
+}
+
+
+.remove2{
+    position:relative;
+    left: 580px;
+    bottom: 65px;
+}
+
+.summary{
+  position:absolute;
+  left: 30px;
+  bottom: 130px;
+  
+}
+
+.column2{
+ 
+ position:relative;
+ width: 400px;
+ height: 400px;
+ 
+ left: 400px;
+ bottom:150px;
+ border: 2px solid rgb(112, 10, 72);
+}
+
+.price{
+  position:relative;
+  left: 21px;
+  top: 50px;
+}
+.pricev{
+  position:relative;
+  left: 250px;
+  bottom: 18px;
+}
+.disv{
+  position:relative;
+  left: 245px;
+  bottom: 18px;
+}
+
+.checkout1{
+  background-color: #5b5552; /* Green */
+  color: rgb(16, 7, 7);
+  padding: 8px 62px;
+  text-align: center;
+  font-size: 23px;
+  border-radius: 6px;
+  border:none;
+  position: relative;
+  left: 50px;
+  top: 80px;
+}
