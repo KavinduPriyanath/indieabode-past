@@ -1,8 +1,10 @@
 body {
     color: rgb(0, 0, 0);
+
     /*height: 100vh;*/
     justify-content: center;
     align-items:flex-end;
+
     background: hsla(0, 3%, 77%, 0.867);
 }
 
@@ -12,7 +14,9 @@ body {
     padding: 25px 30px;
     border-radius: 25px;
     background: #afafaf;
+
     margin-left:240px;
+
 }
 
 .form-container .heading {

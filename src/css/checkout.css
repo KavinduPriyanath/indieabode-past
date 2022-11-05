@@ -1,0 +1,223 @@
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(211, 210, 211);
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-panel {
+  
+  width: 800px;
+  height: 366px;
+  background-color: rgb(171, 171, 171);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+  
+  border: 2px solid rgb(112, 10, 72);
+  position: relative;
+  top: 280px;
+  right: 500px;
+  
+  
+}
+
+.column2{
+ 
+  position:relative;
+  width: 400px;
+  height: 600px;
+  
+  left: 400px;
+  bottom:130px;
+  border: 2px solid rgb(150, 31, 102);
+  background-color: rgb(171, 171, 171);
+}
+
+
+.panel-body {
+  padding: 30px 30px ;
+  
+  
+}
+ 
+.title {
+  
+  right: 350px;
+  bottom: 230px;
+  position: relative;
+}
+
+.input-fields {
+  display: flex;
+  
+  
+}
+ 
+.input-fields label {
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #080808;
+  
+}
+
+ 
+div[class*='column'] {
+  width: 382px;
+  
+}
+ 
+input[type='text'],
+input[type='password'] {
+  font-size: 16px;
+  width: 90%;
+  height: 50px;
+  padding-left: 40px;
+  background-color: rgb(117, 115, 115);
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 6px;
+  outline: none;
+}
+
+
+input[type='text']:focus,
+input[type='password']:focus {
+  border-color: rgb(119, 219, 119);
+}
+
+
+
+.small-inputsC {
+  width: 120px;
+  margin-top: 20px;
+  margin-left: 232px;
+}
+ 
+
+.small-inputsY {
+  width: 120px;
+  
+  margin-bottom: 1px;
+  margin-left: 142px;
+  position:absolute;
+}
+
+
+.warning {
+  border-color: #f62f5e;
+}
+
+#months{
+ width:120px; 
+ height: 50px;
+
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 6px;
+  background-color: rgb(117, 115, 115);
+  margin-bottom: 1px;
+  margin-left: 5px;
+  padding-left: 40px;
+  position:absolute;
+  
+}
+
+.exp{
+  margin-top: 20px;
+  margin-bottom: 1px;
+  
+}
+
+.save{
+  margin-top: 2px;
+  
+  margin-left: 23px;
+  position:absolute;
+}
+
+.summary{
+  
+  position:absolute;
+  left: 30px;
+  top: 10px;
+  
+}
+
+.game1{
+  position:absolute;
+  left: 40px;
+  top: 100px;
+}
+
+.g1name{
+  position: relative;
+  left: 120px;
+  bottom: 70px;
+}
+
+.g1price{
+  position:relative;
+  left: 120px;
+  bottom: 60px;
+  
+}
+
+.game2{
+  position:absolute;
+  left: 40px;
+  top: 250px;
+}
+
+.g2name{
+  position: relative;
+  left: 120px;
+  bottom: 70px;
+}
+
+.g2price{
+  position:relative;
+  left: 120px;
+  bottom: 60px;
+  
+}
+
+.price{
+  position:relative;
+  left: 50px;
+  top: 380px;
+}
+.pricev{
+  position:relative;
+  left: 250px;
+  bottom: 18px;
+}
+.disv{
+  position:relative;
+  left: 250px;
+  bottom: 18px;
+}
+
+.placeorder{
+  position:relative;
+  left: 150px;
+  top: 380px;
+  
+}
+
+#place{
+  background-color: #5b5552; /* Green */
+  color: rgb(16, 7, 7);
+  padding: 8px 62px;
+  text-align: center;
+  font-size: 23px;
+  border-radius: 6px;
+  border:none;
+  position: relative;
+  right: 80px;
+  top: 20px;
+}
+
