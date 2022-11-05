@@ -1,0 +1,60 @@
+.container {
+
+    width: 100%;
+
+    border-radius: 25px;
+    background: #b6b6b6;
+}
+
+.card {
+    width: 99%;
+    box-sizing: inherit;
+    box-align: center;
+    background-color: rgb(124, 124, 124);
+    border-radius: 25px;
+    display: inline-block;
+    justify-content: center;
+
+
+    /*padding: 0 50px;*/
+}
+
+.box {
+    padding: 15px;
+    justify-content: center;
+}
+
+
+.card-box1 {
+    text-align: center;
+    position: relative;
+}
+
+.card-box2 {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+    position: relative;
+}
+
+.box {
+    width: 35%;
+    margin: 0 -5px;
+    image-orientation: flip;
+}
+
+img {
+    border-radius: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    position: relative;
+    padding: 10px;
+}
+
+.block {
+    text-align: center;
+}
