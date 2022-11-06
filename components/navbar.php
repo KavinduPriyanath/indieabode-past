@@ -20,7 +20,7 @@
         <div class="navbar-links">
             <div class="ul">
                 <div class="dropdown" data-dropdown>
-                    <a href="#" data-dropdown-button>Games<i class="fa fa-angle-down droparrow"></i></a>
+                    <a href="/indieabode/pages/games.php" data-dropdown-button>Games<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
                         <div class="arrow"></div>
@@ -35,7 +35,7 @@
                             <a>Racing <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Simulation <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Strategy <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a>Browse&nbsp;all&nbsp;assets
+                            <a href="/indieabode/pages/games.php">Browse&nbsp;all&nbsp;assets
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                         <div class="arrow"></div>
                         <div class=".ulsub">
                             <a>Join Jams <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a href = "/indieabode/pages/gamejamform.php">Host Jams <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
+                            <a href="/indieabode/pages/gamejamform.php">Host Jams <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Jam&nbsp;Dashboard
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
