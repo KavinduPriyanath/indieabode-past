@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--Including Navbar-->
 <style>
     <?php
          include('../src/css/login.css'); 
