@@ -1,0 +1,124 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #eeeff0;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+.wrapper{
+  width: 40%;
+  padding: 2rem 0 1rem 0;
+  margin: 50px auto;
+  margin-bottom:0;
+  padding-bottom: 0;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+form input{
+  width:65%;
+  outline: none;
+  border: none;
+  background: #dfe9f5;
+  padding: 12px 14px;
+  margin-top:2%;
+  border-radius: 10px;
+}
+
+fieldset{
+    width:65%;
+    padding:12px 14px;
+    border-radius:10px ;
+    margin-left:50px;
+}
+button{
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 8px 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 55%;
+  background: rgb(156, 150, 150);
+  color: #fff;
+  cursor: pointer;
+}
+button:hover{
+  background: rgba(42, 31, 31, 0.767);
+}
+.or{
+  font-size: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.forgot-pw{
+  font-size: 0.8rem;
+  margin-top: 1.4rem;
+  padding:5%;
+  background-color: darkgray;
+}
+.forgot-pw a{
+  color: tomato;
+}
+
+.btn-box button{
+    width:30%;
+    margin-top:0;
+    margin-bottom:10%;
+    border-radius:30px;
+    background:rgb(69, 66, 66);
+}
+
+.about-you{
+    margin:5% 18% 5% 18%;
+    display:block;
+    position:relative;
+    font-size:1.1em;
+    border-style:groove;
+    text-align:left;
+    padding:4%;
+    border-radius:10px;
+}
+
+input[type="checkbox"]{
+    width:auto;
+}
+
+label{
+    text-align:left;
+    font-size:.7em;
+}
+.about-you label{
+    font-size:.7em;
+}
+
+p{
+    text-align:left;
+    margin:0 19% 0 19%;
+    font-size:.7em;
+    color:grey;
+}
+
+.about-you p{
+    margin:0;
+    font-size:.7em;
+    color:grey;
+}
+
+.full-name{
+    margin:0 18% 5% 18%;
+    display:flex;   
+}
+
+#firstname{
+    margin-right:3%;
+}
+

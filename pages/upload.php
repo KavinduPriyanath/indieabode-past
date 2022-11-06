@@ -207,11 +207,5 @@
 
     <!--script-->
     <script src="../src/js/upload.js"></script>
-
-    <!--footer-->
-    <footer>
-
-    </footer>
-
 </body>
 </html>
