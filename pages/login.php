@@ -15,7 +15,7 @@
             <button type="button" class="toggle-btn"><a href="/indieabode/pages/register.php">Register</a></button>
         </div>
         <form>
-        <input type="text" placeholder="Enter username">
+        <input type="email" placeholder="email">
         <input type="password" placeholder="Password">
 
         </form>
