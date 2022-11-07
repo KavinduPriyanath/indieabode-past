@@ -137,6 +137,13 @@ input[type="radio"] {
     position: relative;
 }
 
+.card-image img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 .asset-type {
     position: absolute;
     left: 8px;
@@ -147,21 +154,6 @@ input[type="radio"] {
     border-radius: 7px;
 }
 
-.game-1 {
-    background-image: url('../images/assets/skybox\ \(1\).png');
-}
-
-.game-2 {
-    background-image: url('../images/assets/pixelart.png');
-}
-
-.game-3 {
-    background-image: url('../images/assets/tileset.png');
-}
-
-.game-4 {
-    background-image: url('../images/assets/character.png');
-}
 
 .game-intro {
     display: flex;

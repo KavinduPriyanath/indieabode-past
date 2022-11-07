@@ -331,6 +331,7 @@
 
 
 <script src="../src/js/games.js"></script>
+<script src="../src/js/navbar.js"></script>
 
 
 </html>
