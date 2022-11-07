@@ -206,6 +206,9 @@
     <?php include("../components/footer.php"); ?>
 
     <!--script-->
-    <script src="../src/js/upload.js"></script>
+    <script>
+    <?php include('../src/js/navbar.js')?>
+    <?php include('../src/js/upload.js')?>
+    </script>
 </body>
 </html>

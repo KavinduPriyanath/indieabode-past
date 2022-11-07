@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding:0;
+    
+}
+
+img{
+    height:200px;
+    border-radius:50%;
+    border:10px solid rgb(102, 96, 102);
+}
+
+.name-role{
+    font-size:x-large;
+    font-weight: 300;
+    padding-top: 2em;
+}
+
+.user-detail-container{
+    padding-top:2%;
+    display:grid;
+    grid-template-columns:19% 40% 30%;
+    margin-left:8%;
+    padding-right: 8%;
+}
+
+.user-follow-count-container{
+    display:grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    padding-top: 3em;
+    font-size: larger;
+    color:grey;
+    column-gap:.5em;
+    row-gap: 1em;
+}
+
+.follow-btn{
+    background-color: rgb(82, 82, 86);
+    border:none;
+    cursor:pointer;
+    padding:20px;
+    align-self: center;
+    color:white;
+    border-radius:20%;
+    font-size: medium;
+}
+
+h2{
+    margin-left: 10%;
+    padding-top:3%;
+    padding-bottom:2%;
+}
+
+p{
+    margin-left:10%;
+    padding-right: 10%;
+    padding-bottom:2%;
+}
+
