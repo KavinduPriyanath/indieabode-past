@@ -260,9 +260,11 @@ if (isset($_POST['asset-submit'])) {
 </style>
 <?php include("../components/footer.php"); ?>
 
+
 <!--script-->
 <script src="../src/js/upload.js"></script>
 <script src="../src/js/navbar.js"></script>
+
 </body>
 
 </html>
