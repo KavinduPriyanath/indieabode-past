@@ -1,3 +1,18 @@
+<?php session_start();
+
+require '../db/database.php';
+
+//get assets from database
+$sql = "SELECT * FROM freeasset";
+$result = mysqli_query($conn, $sql);
+
+$assets = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,189 +160,22 @@
 <!--Cards-->
 
 <div class="container" id="card-container">
-    <div class="card">
-        <div class="card-image game-1">
-            <div class="asset-type">Skybox</div>
-        </div>
-        <div class="game-intro">
-            <h3>Skybox Pack Unity</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">Consists of 34 skyboxes</div>
-    </div>
 
-    <div class="card">
-        <div class="card-image game-2">
-            <div class="asset-type">Pixel Art</div>
-        </div>
-        <div class="game-intro">
-            <h3>Tiny Sword</h3>
-            <p>$10.99</p>
-        </div>
-        <div class="tagline">The most deadly and colorful battle</div>
-    </div>
+    <?php foreach ($assets as $asset) { ?>
+        <div class="card">
+            <div class="card-image game"> <img src="../uploads/assets/cover/<?= $asset['assetCoverImg'] ?>" alt="">
 
-    <div class="card">
-        <div class="card-image game-3">
-            <div class="asset-type">Tile-Set</div>
+                <div class="asset-type"> <?= $asset['assetType'] ?> </div>
+            </div>
+            <div class="game-intro">
+                <h3><?= $asset['assetName'] ?></h3>
+                <p>Free</p>
+            </div>
+            <div class="tagline"><?= $asset['assetTagline'] ?></div>
         </div>
-        <div class="game-intro">
-            <h3>Kings and Pigs</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">A king vs an army of cute small pigs</div>
-    </div>
+    <?php } ?>
 
-    <div class="card">
-        <div class="card-image game-4">
-            <div class="asset-type">Character</div>
-        </div>
-        <div class="game-intro">
-            <h3>Simpsons and Sons</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">
-            A pack with everything you need to make a 3D platformer! quaternius
-        </div>
-    </div>
 
-    <div class="card">
-        <div class="card-image game-1">
-            <div class="asset-type">Skybox</div>
-        </div>
-        <div class="game-intro">
-            <h3>Skybox Pack Unity</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">Consists of 34 skyboxes</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-2">
-            <div class="asset-type">Pixel Art</div>
-        </div>
-        <div class="game-intro">
-            <h3>Tiny Sword</h3>
-            <p>$10.99</p>
-        </div>
-        <div class="tagline">The most deadly and colorful battle</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-3">
-            <div class="asset-type">Tile-Set</div>
-        </div>
-        <div class="game-intro">
-            <h3>Kings and Pigs</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">A king vs an army of cute small pigs</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-4">
-            <div class="asset-type">Character</div>
-        </div>
-        <div class="game-intro">
-            <h3>Simpsons and Sons</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">
-            A pack with everything you need to make a 3D platformer! quaternius
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-1">
-            <div class="asset-type">Skybox</div>
-        </div>
-        <div class="game-intro">
-            <h3>Skybox Pack Unity</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">Consists of 34 skyboxes</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-2">
-            <div class="asset-type">Pixel Art</div>
-        </div>
-        <div class="game-intro">
-            <h3>Tiny Sword</h3>
-            <p>$10.99</p>
-        </div>
-        <div class="tagline">The most deadly and colorful battle</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-3">
-            <div class="asset-type">Tile-Set</div>
-        </div>
-        <div class="game-intro">
-            <h3>Kings and Pigs</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">A king vs an army of cute small pigs</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-4">
-            <div class="asset-type">Character</div>
-        </div>
-        <div class="game-intro">
-            <h3>Simpsons and Sons</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">
-            A pack with everything you need to make a 3D platformer! quaternius
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-1">
-            <div class="asset-type">Skybox</div>
-        </div>
-        <div class="game-intro">
-            <h3>Skybox Pack Unity</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">Consists of 34 skyboxes</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-2">
-            <div class="asset-type">Pixel Art</div>
-        </div>
-        <div class="game-intro">
-            <h3>Tiny Sword</h3>
-            <p>$10.99</p>
-        </div>
-        <div class="tagline">The most deadly and colorful battle</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-3">
-            <div class="asset-type">Tile-Set</div>
-        </div>
-        <div class="game-intro">
-            <h3>Kings and Pigs</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">A king vs an army of cute small pigs</div>
-    </div>
-
-    <div class="card">
-        <div class="card-image game-4">
-            <div class="asset-type">Character</div>
-        </div>
-        <div class="game-intro">
-            <h3>Simpsons and Sons</h3>
-            <p>$19.99</p>
-        </div>
-        <div class="tagline">
-            A pack with everything you need to make a 3D platformer! quaternius
-        </div>
-    </div>
 </div>
 
 <!--Pagination-->
@@ -353,6 +201,7 @@
 
 
 <script src="../src/js/assets.js"></script>
+<script src="../src/js/navbar.js"></script>
 </body>
 
 </html>

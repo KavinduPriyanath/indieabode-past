@@ -125,7 +125,7 @@
                             <hr />
 
                             <a>Settings <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a>Log&nbsp;Out
+                            <a href="/indieabode/pages/login.php">Log&nbsp;Out
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
