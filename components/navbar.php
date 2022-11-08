@@ -95,8 +95,8 @@
                     <div class="dropdown-menu">
                         <div class="arrow"></div>
                         <div class=".ulsub">
-                            <a>Log&nbsp;In <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a>Sign&nbsp;In
+                            <a href="/indieabode/pages/login.php">Log&nbsp;In <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
+                            <a href="/indieabode/pages/register.php">Sign&nbsp;In
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
