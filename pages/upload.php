@@ -7,6 +7,8 @@ echo $_SESSION['id'];
 
 require '../db/database.php';
 
+$allowed_exts = array("jpg", "jpeg", "png");
+
 if (isset($_POST['asset-submit'])) {
     $assetName = $_POST['asset-title'];
     $assetTagline = $_POST['asset-tagline'];
@@ -37,6 +39,41 @@ if (isset($_POST['asset-submit'])) {
 
     //upload to db
     $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "Upload successful!";
+    } else {
+        echo "error";
+    }
+}elseif (isset($_POST['game-submit'])) {
+    $gameName = $_POST['game-title'];
+    $gameTagline = $_POST['game-tagline'];
+    $foreignKey = $_SESSION['id'];
+    //$gameClassification = $_POST['game-classification'];
+    // $gameStatus = 
+    // $gameDetails = 
+    // $gameTags = 
+    // $gamePricing = 
+    // $gameLicense = 
+    // $game =
+    // $gameVisibility = 
+
+    //cover image
+    //$cover_img_size = $_FILES['asset-upload-cover-img']['size'];
+    $game_cover_img_name = $_FILES['game-upload-cover-img']['name'];
+    $game_cover_img_temp_name = $_FILES['game-upload-cover-img']['tmp_name'];
+
+    $game_cover_img_ext = strtolower(pathinfo($game_cover_img_name, PATHINFO_EXTENSION));
+    $allowed_exts = array("jpg", "jpeg", "png");
+
+    if (in_array($game_cover_img_ext, $allowed_exts)) {
+        $new_game_cover_img_name = "Cover-" . $gameName . '.' . $game_cover_img_ext;
+        $game_cover_upload_path = '../uploads/games/cover/' . $new_game_cover_img_name;
+        move_uploaded_file($game_cover_img_temp_name, $game_cover_upload_path);
+    }
+
+    //upload to db
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -76,7 +113,7 @@ if (isset($_POST['asset-submit'])) {
             <button type="button" class="toggle-btn" onclick="uploadAsset()">Assets</button>
         </div><br>
 
-        <form method="POST" id="upload-game" class="input-upload-group">
+        <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
             <div class="upload-row">
                 <div class="upload-col">
 
