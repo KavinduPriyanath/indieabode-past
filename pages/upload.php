@@ -28,7 +28,6 @@ if (isset($_POST['asset-submit'])) {
     $cover_img_temp_name = $_FILES['asset-upload-cover-img']['tmp_name'];
 
     $cover_img_ext = strtolower(pathinfo($cover_img_name, PATHINFO_EXTENSION));
-    $allowed_exts = array("jpg", "jpeg", "png");
 
     if (in_array($cover_img_ext, $allowed_exts)) {
         $new_cover_img_name = "Cover-" . $assetName . '.' . $cover_img_ext;
@@ -64,8 +63,7 @@ if (isset($_POST['asset-submit'])) {
     $game_cover_img_temp_name = $_FILES['game-upload-cover-img']['tmp_name'];
 
     $game_cover_img_ext = strtolower(pathinfo($game_cover_img_name, PATHINFO_EXTENSION));
-    $allowed_exts = array("jpg", "jpeg", "png");
-
+    
     if (in_array($game_cover_img_ext, $allowed_exts)) {
         $new_game_cover_img_name = "Cover-" . $gameName . '.' . $game_cover_img_ext;
         $game_cover_upload_path = '../uploads/games/cover/' . $new_game_cover_img_name;
