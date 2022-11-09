@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 07:01 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Nov 09, 2022 at 09:01 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -229,7 +229,8 @@ CREATE TABLE `freegame` (
 
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTitle`, `gameTagline`, `gameClassification`, `gamePlatform`, `gameFeatures`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`) VALUES
 (1, 'New Game', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game.jpg', 1),
-(2, 'New Game 1', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1);
+(2, 'New Game 1', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1),
+(4, 'fregrt', '', '', '', '', '', 'grhrgbrt', '', '', '', '', '', 0, 'Cover-fregrt.jpg', 6);
 
 -- --------------------------------------------------------
 
@@ -271,8 +272,16 @@ CREATE TABLE `gamejam` (
   `jamCriteria` varchar(255) NOT NULL,
   `jamVisibility` tinyint(1) NOT NULL,
   `maxParticipants` int(11) NOT NULL,
-  `canJoinAfterStarted` tinyint(1) NOT NULL
+  `canJoinAfterStarted` tinyint(1) NOT NULL,
+  `jamHostID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gamejam`
+--
+
+INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`) VALUES
+(3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 'fbgb', '', '', '', 0, 0, 0, 6);
 
 -- --------------------------------------------------------
 
@@ -299,7 +308,8 @@ CREATE TABLE `gamer` (
 
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
 (1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20'),
-(5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23');
+(5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23'),
+(6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35');
 
 -- --------------------------------------------------------
 
@@ -627,7 +637,8 @@ ALTER TABLE `gamegenre`
 -- Indexes for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  ADD PRIMARY KEY (`gameJamID`);
+  ADD PRIMARY KEY (`gameJamID`),
+  ADD KEY `jamHostID` (`jamHostID`);
 
 --
 -- Indexes for table `gamer`
@@ -783,19 +794,19 @@ ALTER TABLE `freeasset`
 -- AUTO_INCREMENT for table `freegame`
 --
 ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `gamesale`
@@ -934,6 +945,12 @@ ALTER TABLE `gamecart`
 ALTER TABLE `gamegenre`
   ADD CONSTRAINT `gamegenre_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `gamegenre_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `gamejam`
+--
+ALTER TABLE `gamejam`
+  ADD CONSTRAINT `gamejam_ibfk_1` FOREIGN KEY (`jamHostID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `gig`
