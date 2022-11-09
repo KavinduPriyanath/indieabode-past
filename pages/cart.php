@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Including Navbar-->
+<body>
 <style>
     <?php include('../src/css/navbar.css'); ?>
 </style>
@@ -50,7 +51,7 @@
         </div>  
     </div>
   
-
+</div>
   <div class="column2">
     <div class="summary" >
       <h2><label for="summary">Order Summary</label></h2>
@@ -75,16 +76,18 @@
       <button class="checkout1">Checkout</button>
     </div>
     
-  </div>  
+  </div>
+</div>  
 <!--Including Footer-->
-
 <style>
     <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
 
 
+
 <script src="../src/js/navbar.js"></script>
+</body>
 </html>
 
 
