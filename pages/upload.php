@@ -13,7 +13,7 @@ if (isset($_POST['asset-submit'])) {
     $assetName = $_POST['asset-title'];
     $assetTagline = $_POST['asset-tagline'];
     $foreignKey = $_SESSION['id'];
-    //$assetClassification = $_POST['asset-classification'];
+    $assetClassification = $_POST['asset-classification'];
     // $assetStatus = 
     // $assetDetails = 
     // $assetTags = 
@@ -37,14 +37,14 @@ if (isset($_POST['asset-submit'])) {
 
 
     //upload to db
-    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name')";
+    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
     } else {
         echo "error";
     }
-}elseif (isset($_POST['game-submit'])) {
+} elseif (isset($_POST['game-submit'])) {
     $gameName = $_POST['game-title'];
     $gameTagline = $_POST['game-tagline'];
     $foreignKey = $_SESSION['id'];
@@ -63,7 +63,7 @@ if (isset($_POST['asset-submit'])) {
     $game_cover_img_temp_name = $_FILES['game-upload-cover-img']['tmp_name'];
 
     $game_cover_img_ext = strtolower(pathinfo($game_cover_img_name, PATHINFO_EXTENSION));
-    
+
     if (in_array($game_cover_img_ext, $allowed_exts)) {
         $new_game_cover_img_name = "Cover-" . $gameName . '.' . $game_cover_img_ext;
         $game_cover_upload_path = '../uploads/games/cover/' . $new_game_cover_img_name;
@@ -213,7 +213,7 @@ if (isset($_POST['asset-submit'])) {
                     <label id="asset-classification" for="asset-classification">Classification</label><br>
                     <select id="asset-classification" name="asset-classification">
                         <option value="2d">2D</option>
-                        <option value="3d">3D</option>
+                        <option value="3d" selected>3D</option>
                         <option value="audio">Audio</option>
                         <option value="visualEffects">Visual Effects</option>
                         <option value="textures">Textures</option>
@@ -224,7 +224,7 @@ if (isset($_POST['asset-submit'])) {
                     <!--Releasing status-->
                     <label id="asset-status" for="asset-status">Release Status</label><br>
                     <select id="asset-status" name="asset-status">
-                        <option value="released">Released</option>
+                        <option value="released" selected>Released</option>
                         <option value="Prototype">Prototype</option>
                         <option value="Upcoming">Upcoming</option>
                     </select><br><br>
@@ -252,7 +252,7 @@ if (isset($_POST['asset-submit'])) {
                     <label id="asset-license" for="asset-license">License</label><br>
                     <p>Decide when is your page ready for the public</p><br>
                     <select id="asset-license" name="asset-license">
-                        <option value="open-source">Open Source</option>
+                        <option value="open-source" selected>Open Source</option>
                         <option value="proprietary">Proprietary</option>
                         <option value="permissive">Permissive</option>
                         <option value="copyleft">Copy Left</option>
