@@ -155,8 +155,6 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php foreach ($games as $game) { ?>
         <div class="card">
             <div class="card-image game"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
-
-                <div class="game-type"> <?= $game['gameType'] ?> </div>
             </div>
             <div class="game-intro">
                 <h3><?= $game['gameName'] ?></h3>

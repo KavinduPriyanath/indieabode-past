@@ -124,23 +124,16 @@ input[type="radio"] {
     margin-bottom: 12px;
     background-size: cover;
     border-radius: 10px 10px 0px 0px;
+    position: relative;
 }
 
-.game-1 {
-    background-image: url('../images/games/Riley\ &\ Rochelle.png');
+.card-image img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
-.game-2 {
-    background-image: url('../images/games/Late\ night\ mop.png');
-}
-
-.game-3 {
-    background-image: url('../images/games/Spirit\ and\ mouse.png');
-}
-
-.game-4 {
-    background-image: url('../images/games/World\ of\ Anterra.png');
-}
 
 .game-intro {
     display: flex;
