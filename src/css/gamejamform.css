@@ -44,8 +44,12 @@ form .card-details .card-box {
 
 .card-details .card-box .details {
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 5px;
+}
+
+.box-details{
+    font-weight: 600;
 }
 
 .card-details .card-box input {
@@ -60,6 +64,6 @@ form .card-details .card-box {
 
 form .circle-form .circle-title {
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 5px;
 }
