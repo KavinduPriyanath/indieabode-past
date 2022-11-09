@@ -1,3 +1,28 @@
+<?php    
+
+session_start();
+
+require '../db/database.php';
+
+if(isset($_POST['submit'])){
+    $gamejamTitle = $_POST['title'];
+    $foreignKey = $_SESSION['id'];
+
+
+    //upload to database
+    $sql = "INSERT INTO gamejam (jamTitle,jamHostID) VALUES ('$gamejamTitle','$foreignKey')";
+
+
+    if (mysqli_query($conn, $sql)) {
+        echo "Upload successful!";
+    } else {
+        echo "error";
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -18,7 +43,7 @@
                 <div class="left">
                 <div class="card-box">
                     <span class="details">Title</span>
-                    <input type="text">
+                    <input type="text" name = "title">
                 </div>
 
                 <div class="card-box">
@@ -116,7 +141,7 @@
             </div>
 
             <div class="button">
-                <input type="submit" value="Save & View Page">
+                <input type="submit" name = "submit" value="Save & View Page">
             </div>
         </form>
 </div>
