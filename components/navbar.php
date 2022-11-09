@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="dropdown" data-dropdown>
-                    <a href="#" data-dropdown-button>Jams<i class="fa fa-angle-down droparrow"></i></a>
+                    <a href="/indieabode/pages/gamejam.php" data-dropdown-button>Jams<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
                         <div class="arrow"></div>
