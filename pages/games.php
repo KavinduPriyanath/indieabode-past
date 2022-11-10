@@ -27,6 +27,10 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php include('../src/css/games.css'); ?>
 </style>
 
+<div class="page-topic">
+    <h1>Games</h1>
+</div>
+
 <!-- Filters-->
 
 <div class="side-nav" id="side-menu">
