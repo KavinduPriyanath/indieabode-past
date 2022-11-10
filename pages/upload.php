@@ -219,7 +219,47 @@ if (isset($_POST['asset-submit'])) {
                     <input type="radio" id="game-draft" name="game-visibility" value="draft">
                     <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
                     <input type="radio" id="game-public" name="game-visibility" value="public">
-                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br>
+                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
+
+                    <label>Game Specification</label><br><br>
+                    <div class="game-spec-type">
+                        <p class="game-spec-item">Minimum</p>
+                        <p class="game-spec-item">Recommended</p><br><br>
+                    </div>
+                    <div class="game-spec-type">
+                        <div class="game-spec-item-details">
+
+                            <label id="game-OS" for="game-OS">OS</label><br>
+                            <input type="text" name="game-OS" id="game-OS" placeholder="Windows 10"/><br><br>
+                            <label id="game-processor" for="game-processor">Processor</label><br>
+                            <input type="text" name="game-processor" id="game-processor" placeholder="Intel Core I5"/><br><br>
+                            <label id="game-memory" for="game-memory">Memory</label><br>
+                            <input type="text" name="game-memory" id="game-memory" placeholder="8 GB"/><br><br>
+                            <label id="game-storage" for="game-storage">Storage</label><br>
+                            <input type="text" name="game-storage" id="game-storage" placeholder="14 GB"/><br><br>
+                            <label id="game-graphics" for="game-graphics">Graphics</label><br>
+                            <input type="text" name="game-graphics" id="game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <label id="game-other" for="game-other">Other</label><br>
+                            <input type="text" name="game-other" id="game-other" placeholder="English Language Support"/><br><br>
+
+                        </div>
+                        <div class="game-spec-item-details">
+
+                        <label id="game-OS" for="game-OS">OS</label><br>
+                            <input type="text" name="game-OS" id="game-OS" placeholder="Windows 10"/><br><br>
+                            <label id="game-processor" for="game-processor">Processor</label><br>
+                            <input type="text" name="game-processor" id="game-processor" placeholder="Intel Core I5"/><br><br>
+                            <label id="game-memory" for="game-memory">Memory</label><br>
+                            <input type="text" name="game-memory" id="game-memory" placeholder="8 GB"/><br><br>
+                            <label id="game-storage" for="game-storage">Storage</label><br>
+                            <input type="text" name="game-storage" id="game-storage" placeholder="14 GB"/><br><br>
+                            <label id="game-graphics" for="game-graphics">Graphics</label><br>
+                            <input type="text" name="game-graphics" id="game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <label id="game-other" for="game-other">Other</label><br>
+                            <input type="text" name="game-other" id="game-other" placeholder="English Language Support"/><br><br>
+
+                        </div>
+                    </div>
 
                 </div>
 
