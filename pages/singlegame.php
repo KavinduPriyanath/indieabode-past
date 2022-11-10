@@ -15,6 +15,9 @@ if (isset($_GET['id'])) {
 
     $result1 = mysqli_query($conn, $gamerSql);
     $gamer = mysqli_fetch_assoc($result1);
+
+    $coverImg = $game['gameCoverImg'];
+    $addressCoverImg = '../uploads/games/cover/' . $coverImg;
 }
 
 
@@ -102,7 +105,7 @@ if (isset($_GET['id'])) {
       <!--Overview-->
 
       <div class="card">
-        <div class="card-image game"></div>
+        <div class="card-image game" style="background-image: url('<?php echo $addressCoverImg; ?>')"></div>
         <div class="category"><?= $game['gameName']; ?></div>
         <h3>Free</h3>
         <div class="buy-btn">Buy Now</div>

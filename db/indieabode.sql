@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 03:43 PM
+-- Generation Time: Nov 10, 2022 at 04:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -228,49 +228,29 @@ CREATE TABLE `freegame` (
   `gameFile` varchar(255) NOT NULL,
   `gameVisibility` tinyint(1) NOT NULL,
   `gameCoverImg` varchar(255) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL,
+  `minOS` varchar(255) NOT NULL,
+  `minProcessor` varchar(255) NOT NULL,
+  `minMemory` varchar(255) NOT NULL,
+  `minStorage` varchar(255) NOT NULL,
+  `minGraphics` varchar(255) NOT NULL,
+  `minOther` varchar(255) NOT NULL,
+  `recommendOS` varchar(255) NOT NULL,
+  `recommendProcessor` varchar(255) NOT NULL,
+  `recommendMemory` varchar(255) NOT NULL,
+  `recommendStorage` varchar(255) NOT NULL,
+  `recommendGraphics` varchar(255) NOT NULL,
+  `recommendOther` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freegame`
 --
 
-INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTitle`, `gameTagline`, `gameClassification`, `gamePlatform`, `gameFeatures`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`) VALUES
-(1, 'New Game', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game.jpg', 1),
-(2, 'New Game 1', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1),
-(4, 'fregrt', '', '', '', '', '', 'grhrgbrt', '', '', '', '', '', 0, 'Cover-fregrt.jpg', 6);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `freegamerecommend`
---
-
-CREATE TABLE `freegamerecommend` (
-  `gameID` int(11) NOT NULL,
-  `os` varchar(255) NOT NULL,
-  `processor` varchar(255) NOT NULL,
-  `memory` varchar(255) NOT NULL,
-  `storage` varchar(255) NOT NULL,
-  `graphics` varchar(255) NOT NULL,
-  `other` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `freegamespecminimum`
---
-
-CREATE TABLE `freegamespecminimum` (
-  `gameID` int(11) NOT NULL,
-  `OS` varchar(255) NOT NULL,
-  `processor` varchar(255) NOT NULL,
-  `memory` varchar(255) NOT NULL,
-  `storage` varchar(255) NOT NULL,
-  `graphics` varchar(255) NOT NULL,
-  `other` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTitle`, `gameTagline`, `gameClassification`, `gamePlatform`, `gameFeatures`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
+(1, 'New Game', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'New Game 1', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 'fregrt', '', '', '', '', '', 'grhrgbrt', '', '', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -664,18 +644,6 @@ ALTER TABLE `freegame`
   ADD KEY `gameDeveloperID` (`gameDeveloperID`);
 
 --
--- Indexes for table `freegamerecommend`
---
-ALTER TABLE `freegamerecommend`
-  ADD PRIMARY KEY (`gameID`);
-
---
--- Indexes for table `freegamespecminimum`
---
-ALTER TABLE `freegamespecminimum`
-  ADD PRIMARY KEY (`gameID`);
-
---
 -- Indexes for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -849,7 +817,7 @@ ALTER TABLE `freeasset`
 -- AUTO_INCREMENT for table `freegame`
 --
 ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `gamejam`
@@ -987,18 +955,6 @@ ALTER TABLE `freegame`
   ADD CONSTRAINT `freegame_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `freegamerecommend`
---
-ALTER TABLE `freegamerecommend`
-  ADD CONSTRAINT `freegamerecommend_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `freegamespecminimum`
---
-ALTER TABLE `freegamespecminimum`
-  ADD CONSTRAINT `freegamespecminimum_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -1106,12 +1062,6 @@ ALTER TABLE `ratesubmission`
 --
 ALTER TABLE `submission`
   ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `usertype`
---
-ALTER TABLE `usertype`
-  ADD CONSTRAINT `usertype_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
