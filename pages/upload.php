@@ -14,12 +14,11 @@ if (isset($_POST['asset-submit'])) {
     $assetTagline = $_POST['asset-tagline'];
     $foreignKey = $_SESSION['id'];
     $assetClassification = $_POST['asset-classification'];
-    // $assetStatus = 
-    // $assetDetails = 
-    // $assetTags = 
+    $assetStatus = $_POST['asset-status'];
+    $assetDetails = $_POST['asset-details'];
+    $assetTags = $_POST['asset-tags'];
     // $assetPricing = 
-    // $assetLicense = 
-    // $asset =
+    $assetLicense = $_POST['asset-license'];
     // $assetVisibility = 
 
     //cover image
@@ -35,9 +34,36 @@ if (isset($_POST['asset-submit'])) {
         move_uploaded_file($cover_img_temp_name, $cover_upload_path);
     }
 
+    //Screenshots
+    $ss_img_name = $_FILES['asset-screenshots']['name'];
+    $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
+
+    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+
+    if (in_array($ss_img_ext, $allowed_exts)) {
+        $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
+        $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
+        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    }
+
+    //Asset File
+    $asset_file = $_FILES['upload-asset']['name'];
+    $asset_file_size = $_FILES['upload-asset']['size'];
+    $asset_file_temp_name = $_FILES['upload-asset']['tmp_name'];
+
+    $asset_file_ext = strtolower(pathinfo($asset_file, PATHINFO_EXTENSION));
+
+    $allowed_asset_types = array("zip", "blend", "txt");
+
+    if (in_array($asset_file_ext, $allowed_asset_types)) {
+        $new_asset_file_name = "Asset-" . $assetName . '.' . $asset_file_ext;
+        $asset_upload_path = '../uploads/assets/file/' . $new_asset_file_name;
+        move_uploaded_file($asset_file_temp_name, $asset_upload_path);
+    }
+
 
     //upload to db
-    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification')";
+    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$new_ss_img_name', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
