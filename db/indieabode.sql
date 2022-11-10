@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 01:48 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Nov 10, 2022 at 03:43 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -242,6 +242,38 @@ INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `g
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `freegamerecommend`
+--
+
+CREATE TABLE `freegamerecommend` (
+  `gameID` int(11) NOT NULL,
+  `os` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `memory` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `graphics` varchar(255) NOT NULL,
+  `other` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `freegamespecminimum`
+--
+
+CREATE TABLE `freegamespecminimum` (
+  `gameID` int(11) NOT NULL,
+  `OS` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `memory` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `graphics` varchar(255) NOT NULL,
+  `other` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gamecart`
 --
 
@@ -290,11 +322,9 @@ CREATE TABLE `gamejam` (
 -- Dumping data for table `gamejam`
 --
 
-
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
 (41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
 (42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', '');
-
 
 -- --------------------------------------------------------
 
@@ -634,6 +664,18 @@ ALTER TABLE `freegame`
   ADD KEY `gameDeveloperID` (`gameDeveloperID`);
 
 --
+-- Indexes for table `freegamerecommend`
+--
+ALTER TABLE `freegamerecommend`
+  ADD PRIMARY KEY (`gameID`);
+
+--
+-- Indexes for table `freegamespecminimum`
+--
+ALTER TABLE `freegamespecminimum`
+  ADD PRIMARY KEY (`gameID`);
+
+--
 -- Indexes for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -815,7 +857,6 @@ ALTER TABLE `freegame`
 ALTER TABLE `gamejam`
   MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
-
 --
 -- AUTO_INCREMENT for table `gamer`
 --
@@ -946,6 +987,18 @@ ALTER TABLE `freegame`
   ADD CONSTRAINT `freegame_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `freegamerecommend`
+--
+ALTER TABLE `freegamerecommend`
+  ADD CONSTRAINT `freegamerecommend_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `freegamespecminimum`
+--
+ALTER TABLE `freegamespecminimum`
+  ADD CONSTRAINT `freegamespecminimum_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -987,7 +1040,8 @@ ALTER TABLE `handlecomplaint`
 --
 ALTER TABLE `joinjam`
   ADD CONSTRAINT `joinjam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `joinjam_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `usertype` (`gamerID`);
 
 --
 -- Constraints for table `organizegamejam`
