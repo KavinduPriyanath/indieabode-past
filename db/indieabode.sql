@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 09:01 AM
+-- Generation Time: Nov 09, 2022 at 07:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -268,20 +268,23 @@ CREATE TABLE `gamejam` (
   `votingEndDate` datetime NOT NULL,
   `jamTitle` varchar(255) NOT NULL,
   `jamTagline` varchar(255) NOT NULL,
-  `jamType` varchar(10) NOT NULL,
+  `jamType` varchar(20) NOT NULL,
   `jamCriteria` varchar(255) NOT NULL,
-  `jamVisibility` tinyint(1) NOT NULL,
+  `jamVisibility` varchar(20) NOT NULL,
   `maxParticipants` int(11) NOT NULL,
-  `canJoinAfterStarted` tinyint(1) NOT NULL,
-  `jamHostID` int(11) NOT NULL
+  `canJoinAfterStarted` int(11) NOT NULL,
+  `jamHostID` int(11) NOT NULL,
+  `jamVoters` varchar(30) NOT NULL,
+  `jamTwitter` varchar(255) NOT NULL,
+  `jamCoverImg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gamejam`
 --
 
-INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`) VALUES
-(3, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00', 'fbgb', '', '', '', 0, 0, 0, 6);
+INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
+(38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', '');
 
 -- --------------------------------------------------------
 
@@ -800,7 +803,7 @@ ALTER TABLE `freegame`
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `gamer`
