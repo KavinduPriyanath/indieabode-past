@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +23,11 @@
 <?php include("components/footer.php"); ?>
 
 
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="src/js/navbarcopy.js"></script>
+<?php } ?>
 
 </body>
 

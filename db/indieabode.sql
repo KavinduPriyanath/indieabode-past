@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2022 at 01:48 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Nov 10, 2022 at 09:34 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -290,11 +290,9 @@ CREATE TABLE `gamejam` (
 -- Dumping data for table `gamejam`
 --
 
-
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
 (41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
 (42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', '');
-
 
 -- --------------------------------------------------------
 
@@ -814,7 +812,6 @@ ALTER TABLE `freegame`
 --
 ALTER TABLE `gamejam`
   MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-
 
 --
 -- AUTO_INCREMENT for table `gamer`

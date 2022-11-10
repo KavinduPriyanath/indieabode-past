@@ -16,21 +16,21 @@ $today = date("y/m/d");
 <html lang="en">
 <!--Including Navbar-->
 <style>
-    <?php include('../src/css/navbar.css'); ?>
+  <?php include('../src/css/navbar.css'); ?>
 </style>
 <?php include("../components/navbar.php"); ?>
 
 <style>
-    <?php include('../src/css/gamejam.css'); ?>
+  <?php include('../src/css/gamejam.css'); ?>
 </style>
 
 
 <!--Page Topic-->
-    <div class="page-topic">
-      <h1>Game Jams</h1>
-    </div>
+<div class="page-topic">
+  <h1>Game Jams</h1>
+</div>
 
-    <!-- 
+<!-- 
 
     <div class="side-nav" id="side-menu">
       <p>Types</p>
@@ -154,57 +154,57 @@ $today = date("y/m/d");
 
     Filters-->
 
-    <!--Cards-->
+<!--Cards-->
 
-    <div class="container" id="card-container">
+<div class="container" id="card-container">
 
-    <?php foreach ($gamejams as $jam) { ?>
-      <div class="card">
-        <div class="first-row">
-          <div class="card-image">
-            <img src="images/character.png" alt="" />
-          </div>
-          <div class="jam-name">
-            <h3><?php echo $jam['jamTitle']?></h3>
-            <div class="tagline">
-              <p><?php echo $jam['jamTagline']?></p>
-            </div>
-          </div>
+  <?php foreach ($gamejams as $jam) { ?>
+    <div class="card">
+      <div class="first-row">
+        <div class="card-image">
+          <img src="images/character.png" alt="" />
         </div>
-
-        
-
-        <div class="details">
-          <div class="host">Hosted by, <span><?php echo $jam['firstName'].' '.$jam['lastName']?></span></div>
-          <div class="deadline">Starts in, <span><?php 
-                                                        $date1 = $jam['submissionStartDate'];
-                                                       
-                                                        $date2 = date('Y-m-d');
-                                                        //$diff = date_diff($date3,$date2);
-                                                        $diff = $date1 - $date2;
-                                                        echo $diff; ?></span>
-                                                 days </div>
-          <div class="count">
-            <h2>56</h2>
-            joined
+        <div class="jam-name">
+          <h3><?php echo $jam['jamTitle'] ?></h3>
+          <div class="tagline">
+            <p><?php echo $jam['jamTagline'] ?></p>
           </div>
         </div>
       </div>
-    <?php } ?>
-    </div>
 
-    <!--Pagination-->
 
-    <div class="pagination">
-      <a href="#"><i class="fa fa-angle-left"></i></a>
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#"><i class="fa fa-angle-right"></i></a>
+
+      <div class="details">
+        <div class="host">Hosted by, <span><?php echo $jam['firstName'] . ' ' . $jam['lastName'] ?></span></div>
+        <div class="deadline">Starts in, <span><?php
+                                                $date1 = $jam['submissionStartDate'];
+
+                                                $date2 = date('Y-m-d');
+                                                //$diff = date_diff($date3,$date2);
+                                                $diff = $date1 - $date2;
+                                                echo $diff; ?></span>
+          days </div>
+        <div class="count">
+          <h2>56</h2>
+          joined
+        </div>
+      </div>
     </div>
+  <?php } ?>
+</div>
+
+<!--Pagination-->
+
+<div class="pagination">
+  <a href="#"><i class="fa fa-angle-left"></i></a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#"><i class="fa fa-angle-right"></i></a>
+</div>
 
 
 
@@ -212,10 +212,15 @@ $today = date("y/m/d");
 <!--Including Footer-->
 
 <style>
-    <?php include('../src/css/footer.css'); ?>
+  <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
 
 <script src="../src/js/gamejam.js"></script>
-<script src="../src/js/navbar.js"></script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+  <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+  <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
+
 </html>
