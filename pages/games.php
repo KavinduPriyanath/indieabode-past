@@ -157,6 +157,7 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <div class="container" id="card-container">
 
     <?php foreach ($games as $game) { ?>
+        <a href="singlegame.php?id=<?= $game['gameID']; ?>">
         <div class="card">
             <div class="card-image game"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
             </div>
