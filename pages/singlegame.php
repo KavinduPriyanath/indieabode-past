@@ -1,3 +1,27 @@
+<?php
+
+require '../db/database.php';
+
+if (isset($_GET['id'])) {
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+
+    $sql = "SELECT * FROM freegame WHERE gameID=$id";
+
+    $result = mysqli_query($conn, $sql);
+    $game = mysqli_fetch_assoc($result);
+
+    $gamerID = $game['gameDeveloperID'];
+    $gamerSql = "SELECT * FROM gamer WHERE gamerID=$gamerID";
+
+    $result1 = mysqli_query($conn, $gamerSql);
+    $gamer = mysqli_fetch_assoc($result1);
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,8 +103,8 @@
 
       <div class="card">
         <div class="card-image game"></div>
-        <div class="category">Base Game</div>
-        <h3>Rs.199/=</h3>
+        <div class="category"><?= $game['gameName']; ?></div>
+        <h3>Free</h3>
         <div class="buy-btn">Buy Now</div>
         <div class="buy-btn">Add to Cart</div>
 
@@ -92,7 +116,7 @@
 
         <div class="row">
           <p class="title">Developer</p>
-          <p class="sub-title">miHiYo Studios</p>
+          <p class="sub-title"><?= $gamer['username']; ?></p>
         </div>
         <hr />
 
@@ -110,7 +134,7 @@
 
         <div class="row">
           <p class="title">Game Status</p>
-          <p class="sub-title">Released</p>
+          <p class="sub-title"><?= $game['releaseStatus']; ?></p>
         </div>
       </div>
     </div>
@@ -119,42 +143,7 @@
 
     <div class="description">
       <p>
-        Version 3.2 "Akasha Pulses, the Kalpa Flame Rises" is now available! New
-        Characters: Nahida and Layla New Event: Version Main Event "Fabulous
-        Fungus Frenzy" New Stories: New Archon Quest and Story Quest New Weapon:
-        A Thousand Floating Dreams New Monsters: Shouki no Kami, the Prodigal
-        and Dendro Hypostasis MASSIVE OPEN WORLD Climb any mountain, swim across
-        any river, and glide over the world below, taking in the jaw-dropping
-        scenery each step of the way. And if you stop to investigate a wandering
-        Seelie or strange mechanism, who knows what you might discover?
-        ELEMENTAL COMBAT SYSTEM Harness the seven elements to unleash elemental
-        reactions. Anemo, Electro, Hydro, Pyro, Cryo, Dendro, and Geo interact
-        in all sorts of ways, and Vision wielders have the power to turn this to
-        their advantage. Will you vaporize Hydro with Pyro, electro-charge it
-        with Electro, or freeze it with Cryo? Your mastery of the elements will
-        give you the upper hand in battle and exploration. BEAUTIFUL VISUALS
-        Feast your eyes on the world around you, with a stunning art style,
-        real-time rendering, and finely tuned character animations delivering
-        you a truly immersive visual experience. Lighting and weather all change
-        naturally over time, bringing every detail of this world to life.
-        SOOTHING SOUNDTRACK Let the beautiful sounds of Teyvat draw you in as
-        you explore the expansive world around you. Performed by the world's top
-        orchestras such as London Philharmonic Orchestra and Shanghai Symphony
-        Orchestra, the soundtrack changes seamlessly with the time and gameplay
-        to match the mood. BUILD YOUR DREAM TEAM Team up with a diverse cast of
-        characters in Teyvat, each with their own unique personalities, stories,
-        and abilities. Discover your favorite party combinations and level up
-        your characters to help you conquer even the most daunting of enemies
-        and domains. JOURNEY WITH FRIENDS Team up with friends across various
-        platforms to trigger more elemental action, tackle tricky boss fights,
-        and conquer challenging domains together to reap rich rewards. As you
-        stand atop the peaks of Jueyun Karst and take in the rolling clouds and
-        vast terrain stretching out before you, you may wish to stay in Teyvat a
-        little longer... But until you are reunited with your lost sibling, how
-        can you rest? Go forth, Traveler, and begin your adventure! SUPPORT If
-        you encounter any issues during the game, you can send us feedback via
-        the in-game Customer Service Center. Customer Service Email:
-        genshin_cs@hoyoverse.com
+        <?= $game['gameDetails']; ?>
       </p>
     </div>
 
@@ -288,10 +277,9 @@
     </style>
     <?php include("../components/footer.php"); ?>
 
-    <script>
-    <?php include('../src/js/navbar.js')?>
-    <?php include('../src/js/singlegame.js')?>
-    </script>
+    <script src="../src/js/navbar.js"></script>
+    <script src="../src/js/singlegame.js"></script>
+   
 
   </body>
 </html>
