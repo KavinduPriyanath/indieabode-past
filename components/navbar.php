@@ -125,7 +125,7 @@
                             <hr />
 
                             <a>Settings <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a href="/indieabode/pages/login.php">Log&nbsp;Out
+                            <a href="/indieabode/pages/logout.php">Log&nbsp;Out
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
@@ -142,7 +142,3 @@
             </div>
         </div>
     </div>
-
-    <script defer>
-        <?php include('src/js/navbar.js'); ?>
-    </script>

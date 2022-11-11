@@ -255,7 +255,13 @@ if (isset($_GET['id'])) {
 <?php include("../components/footer.php"); ?>
 
 
-<script src="../src/js/navbar.js"></script>
+
 <script src="../src/js/asset.js"></script>
+
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
 </html>

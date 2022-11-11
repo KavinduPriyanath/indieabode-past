@@ -70,7 +70,6 @@ if (isset($_POST['asset-submit'])) {
     } else {
         echo "error";
     }
-
 } elseif (isset($_POST['game-submit'])) {
     $gameName = $_POST['game-title'];
     $gameTagline = $_POST['game-tagline'];
@@ -79,6 +78,7 @@ if (isset($_POST['asset-submit'])) {
     $gameStatus = $_POST['game-status'];
     $gameDetails = $_POST['game-details'];
     $gameTags = $_POST['game-tags'];
+
     $minGameOS = $_POST['min-game-OS'];
     $minGameProcessor = $_POST['min-game-processor'];
     $minGameMemory = $_POST['min-game-memory'];
@@ -91,6 +91,7 @@ if (isset($_POST['asset-submit'])) {
     $GameStorage = $_POST['game-storage'];
     $GameGraphics = $_POST['game-graphics'];
     $GameOther = $_POST['game-other'];
+
     // $gamePricing = 
     // $game =
     $gameVisibility = $_POST['game-visibility'];
@@ -143,8 +144,6 @@ if (isset($_POST['asset-submit'])) {
     } else {
         echo "error";
     }
-
-
 }
 
 ?>
@@ -243,6 +242,7 @@ if (isset($_POST['asset-submit'])) {
                     <div class="game-spec-type">
                         <div class="game-spec-item-details">
 
+
                             <label id="min-game-OS" for="min-game-OS">OS</label><br>
                             <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10"/><br><br>
                             <label id="min-game-processor" for="min-game-processor">Processor</label><br>
@@ -259,18 +259,18 @@ if (isset($_POST['asset-submit'])) {
                         </div>
                         <div class="game-spec-item-details">
 
-                        <label id="game-OS" for="game-OS">OS</label><br>
-                            <input type="text" name="game-OS" id="game-OS" placeholder="Windows 10"/><br><br>
+                            <label id="game-OS" for="game-OS">OS</label><br>
+                            <input type="text" name="game-OS" id="game-OS" placeholder="Windows 10" /><br><br>
                             <label id="game-processor" for="game-processor">Processor</label><br>
-                            <input type="text" name="game-processor" id="game-processor" placeholder="Intel Core I5"/><br><br>
+                            <input type="text" name="game-processor" id="game-processor" placeholder="Intel Core I5" /><br><br>
                             <label id="game-memory" for="game-memory">Memory</label><br>
-                            <input type="text" name="game-memory" id="game-memory" placeholder="8 GB"/><br><br>
+                            <input type="text" name="game-memory" id="game-memory" placeholder="8 GB" /><br><br>
                             <label id="game-storage" for="game-storage">Storage</label><br>
-                            <input type="text" name="game-storage" id="game-storage" placeholder="14 GB"/><br><br>
+                            <input type="text" name="game-storage" id="game-storage" placeholder="14 GB" /><br><br>
                             <label id="game-graphics" for="game-graphics">Graphics</label><br>
-                            <input type="text" name="game-graphics" id="game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <input type="text" name="game-graphics" id="game-graphics" placeholder="NVIDIA GeForce 1660" /><br><br>
                             <label id="game-other" for="game-other">Other</label><br>
-                            <input type="text" name="game-other" id="game-other" placeholder="English Language Support"/><br><br>
+                            <input type="text" name="game-other" id="game-other" placeholder="English Language Support" /><br><br>
 
                         </div>
                     </div>
@@ -397,7 +397,11 @@ if (isset($_POST['asset-submit'])) {
 
 <!--script-->
 <script src="../src/js/upload.js"></script>
-<script src="../src/js/navbar.js"></script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
 </body>
 
