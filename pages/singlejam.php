@@ -1,3 +1,32 @@
+<?php 
+session_start();
+
+//include ('../db/database.php');
+require '../db/database.php';
+
+if(isset($_GET['id'])){
+
+    $jamID = mysqli_real_escape_string($conn, $_GET['id']);
+
+    //get jams from database
+    $sql = "SELECT * FROM gamejam WHERE gameJamID = $jamID ";
+    $result = mysqli_query($conn, $sql);
+
+    $gamejams = mysqli_fetch_assoc($result);
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
+
+    //print_r($gamejams);
+
+}
+
+
+
+
+?>
+
+<!DOCTYPE html>
 <html>
 
 <style>
@@ -11,19 +40,13 @@
 </style>
 
 <div class="container">
-    <div class="box">
-        <h1>Lost Cartridge Jam</h1>
-        <p>Overview</p>
 
-    </div>
-    <div class="card">
-        <div class="card-box1">
-            <p>Submissions open from November 2nd 2022 at 4.00 AM to December 2nd 2022 4.00 AM</p>
-        </div>
-        <div class="card-box2">
-
+    <?php if($gamejams): ?>
             <div class="box">
-                <h3>Stsrts in</h3>
+            <h1><?php echo htmlspecialchars($gamejams['jamTitle']); ?></h1>
+            <p><?php echo htmlspecialchars($gamejams['jamTagline']); ?></p>
+            
+
             </div>
             <div class="box">
                 <h3>22</h3>
@@ -113,8 +136,7 @@
             </div>
         </div>
 
-    </div>
-</div>
+    <?php endif; ?>
 
 <style>
     <?php include('../src/css/footer.css') ?>

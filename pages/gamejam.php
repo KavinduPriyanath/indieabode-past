@@ -7,7 +7,7 @@ $sql = "SELECT * FROM gamejam, gamer where gamejam.jamHostID = gamer.gamerID";
 $result = mysqli_query($conn, $sql);
 
 $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$today = date("y/m/d");
+
 
 
 ?>
@@ -30,7 +30,9 @@ $today = date("y/m/d");
   <h1>Game Jams</h1>
 </div>
 
-<!-- 
+
+    <!--  Filters-->
+
 
     <div class="side-nav" id="side-menu">
       <p>Types</p>
@@ -152,41 +154,49 @@ $today = date("y/m/d");
 
     <hr id="topic-break" />
 
-    Filters-->
+   
 
 <!--Cards-->
 
 <div class="container" id="card-container">
 
-  <?php foreach ($gamejams as $jam) { ?>
-    <div class="card">
-      <div class="first-row">
-        <div class="card-image">
-          <img src="images/character.png" alt="" />
-        </div>
-        <div class="jam-name">
-          <h3><?php echo $jam['jamTitle'] ?></h3>
-          <div class="tagline">
-            <p><?php echo $jam['jamTagline'] ?></p>
+
+    <?php foreach ($gamejams as $jam) { ?>
+      <a href = "singlejam.php?id=<?php echo $jam['gameJamID']?>">
+      <div class="card">
+        
+        <div class="first-row">
+          <div class="card-image">
+            <img src="images/character.png" alt="" />
+          </div>
+          <div class="jam-name">
+            <h3><?php echo $jam['jamTitle']?></h3>
+            <div class="tagline">
+              <p><?php echo $jam['jamTagline']?></p>
+            </div>
+
           </div>
         </div>
       </div>
 
 
+        
 
-      <div class="details">
-        <div class="host">Hosted by, <span><?php echo $jam['firstName'] . ' ' . $jam['lastName'] ?></span></div>
-        <div class="deadline">Starts in, <span><?php
-                                                $date1 = $jam['submissionStartDate'];
+        <div class="details">
+          <div class="host">Hosted by, <span><?php echo $jam['firstName'].' '.$jam['lastName']?></span></div>
+          <div class="deadline">Starts in, <span><?php 
+                                                        //$date1 = date_format($jam['submissionStartDate']);
+                                              
+                                                        //$date2 = date('Y-m-d');
+                                                        //$diff = date_diff($date1,$date2);
+                                                        //$diff = $date1 - $date2;
+                                                        //echo $diff; ?></span>
+                                                 days </div>
+          <div class="count">
+            <h2>56</h2>
+            joined
+          </div>
 
-                                                $date2 = date('Y-m-d');
-                                                //$diff = date_diff($date3,$date2);
-                                                $diff = $date1 - $date2;
-                                                echo $diff; ?></span>
-          days </div>
-        <div class="count">
-          <h2>56</h2>
-          joined
         </div>
       </div>
     </div>

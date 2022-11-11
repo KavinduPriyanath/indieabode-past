@@ -41,8 +41,8 @@ if (isset($_POST['submit'])) {
 
 
     //upload to database
-    $sql = "INSERT INTO gamejam (jamTitle,jamTagline,submissionStartDate,submissionEndDate,votingEndDate,jamType,jamContent,jamVoters,canJoinAfterStarted,jamCriteria,jamVisibility,jamTwitter,maxParticipants,jamHostID) 
-                VALUES ('$gamejamTitle','$gamejamTagline','$jamStartDate','$jamEndtDate','$jamVEndDate','$jamRanking',' $jamContent','$jamVoters','$jamRestrictions1','$jamCriteria','$jamVisibility','$jamTwitterHashtag','$jamParticipants','$foreignKey')";
+    $sql = "INSERT INTO gamejam (jamTitle,jamTagline,submissionStartDate,submissionEndDate,votingEndDate,jamType,jamContent,jamVoters,canJoinAfterStarted,jamCriteria,jamVisibility,jamTwitter,maxParticipants,jamCoverImg,jamHostID) 
+                VALUES ('$gamejamTitle','$gamejamTagline','$jamStartDate','$jamEndtDate','$jamVEndDate','$jamRanking',' $jamContent','$jamVoters','$jamRestrictions1','$jamCriteria','$jamVisibility','$jamTwitterHashtag','$jamParticipants','$new_jam_cover_img_name','$foreignKey')";
 
 
 
@@ -162,7 +162,10 @@ if (isset($_POST['submit'])) {
 
                 <div class="card-box">
                     <span class="details">Upload Cover Image</span>
-                    <input type="file" name="coverImg" placeholder="Upload Cover Image">
+
+                    <input type="file" name= "coverImg" >
+                </div>
+
                 </div>
             </div>
 
