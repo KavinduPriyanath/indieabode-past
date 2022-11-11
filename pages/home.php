@@ -1,3 +1,7 @@
+<?php
+//session_destroy();
+?>
+
 <!--Games-->
 
 <div class="topic">
