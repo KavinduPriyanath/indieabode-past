@@ -13,8 +13,12 @@ if (isset($_GET['id'])) {
   $gamerID = $game['gameDeveloperID'];
   $gamerSql = "SELECT * FROM gamer WHERE gamerID=$gamerID";
 
-  $result1 = mysqli_query($conn, $gamerSql);
-  $gamer = mysqli_fetch_assoc($result1);
+    $result1 = mysqli_query($conn, $gamerSql);
+    $gamer = mysqli_fetch_assoc($result1);
+
+    $coverImg = $game['gameCoverImg'];
+    $addressCoverImg = '../uploads/games/cover/' . $coverImg;
+
 }
 
 
@@ -75,11 +79,46 @@ if (isset($_GET['id'])) {
       </div>
     </div>
 
-    <div class="views-downloads">
-      <img src="../images/singlegame/view.png" alt="" />
-      <p id="views">200</p>
-      <img src="../images/singlegame/download.png" alt="" />
-      <p id="downloads">10</p>
+
+      <!--Overview-->
+
+      <div class="card">
+        <div class="card-image game" style="background-image: url('<?php echo $addressCoverImg; ?>')"></div>
+        <div class="category"><?= $game['gameName']; ?></div>
+        <h3>Free</h3>
+        <div class="buy-btn">Buy Now</div>
+        <div class="buy-btn">Add to Cart</div>
+
+        <div class="row">
+          <p class="title">Release Date</p>
+          <p class="sub-title">5 Nov 2021</p>
+        </div>
+        <hr />
+
+        <div class="row">
+          <p class="title">Developer</p>
+          <p class="sub-title"><?= $gamer['username']; ?></p>
+        </div>
+        <hr />
+
+        <div class="row">
+          <p class="title">Publisher</p>
+          <p class="sub-title">miHiYo Studios</p>
+        </div>
+        <hr />
+
+        <div class="row">
+          <p class="title">Platform</p>
+          <p class="sub-title">Windows 10</p>
+        </div>
+        <hr />
+
+        <div class="row">
+          <p class="title">Game Status</p>
+          <p class="sub-title"><?= $game['releaseStatus']; ?></p>
+        </div>
+      </div>
+
     </div>
 
     <!--Rate & View All-->
@@ -257,7 +296,7 @@ if (isset($_GET['id'])) {
       <br />
       <label for="rate">Rating: </label> <br />
       <label for="details">Details:</label>
-      <textarea name="details" id="details" placeholder="Write something..."></textarea>
+      <textarea name="details" id="details" placeholder="Write somethinghttps://github.com/KavinduPriyanath/indieabode/pull/26/conflict?name=pages%252Fupload.php&ancestor_oid=28074c1e30dee2fde2d68aed9995442d835617d2&base_oid=37233d93a73700f961036609e0416eadc182c437&head_oid=1913d302ae98bbd67f41579c6f668d45a625baa5..."></textarea>
       <input type="submit" value="Post Review" />
     </form>
   </div>
