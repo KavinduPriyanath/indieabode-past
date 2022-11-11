@@ -1,3 +1,32 @@
+<?php 
+session_start();
+
+//include ('../db/database.php');
+require '../db/database.php';
+
+if(isset($_GET['id'])){
+
+    $jamID = mysqli_real_escape_string($conn, $_GET['id']);
+
+    //get jams from database
+    $sql = "SELECT * FROM gamejam WHERE gameJamID = $jamID ";
+    $result = mysqli_query($conn, $sql);
+
+    $gamejams = mysqli_fetch_assoc($result);
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
+
+    //print_r($gamejams);
+
+}
+
+
+
+
+?>
+
+<!DOCTYPE html>
 <html>
 
 <style>
@@ -11,9 +40,10 @@
 </style>
 
 <div class="container">
+    <?php if($gamejams): ?>
             <div class="box">
-            <h1>Lost Cartridge Jam</h1>
-            <p>Overview</p>
+            <h1><?php echo htmlspecialchars($gamejams['jamTitle']); ?></h1>
+            <p><?php echo htmlspecialchars($gamejams['jamTagline']); ?></p>
             
             </div>
             <div class="card">
@@ -115,7 +145,7 @@
                       
             </div>
         </div>
-
+    <?php endif; ?>
 <style>
 <?php include('../src/css/footer.css')?>
 </style>
