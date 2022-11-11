@@ -7,6 +7,7 @@
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -238,6 +239,38 @@ CREATE TABLE `freegame` (
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTitle`, `gameTagline`, `gameClassification`, `gamePlatform`, `gameFeatures`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`) VALUES
 (1, 'New Game', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game.jpg', 1),
 (2, 'New Game 1', '', '', '', '', '', 'Download this ASAP', '', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `freegamerecommend`
+--
+
+CREATE TABLE `freegamerecommend` (
+  `gameID` int(11) NOT NULL,
+  `os` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `memory` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `graphics` varchar(255) NOT NULL,
+  `other` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `freegamespecminimum`
+--
+
+CREATE TABLE `freegamespecminimum` (
+  `gameID` int(11) NOT NULL,
+  `OS` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `memory` varchar(255) NOT NULL,
+  `storage` varchar(255) NOT NULL,
+  `graphics` varchar(255) NOT NULL,
+  `other` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -632,6 +665,18 @@ ALTER TABLE `freegame`
   ADD KEY `gameDeveloperID` (`gameDeveloperID`);
 
 --
+-- Indexes for table `freegamerecommend`
+--
+ALTER TABLE `freegamerecommend`
+  ADD PRIMARY KEY (`gameID`);
+
+--
+-- Indexes for table `freegamespecminimum`
+--
+ALTER TABLE `freegamespecminimum`
+  ADD PRIMARY KEY (`gameID`);
+
+--
 -- Indexes for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -943,6 +988,18 @@ ALTER TABLE `freegame`
   ADD CONSTRAINT `freegame_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `freegamerecommend`
+--
+ALTER TABLE `freegamerecommend`
+  ADD CONSTRAINT `freegamerecommend_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `freegamespecminimum`
+--
+ALTER TABLE `freegamespecminimum`
+  ADD CONSTRAINT `freegamespecminimum_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `gamecart`
 --
 ALTER TABLE `gamecart`
@@ -984,7 +1041,8 @@ ALTER TABLE `handlecomplaint`
 --
 ALTER TABLE `joinjam`
   ADD CONSTRAINT `joinjam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `joinjam_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `usertype` (`gamerID`);
 
 --
 -- Constraints for table `organizegamejam`
