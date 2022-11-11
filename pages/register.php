@@ -58,7 +58,6 @@ if (isset($_POST['submit'])) {
             <input type="text" name="username" id="username" placeholder="username" required /><br>
             <p>Pattern: 4-50 length, only alphanumeric or -_chars</p><br>
 
-            <input type="text" name="name" id="name" placeholder="Name" /><br><br>
             <input type="email" name="email" id="title" placeholder="email" required /><br><br>
             <input type="password" name="password" id="password" placeholder="Password" required /><br><br>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
@@ -72,9 +71,9 @@ if (isset($_POST['submit'])) {
             </div>
 
             <input type="checkbox" name="" id="" value="">
-            <label for="">I accept the terms of service </label>
+            <label for="">I accept the terms of service </label><br><br>
 
-            <button type="submit" name="submit">Register</button>
+            <button type="submit" name="submit">Register</button><br><br>
 
         </form>
 

@@ -96,10 +96,7 @@ if (isset($_GET['id'])) {
 
     <div class="tagline">
       <p>
-        Embark on a journey across Teyvat to find your lost sibling and seek
-        answers from The Seven — the gods of each element. Explore this
-        wondrous world, join forces with a diverse range of characters, and
-        unravel the countless mysteries that Teyvat holds...
+      <?= $game['gameTagline']; ?>
       </p>
     </div>
   </div>
@@ -134,7 +131,7 @@ if (isset($_GET['id'])) {
 
     <div class="row">
       <p class="title">Platform</p>
-      <p class="sub-title">Windows 10</p>
+      <p class="sub-title"><?= $game['minOS']; ?></p>
     </div>
     <hr />
 

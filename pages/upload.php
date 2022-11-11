@@ -78,6 +78,7 @@ if (isset($_POST['asset-submit'])) {
     $gameStatus = $_POST['game-status'];
     $gameDetails = $_POST['game-details'];
     $gameTags = $_POST['game-tags'];
+    $gameIllustrationVedio = $_POST['game-illustration-vedio'];
 
     $minGameOS = $_POST['min-game-OS'];
     $minGameProcessor = $_POST['min-game-processor'];
@@ -137,7 +138,7 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //upload to db
-    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility ) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility')";
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
