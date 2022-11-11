@@ -16,21 +16,23 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <html lang="en">
 <!--Including Navbar-->
 <style>
-    <?php include('../src/css/navbar.css'); ?>
+  <?php include('../src/css/navbar.css'); ?>
 </style>
 <?php include("../components/navbar.php"); ?>
 
 <style>
-    <?php include('../src/css/gamejam.css'); ?>
+  <?php include('../src/css/gamejam.css'); ?>
 </style>
 
 
 <!--Page Topic-->
-    <div class="page-topic">
-      <h1>Game Jams</h1>
-    </div>
+<div class="page-topic">
+  <h1>Game Jams</h1>
+</div>
+
 
     <!--  Filters-->
+
 
     <div class="side-nav" id="side-menu">
       <p>Types</p>
@@ -154,9 +156,10 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
    
 
-    <!--Cards-->
+<!--Cards-->
 
-    <div class="container" id="card-container">
+<div class="container" id="card-container">
+
 
     <?php foreach ($gamejams as $jam) { ?>
       <a href = "singlejam.php?id=<?php echo $jam['gameJamID']?>">
@@ -171,8 +174,11 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <div class="tagline">
               <p><?php echo $jam['jamTagline']?></p>
             </div>
+
           </div>
         </div>
+      </div>
+
 
         
 
@@ -190,23 +196,25 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <h2>56</h2>
             joined
           </div>
+
         </div>
       </div>
-    <?php } ?>
     </div>
+  <?php } ?>
+</div>
 
-    <!--Pagination-->
+<!--Pagination-->
 
-    <div class="pagination">
-      <a href="#"><i class="fa fa-angle-left"></i></a>
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#"><i class="fa fa-angle-right"></i></a>
-    </div>
+<div class="pagination">
+  <a href="#"><i class="fa fa-angle-left"></i></a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#"><i class="fa fa-angle-right"></i></a>
+</div>
 
 
 
@@ -214,10 +222,15 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <!--Including Footer-->
 
 <style>
-    <?php include('../src/css/footer.css'); ?>
+  <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
 
 <script src="../src/js/gamejam.js"></script>
-<script src="../src/js/navbar.js"></script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+  <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+  <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
+
 </html>
