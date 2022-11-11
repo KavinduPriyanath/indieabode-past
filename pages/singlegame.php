@@ -79,47 +79,13 @@ if (isset($_GET['id'])) {
       </div>
     </div>
 
-
-      <!--Overview-->
-
-      <div class="card">
-        <div class="card-image game" style="background-image: url('<?php echo $addressCoverImg; ?>')"></div>
-        <div class="category"><?= $game['gameName']; ?></div>
-        <h3>Free</h3>
-        <div class="buy-btn">Buy Now</div>
-        <div class="buy-btn">Add to Cart</div>
-
-        <div class="row">
-          <p class="title">Release Date</p>
-          <p class="sub-title">5 Nov 2021</p>
-        </div>
-        <hr />
-
-        <div class="row">
-          <p class="title">Developer</p>
-          <p class="sub-title"><?= $gamer['username']; ?></p>
-        </div>
-        <hr />
-
-        <div class="row">
-          <p class="title">Publisher</p>
-          <p class="sub-title">miHiYo Studios</p>
-        </div>
-        <hr />
-
-        <div class="row">
-          <p class="title">Platform</p>
-          <p class="sub-title">Windows 10</p>
-        </div>
-        <hr />
-
-        <div class="row">
-          <p class="title">Game Status</p>
-          <p class="sub-title"><?= $game['releaseStatus']; ?></p>
-        </div>
-      </div>
-
+    <div class="views-downloads">
+          <img src="../images/singlegame/view.png" alt="" />
+          <p id="views">200</p>
+          <img src="../images/singlegame/download.png" alt="" />
+          <p id="downloads">10</p>
     </div>
+
 
     <!--Rate & View All-->
 
@@ -138,10 +104,11 @@ if (isset($_GET['id'])) {
     </div>
   </div>
 
+
   <!--Overview-->
 
   <div class="card">
-    <div class="card-image game"></div>
+    <div class="card-image game" style="background-image: url('<?php echo $addressCoverImg; ?>')"></div>
     <div class="category"><?= $game['gameName']; ?></div>
     <h3>Free</h3>
     <div class="buy-btn">Buy Now</div>
@@ -177,6 +144,7 @@ if (isset($_GET['id'])) {
     </div>
   </div>
 </div>
+
 
 <!--Description-->
 
