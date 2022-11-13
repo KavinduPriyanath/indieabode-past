@@ -3,9 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2022 at 11:03 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+
+-- Generation Time: Nov 12, 2022 at 08:06 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -123,12 +125,36 @@ CREATE TABLE `crowdfund` (
 CREATE TABLE `devlog` (
   `devLogID` int(11) NOT NULL,
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `author` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
   `gameID` int(11) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL,
+  `Tagline` varchar(255) NOT NULL,
+  `Type` varchar(50) NOT NULL,
+  `Visibility` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `devlog`
+--
+
+INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`) VALUES
+(8, '2022-11-11 08:53:53', 'pojpoo', 'yyy', 0, 6, '', '', ''),
+(9, '2022-11-11 10:10:08', 'jyyfyutfyuss', 'yetee', 0, 6, '', '', ''),
+(10, '2022-11-11 10:10:54', 'jgk', 'y33', 0, 6, '', '', ''),
+(11, '2022-11-11 10:11:23', 'yjtuj', 'd44gf', 0, 6, '', '', ''),
+(12, '2022-11-11 10:12:48', 'nhmn', 'd5', 0, 6, '', '', ''),
+(13, '2022-11-11 10:17:36', 'jyyxcfyutfyusregs', 'y6', 0, 6, '', '', ''),
+(14, '2022-11-11 10:20:13', 'uigi', 'yy7', 0, 6, '', '', 'public'),
+(15, '2022-11-11 10:20:53', 'ihhosidiuf', 'yy8', 0, 6, '', '', 'draft'),
+(16, '2022-11-11 10:31:32', 'hi4i', 'yy8', 0, 6, '', 'Tutorial', 'draft'),
+(17, '2022-11-11 10:32:00', 'teesrees', 'yy9', 0, 6, '', 'Major Update', 'public'),
+(18, '2022-11-11 10:32:31', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
+(19, '2022-11-11 12:11:59', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
+(20, '2022-11-11 12:12:55', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
+(21, '2022-11-11 12:18:44', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
+(22, '2022-11-11 12:32:11', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
+(23, '2022-11-11 12:34:20', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public');
 
 -- --------------------------------------------------------
 
@@ -305,6 +331,7 @@ CREATE TABLE `gamejam` (
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
 (38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', ''),
+
 (41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
 (42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
 (44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
@@ -811,7 +838,7 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
@@ -831,6 +858,7 @@ ALTER TABLE `freegame`
 ALTER TABLE `gamejam`
 
   MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 
 
 --
@@ -930,8 +958,6 @@ ALTER TABLE `crowdfund`
 -- Constraints for table `devlog`
 --
 ALTER TABLE `devlog`
-  ADD CONSTRAINT `devlog_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `devlog_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `devlog_ibfk_3` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
