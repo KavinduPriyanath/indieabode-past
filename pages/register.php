@@ -26,6 +26,9 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="en">
 
+<!--Including Navbar-->
+<?php include("../components/loginnavbar.php"); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,8 +45,8 @@ if (isset($_POST['submit'])) {
 
     <div class="wrapper">
         <div class="btn-box">
-            <button type="button" class="toggle-btn"><a href="/indieabode/pages/login.php">Login</a></button>
-            <button type="button" class="toggle-btn"><a href="/indieabode/pages/register.php">Register</a></button>
+            <a href="/indieabode/pages/login.php"><button type="button" class="toggle-btn">Login</button></a>
+            <a href="/indieabode/pages/register.php"><button type="button" class="toggle-btn">Register</button></a>
         </div>
         <form action="#" method="POST">
             <!--register form-->
@@ -55,7 +58,6 @@ if (isset($_POST['submit'])) {
             <input type="text" name="username" id="username" placeholder="username" required /><br>
             <p>Pattern: 4-50 length, only alphanumeric or -_chars</p><br>
 
-            <input type="text" name="name" id="name" placeholder="Name" /><br><br>
             <input type="email" name="email" id="title" placeholder="email" required /><br><br>
             <input type="password" name="password" id="password" placeholder="Password" required /><br><br>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
@@ -69,13 +71,22 @@ if (isset($_POST['submit'])) {
             </div>
 
             <input type="checkbox" name="" id="" value="">
-            <label for="">I accept the terms of service </label>
+            <label for="">I accept the terms of service </label><br><br>
 
-            <button type="submit" name="submit">Register</button>
+            <button type="submit" name="submit">Register</button><br><br>
 
         </form>
 
     </div>
+
+    <!--Including Footer-->
+
+    <style>
+        <?php include('../src/css/footer.css'); ?>
+    </style>
+    <?php include("../components/footer.php"); ?>
+
+    <script src="../src/js/navbarcopy.js"></script>
 </body>
 
 </html>

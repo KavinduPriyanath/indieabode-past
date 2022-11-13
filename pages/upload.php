@@ -74,14 +74,28 @@ if (isset($_POST['asset-submit'])) {
     $gameName = $_POST['game-title'];
     $gameTagline = $_POST['game-tagline'];
     $foreignKey = $_SESSION['id'];
-    //$gameClassification = $_POST['game-classification'];
-    // $gameStatus = 
-    // $gameDetails = 
-    // $gameTags = 
+    $gameClassification = $_POST['game-classification'];
+    $gameStatus = $_POST['game-status'];
+    $gameDetails = $_POST['game-details'];
+    $gameTags = $_POST['game-tags'];
+    $gameIllustrationVedio = $_POST['game-illustration-vedio'];
+
+    $minGameOS = $_POST['min-game-OS'];
+    $minGameProcessor = $_POST['min-game-processor'];
+    $minGameMemory = $_POST['min-game-memory'];
+    $minGameStorage = $_POST['min-game-storage'];
+    $minGameGraphics = $_POST['min-game-graphics'];
+    $minGameOther = $_POST['min-game-other'];
+    $GameOS = $_POST['game-OS'];
+    $GameProcessor = $_POST['game-processor'];
+    $GameMemory = $_POST['game-memory'];
+    $GameStorage = $_POST['game-storage'];
+    $GameGraphics = $_POST['game-graphics'];
+    $GameOther = $_POST['game-other'];
+
     // $gamePricing = 
-    // $gameLicense = 
     // $game =
-    // $gameVisibility = 
+    $gameVisibility = $_POST['game-visibility'];
 
     //cover image
     //$cover_img_size = $_FILES['asset-upload-cover-img']['size'];
@@ -96,8 +110,35 @@ if (isset($_POST['asset-submit'])) {
         move_uploaded_file($game_cover_img_temp_name, $game_cover_upload_path);
     }
 
+    //Screenshots
+    $game_ss_img_name = $_FILES['game-screenshots']['name'];
+    $game_ss_img_temp_name = $_FILES['game-screenshots']['tmp_name'];
+
+    $game_ss_img_ext = strtolower(pathinfo($game_ss_img_name, PATHINFO_EXTENSION));
+
+    if (in_array($game_ss_img_ext, $allowed_exts)) {
+        $new_game_ss_img_name = "SS-" . $gameName . '.' . $game_ss_img_ext;
+        $game_ss_upload_path = '../uploads/games/ss/' . $new_game_ss_img_name;
+        move_uploaded_file($game_ss_img_temp_name, $game_ss_upload_path);
+    }
+
+    //Asset File
+    $game_file = $_FILES['upload-game']['name'];
+    $game_file_size = $_FILES['upload-game']['size'];
+    $game_file_temp_name = $_FILES['upload-game']['tmp_name'];
+
+    $game_file_ext = strtolower(pathinfo($game_file, PATHINFO_EXTENSION));
+
+    $allowed_game_types = array("zip", "blend", "txt");
+
+    if (in_array($game_file_ext, $allowed_game_types)) {
+        $new_game_file_name = "Game-" . $gameName . '.' . $game_file_ext;
+        $game_upload_path = '../uploads/games/file/' . $new_game_file_name;
+        move_uploaded_file($game_file_temp_name, $game_upload_path);
+    }
+
     //upload to db
-    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name')";
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -151,19 +192,19 @@ if (isset($_POST['asset-submit'])) {
                     <label id="game-classification" for="game-classification">Classification</label><br>
                     <select id="game-classification" name="game-classification">
                         <option value="adventure">Adventure Games</option>
-                        <option value="action">Action Games</option>
-                        <option value="action-adventure">Action-adventure Games</option>
-                        <option value="role-playing">Role-playing Games</option>
+                        <option value="action" selected>Action Games</option>
+                        <option value="RPG">RPG Games</option>
+                        <option value="racing">Racing Games</option>
                         <option value="simulation">Simulation Games</option>
-                        <option value="puzzle">Puzzle Games</option>
-                        <option value="idle">Idle Games</option>
+                        <option value="strategy">Strategy Games</option>
                     </select><br><br>
 
                     <!--Releasing status-->
                     <label id="game-status" for="game-status">Release Status</label><br>
                     <select id="game-status" name="game-status">
-                        <option value="released">Released</option>
-                        <option value="not released">Not Released</option>
+                        <option value="released" selected>Released</option>
+                        <option value="early access">Early Access</option>
+                        <option value="upcoming">Upcoming</option>
                     </select><br><br>
 
                     <label id="game-details" for="game-details">Details</label><br>
@@ -174,33 +215,66 @@ if (isset($_POST['asset-submit'])) {
                     <p id="p">Keywords that someone would search to find your game</p><br>
                     <input type="text" id="game-tags" name="game-tags" /> <br><br>
 
+                    <!--
                     <label id="game-price" for="game-price">Pricing</label><br><br>
-                    <input type="radio" id="game-free" name="game-price" value="free">
+                    <input type="radio" id="game-free" name="game-price" value="free" checked>
                     <label for="game-free">Free</label><br>
                     <input type="radio" id="game-paid" name="game-price" value="paid">
                     <label for="game-paid">Paid</label><br>
                     <p id="p">Minimum Price - Set to $0 for free games</p>
                     <input type="text" id="game-price-val" name="game-price-val" /><br><br>
 
+-->
                     <label id="upload-game" for="upload-game">Upload Game</label><br>
                     <input type="file" id="upload-game" name="upload-game"><br><br>
 
-                    <!--License-->
-                    <label id="game-license" for="game-license">License</label><br>
-                    <p>Decide when is your page ready for the public</p><br>
-                    <select id="game-license" name="game-license">
-                        <option value="open-source">Open Source</option>
-                        <option value="proprietary">Proprietary</option>
-                        <option value="permissive">Permissive</option>
-                        <option value="copyleft">Copy Left</option>
-                    </select><br><br>
-
                     <label id="game-visibility" for="game-visibility">Visibility</label><br>
                     <p>Decide when is your page ready for the public</p><br>
-                    <input type="radio" id="game-draft" name="game-visibility" value="draft">
+                    <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
                     <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
                     <input type="radio" id="game-public" name="game-visibility" value="public">
-                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br>
+                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
+
+                    <label>Game Specification</label><br><br>
+                    <div class="game-spec-type">
+                        <p class="game-spec-item">Minimum</p>
+                        <p class="game-spec-item">Recommended</p><br><br>
+                    </div>
+                    <div class="game-spec-type">
+                        <div class="game-spec-item-details">
+
+
+                            <label id="min-game-OS" for="min-game-OS">OS</label><br>
+                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10"/><br><br>
+                            <label id="min-game-processor" for="min-game-processor">Processor</label><br>
+                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5"/><br><br>
+                            <label id="min-game-memory" for=" min-game-memory">Memory</label><br>
+                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB"/><br><br>
+                            <label id="min-game-storage" for="min-game-storage">Storage</label><br>
+                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB"/><br><br>
+                            <label id="min-game-graphics" for="min-game-graphics">Graphics</label><br>
+                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <label id="min-game-other" for="min-game-other">Other</label><br>
+                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support"/><br><br>
+
+                        </div>
+                        <div class="game-spec-item-details">
+
+                            <label id="game-OS" for="game-OS">OS</label><br>
+                            <input type="text" name="game-OS" id="game-OS" placeholder="Windows 10" /><br><br>
+                            <label id="game-processor" for="game-processor">Processor</label><br>
+                            <input type="text" name="game-processor" id="game-processor" placeholder="Intel Core I5" /><br><br>
+                            <label id="game-memory" for="game-memory">Memory</label><br>
+                            <input type="text" name="game-memory" id="game-memory" placeholder="8 GB" /><br><br>
+                            <label id="game-storage" for="game-storage">Storage</label><br>
+                            <input type="text" name="game-storage" id="game-storage" placeholder="14 GB" /><br><br>
+                            <label id="game-graphics" for="game-graphics">Graphics</label><br>
+                            <input type="text" name="game-graphics" id="game-graphics" placeholder="NVIDIA GeForce 1660" /><br><br>
+                            <label id="game-other" for="game-other">Other</label><br>
+                            <input type="text" name="game-other" id="game-other" placeholder="English Language Support" /><br><br>
+
+                        </div>
+                    </div>
 
                 </div>
 
@@ -220,7 +294,7 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="game-submit">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="game-submit"><a href="singlegame.php?id=<?= $game['gameID']; ?>">Save & View Page</a></button>
         </form>
 
 
@@ -324,7 +398,11 @@ if (isset($_POST['asset-submit'])) {
 
 <!--script-->
 <script src="../src/js/upload.js"></script>
-<script src="../src/js/navbar.js"></script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
 </body>
 

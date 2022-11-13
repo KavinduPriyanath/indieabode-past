@@ -58,22 +58,24 @@ if(isset($_POST['submit'])){
 
 <html>
 <style>
-<?php include('../src/css/navbar.css')?>
+    <?php include('../src/css/navbar.css') ?>
 </style>
 
-<?php include('../components/navbar.php')?>
+<?php include('../components/navbar.php') ?>
 
 <style>
-<?php include('../src/css/gamejamform.css')?>
+    <?php include('../src/css/gamejamform.css') ?>
 </style>
 
-    <h1>Devlog Form</h1>
+<h1>Devlog Form</h1>
 
-    <div class="form-container">
+<div class="form-container">
+
 
         <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
             <div class="card-details">
                 <div class="left">
+
                 <div class="card-box">
                     <span class="details">Title</span>
                     <input type="text" name="title">
@@ -87,6 +89,7 @@ if(isset($_POST['submit'])){
 
 
                 <div class="card-box">
+
                     
                     <span class="details">Type</span>   
                     <select id="type" name="type" >
@@ -95,6 +98,7 @@ if(isset($_POST['submit'])){
                     <option value="Major Update">Major Update</option>
     
   </select><br><br>
+
 
                 </div>
 
@@ -110,22 +114,22 @@ if(isset($_POST['submit'])){
                     <span class="circle-title">Visibility</span>
                     <p>Decide when is your page ready for the public.</p>
                     <div class="category">
+
                     <input type="radio" id="dev-draft" name="dev-visibility" value="draft">
                     <label for="dev-draft">Draft - Only those who can edit the project can view the page</label><br>
                     <input type="radio" id="dev-public" name="dev-visibility" value="public">
                     <label for="dev-public">Public - Anyone can view the page, you can enable this after you've saved</label><br>
+
                     </div>
                 </div>
-                </div>
+            </div>
 
-                <div class="right">
+            <div class="right">
 
                 <div class="card-box">
                     <span class="details">Upload Cover Image</span>
                     <input type="image" placeholder="Upload Cover Image">
                 </div>
-                </div>
-
             </div>
 <?php
 
@@ -155,23 +159,27 @@ if(isset($_POST['submit'])){
                                     }
                                 ?> 
 
+
             <div class="button">
                 <input type="submit" name="submit" value="Save & View Page">
             </div>
         </form>
+
 </div>
 
 
 
 <style>
-<?php include('../src/css/footer.css')?>
+    <?php include('../src/css/footer.css') ?>
 </style>
 
-<?php include('../components/footer.php')?>
+<?php include('../components/footer.php') ?>
 
-<script>
-    <?php include('../src/js/navbar.js')?>
-</script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
-    
+
 </html>

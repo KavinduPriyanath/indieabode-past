@@ -90,13 +90,13 @@
                 </div>
 
                 <div class="dropdown" id="not-logged" data-dropdown>
-                    <a href="#" data-dropdown-button>Sign In<i class="fa fa-angle-down droparrow"></i></a>
+                    <a href="#" data-dropdown-button>Sign Up<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
                         <div class="arrow"></div>
                         <div class=".ulsub">
                             <a href="/indieabode/pages/login.php">Log&nbsp;In <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a href="/indieabode/pages/register.php">Sign&nbsp;In
+                            <a href="/indieabode/pages/register.php">Sign&nbsp;Up
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                             <hr />
 
                             <a>Settings <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a href="/indieabode/pages/login.php">Log&nbsp;Out
+                            <a href="/indieabode/pages/logout.php">Log&nbsp;Out
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                         </div>
                     </div>
@@ -142,7 +142,3 @@
             </div>
         </div>
     </div>
-
-    <script defer>
-        <?php include('src/js/navbar.js'); ?>
-    </script>

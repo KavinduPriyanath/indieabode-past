@@ -14,7 +14,7 @@
     /*background:rgb(28,4,28);*/
     background-color: white;
     width:75%;
-    height:1500px;
+    height:2000px;
     position:relative;
     padding:10px;
     margin-top: 0;
@@ -109,4 +109,24 @@ select option{
 
 #upload-asset{
     left:1405px;
+}
+
+.game-spec-type{
+    margin:0 0 0 0;
+    display:flex;
+    justify-content: space-evenly;   
+}
+
+.game-spec-item{
+    margin-right: 20%;
+    margin-left:10%;
+}
+
+.game-spec-item-details{
+    margin-right: 5%;
+    margin-left: 0;
+}
+
+.game-spec-item-details input{
+    width:100%;
 }

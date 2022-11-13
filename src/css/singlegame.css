@@ -287,10 +287,6 @@ a:hover .double{
     position: relative;
 }
 
-.game {
-    background-image: url('../images/singlegame/Cover.jpg');
-}
-
 
 .category {
     display: inline-block;
@@ -399,7 +395,6 @@ a:hover .double{
     display: block;
     width: 750px;
     height: 128px;
-
 }
 
 #rate-btn {
@@ -443,8 +438,7 @@ a:hover .double{
     min-height: 100px;
     overflow-y: auto;
     margin-left: 180px;
-    margin-bottom: 10px; 
-    margin-top:120px; 
+    margin-bottom: 10px;  
     border-radius: 7px;
     background-color: rgb(204, 191, 191);
 }
@@ -554,7 +548,6 @@ a:hover .double{
 
 form {
     margin-top: 15px;
-    margin-bottom:15px;
 }
 
 
@@ -570,10 +563,13 @@ input[type=submit] {
     padding: 12px 20px;
     border-radius: 7px;
     cursor: pointer;
+    float: right;
 }
 
 input[type=submit]:hover {
     font-weight: bold;
 }
+
+
 
 
