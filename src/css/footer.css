@@ -1,7 +1,7 @@
 /*Footer*/
 
 .footer {
-    background-color: gray;
+    background-color: #2C4862;
 }
 
 .first-row {
@@ -16,7 +16,8 @@
 
 .left a {
     padding: 10px;
-    color: white;
+    color: #89C0D8;
+    opacity: 74%;
     text-decoration: none;
 }
 
@@ -34,6 +35,6 @@
 .second-row {
     display: block;
     text-align: center;
-    font-weight: bold;
+    color: #A3BDDC;
     padding-bottom: 10px;
 }
