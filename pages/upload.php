@@ -17,9 +17,12 @@ if (isset($_POST['asset-submit'])) {
     $assetStatus = $_POST['asset-status'];
     $assetDetails = $_POST['asset-details'];
     $assetTags = $_POST['asset-tags'];
+    $assetType = $_POST['asset-type'];
+    $assetStyle = $_POST['asset-style'];
     // $assetPricing = 
     $assetLicense = $_POST['asset-license'];
-    // $assetVisibility = 
+    $assetVideoUrl = $_POST['asset-illustration-video'];
+    $assetVisibility = $_POST['asset-visibility'];
 
     //cover image
     //$cover_img_size = $_FILES['asset-upload-cover-img']['size'];
@@ -63,7 +66,7 @@ if (isset($_POST['asset-submit'])) {
 
 
     //upload to db
-    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$new_ss_img_name', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name')";
+    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile, assetVisibility, assetVideoURL, assetType, assetStyle) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$new_ss_img_name', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name', '$assetVisibility', '$assetVideoUrl', '$assetType', '$assetStyle')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -412,6 +415,27 @@ if (isset($_POST['asset-submit'])) {
                         <option value="copyleft">Copy Left</option>
                     </select><br><br>
 
+                    <!--AssetType-->
+                    <label id="asset-type" for="asset-type">Type</label><br>
+                    <p>Helps viewers to filter your asset. Select the most suitable one</p><br>
+                    <select id="asset-type" name="asset-type">
+                        <option value="sprite" selected>Sprite</option>
+                        <option value="skybox">Skybox</option>
+                        <option value="character">Character</option>
+                        <option value="tileset">Tileset</option>
+                    </select><br><br>
+
+                    <!--AssetStyle-->
+                    <label id="asset-style" for="asset-style">Style</label><br>
+                    <p>Helps viewers to filter your asset. Select the most suitable one</p><br>
+                    <select id="asset-style" name="asset-style">
+                        <option value="pixelart" selected>Pixel Art</option>
+                        <option value="8bit">8-Bit</option>
+                        <option value="16bit">16-Bit</option>
+                        <option value="lowpoly">Low Poly</option>
+                        <option value="voxel">Voxel</option>
+                    </select><br><br>
+
                     <label id="asset-visibility" for="asset-visibility">Visibility</label><br>
                     <p>Decide when is your page ready for the public</p><br>
                     <input type="radio" id="asset-draft" name="asset-visibility" value="draft">
@@ -429,7 +453,7 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Vedio</label><br>
                     <p>Provide a link to youtube</p><br>
-                    <input type="url" id="asset-illustration-vedio" name="asset-illustration-vedio" placeholder="eg: https://www.youtube.com/"><br><br>
+                    <input type="url" id="asset-illustration-vedio" name="asset-illustration-video" placeholder="eg: https://www.youtube.com/"><br><br>
 
                     <label id="asset-screenshots" for="asset-screenshots">Screenshots</label><br>
                     <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>

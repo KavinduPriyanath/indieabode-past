@@ -137,7 +137,7 @@
 
                 <div class="search">
                     <form action="" class="search-bar">
-                        <input type="text" placeholder="search anything" name="search" />
+                        <input type="text" placeholder="Search Anything..." name="search" />
                         <button type="submit">
                             <img src="/indieabode/images/navbar/search.png" alt="" />
                         </button>
