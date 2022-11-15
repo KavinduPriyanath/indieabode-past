@@ -178,6 +178,8 @@ if (isset($_POST['asset-submit'])) {
             <button type="button" class="toggle-btn" onclick="uploadAsset()">Assets</button>
         </div><br>
 
+        <!--Game Form-->
+
         <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
             <div class="upload-row">
                 <div class="upload-col">
@@ -245,17 +247,17 @@ if (isset($_POST['asset-submit'])) {
 
 
                             <label id="min-game-OS" for="min-game-OS">OS</label><br>
-                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10"/><br><br>
+                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10" /><br><br>
                             <label id="min-game-processor" for="min-game-processor">Processor</label><br>
-                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5"/><br><br>
+                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5" /><br><br>
                             <label id="min-game-memory" for=" min-game-memory">Memory</label><br>
-                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB"/><br><br>
+                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB" /><br><br>
                             <label id="min-game-storage" for="min-game-storage">Storage</label><br>
-                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB"/><br><br>
+                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB" /><br><br>
                             <label id="min-game-graphics" for="min-game-graphics">Graphics</label><br>
-                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660" /><br><br>
                             <label id="min-game-other" for="min-game-other">Other</label><br>
-                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support"/><br><br>
+                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support" /><br><br>
 
                         </div>
                         <div class="game-spec-item-details">
@@ -331,7 +333,59 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-details" for="asset-details">Details</label><br>
                     <p id="p">This will be the content of your assets page</p><br>
-                    <textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea><br><br>
+                    <textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea>
+
+
+
+                    <div class="main-content">
+                        <div class="text-editor-header">
+                            <button type="button" class="rbtn" data-element="bold">
+                                <i class="fa fa-bold"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="italic">
+                                <i class="fa fa-italic"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="underline">
+                                <i class="fa fa-underline"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertUnorderedList">
+                                <i class="fa fa-list-ul"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertOrderedList">
+                                <i class="fa fa-list-ol"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="createLink">
+                                <i class="fa fa-link"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyLeft">
+                                <i class="fa fa-align-left"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyCenter">
+                                <i class="fa fa-align-center"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyRight">
+                                <i class="fa fa-align-right"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyFull">
+                                <i class="fa fa-align-justify"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertImage">
+                                <i class="fa fa-image"></i>
+                            </button>
+                        </div>
+                        <!--Content-->
+                        <div class="content-box" id="redactor" contenteditable="true"></div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <br><br>
 
                     <label id="asset-tags" for="asset-tags">Tags</label><br>
                     <p id="p">Keywords that someone would search to find your assets</p><br>
@@ -396,8 +450,12 @@ if (isset($_POST['asset-submit'])) {
 <?php include("../components/footer.php"); ?>
 
 
+
+
 <!--script-->
+<script src="../src/js/redactor.js"></script>
 <script src="../src/js/upload.js"></script>
+<script src="https://use.fontawesome.com/a31a3f8384.js"></script>
 <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
     <script src="../src/js/navbar.js"></script>
 <?php } else { ?>

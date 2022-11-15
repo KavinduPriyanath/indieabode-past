@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
-        <?php include '../src/css/navbar.css'; ?>
+        <?php include 'src/css/navbar.css'; ?>
     </style>
 
     <title>IndieAbode</title>
@@ -30,7 +30,7 @@
                         <div class="arrow"></div>
                         <div class=".ulsub">
                             <a>Gigs <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
-                            <a href="/indieabode/pages/devlogForm.php">Devlogs <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
+                            <a>Devlogs <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Crowdfunding
                                 <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Action <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>

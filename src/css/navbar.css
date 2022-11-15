@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -7,13 +9,14 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(209, 204, 204);
+    background-color: #335879;
+    font-family: 'Kreon', serif;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    background-color: gray;
+    background-color: #2C4862;
     color: white;
 }
 
@@ -217,9 +220,9 @@ a:hover .double{
     align-content: center;
     width: 100%;
     min-width: 400px;
-    border: 1px solid rgb(85, 79, 79);
+    border: 1px solid rgb(31, 69, 119);
     border-radius: 8px;
-    box-shadow: 2px 3px rgb(124, 117, 117);
+    box-shadow: 2px 3px #4d597d;
 }
 
 .search-bar input {

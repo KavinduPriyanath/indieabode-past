@@ -130,3 +130,25 @@ select option{
 .game-spec-item-details input{
     width:100%;
 }
+
+.main-content {
+    width: 425.4px;
+    border: 2px solid;
+    
+}
+
+.text-editor-header {
+    background-color: rgb(244, 238, 238);
+    padding: 5px;
+}
+
+.text-editor-header .rbtn {
+    margin-right: 5px;
+}
+
+.content-box {
+    min-height: 250px;
+    border-top: 0.7px solid;
+    padding: 15px;
+
+}
