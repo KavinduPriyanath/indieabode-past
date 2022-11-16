@@ -1,206 +1,112 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family:'Kreon' ;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
 
-body{
-  background:#335879;
-}
-
-
-.navbar{
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-  gap: 10px;
-
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  left: 0px;
-  top: 0px;
-
-  background: #2C4862;
-}
-
-.logo {
-  display: block;
-  text-align: center;
-  font-size: 2em;
-  padding: 5% 40% 5% 40%;
-}
-
-.logo a{
-  text-decoration: none;
-  color: white;
-  text-align: center;
-}
-
-a{
-    text-decoration: none;
-    color:white;
-}
 .wrapper{
+  display: block;
   margin: 50px auto;
   text-align: center;
-  margin-bottom:0;
-  padding-bottom: 0;
-  position: absolute;
-  width: 60%;
-  left:20%;
-  top:10%;
-  bottom:10%;
-  padding: 5% 5% 5% 5%;
-
-  background: rgba(138, 155, 198, 0.44);
+  position: relative;
+  width: 45%;
+  background: rgb(138, 155, 198, 0.44);
   border-radius: 8px;
 }
 
-.register-box{
-  height:fit-content;
-}
-
-.wrapper input{
-  width:85%;
-  outline: none;
+.toggle-btn {
+  display: inline-block;
+  width: 150px;
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
+  margin: 40px 20px;
+  background-color: #84AED4;
   border: none;
-  background-color: rgba(115,170,193,0.72);
-  padding: 12px 14px;
-  margin-top:0;
-  margin-bottom:0;
-  border-radius: 10px;
-  position: absolute;
-  left:10%;
-
-}
-
-::placeholder{
-  position:absolute;
-  font-size:1.1em;
-  font-weight:400;
-  line-height:2%;
-  color: rgba(72,95,117,0.6);
+  padding: 10px;
+  border-radius: 12px;
 }
 
 .form-login-label{
-  left:11%;
+  text-align: left;
+  display: block;
   color:white;
-  font-size:1.3em;
-  text-align:justify;
-  position:absolute;
-  font-weight:500;
-  line-height:2%;
+  font-size: 22px;
+  margin: 10px 70px 0px 100px;
 }
 
-.wrapper button{
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  padding: 8px 0;
+#username {
+  margin-top: 20px;
+}
+
+/*Normal Form Input*/
+form input {
+  display: inline-block;
+  height: 40px;
+  width: 500px;
+  margin: -10px 100px 10px 100px;
   border-radius: 8px;
-  outline: none;
   border: none;
-  width: 55%;
-  background:#7FAFDB;
-  color:#0D3860;
-  cursor: pointer;
-  font-weight:1000;
+  padding: 8px 10px;
+  background-color: rgb(115, 170, 193, 0.72);
 }
 
-.login-toggle-btn{
-  margin-right:5%;
+#form ::placeholder {
+  color: rgb(72, 95, 117, 0.6);
+  font-size: 17px;
+  font-family: 'Kreon', serif;
 }
 
-button:hover{
-  background: rgba(80, 110, 155, 0.767);
+#login {
+  color: #0D3860;
+  background-color: #7FAFDB;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
 }
-.or{
-  font-size: 0.8rem;
-  margin-top: 1.5rem;
-}
+
 
 .forgot-pw{
   width:100%;
-  height:24%;
-  color:white;
+  height:70px;
+  font-size: 18px;
   text-align:center;
-  font-size: 1rem;
-  margin-top: 1.4rem;
-  font-weight:600;
-  padding:5%;
+  margin-top: 20px;
   background-color:rgba(138, 155, 198, 0.44);
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
 }
 .forgot-pw a{
   color:#372372;
+
 }
 
-.btn-box button{
-    width:30%;
-    margin-top:0;
-    margin-bottom:10%;
-    border-radius:12px;
-    background:#84AED5;
-}
-
-.about-you{
-    margin:5% 18% 5% 18%;
-    display:block;
-    position:relative;
-    font-size:1.1em;
-    border-style:groove;
-    text-align:left;
-    padding:4%;
-    border-radius:12px;
-}
-
-input[type="checkbox"]{
-    width:auto;
-    color:white;
-    font-size:1em;
-}
-
-#tos{
+.forgot-pw div {
   color:white;
-  font-size:1.2em;
+
 }
 
-.about-you label{
-    font-size:.7em;
+.full-name {
+  display: flex;
 }
 
-p{
-    text-align:left;
-    margin:0 19% 0 19%;
-    font-size:.7em;
-    color:grey;
+.full-name input{
+  display: inline-block;
+  height: 40px;
+  width: 232.5px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 10px;
+  background-color: rgb(115, 170, 193, 0.72);
 }
 
-.about-you p{
-    margin:0;
-    font-size:.7em;
-    color:grey;
+.full-name #firstname {
+  margin: 10px 0px 0px 100px;
 }
 
-.full-name{
-    margin:0 18% 5% 18%;
-    display:flex; 
-    justify-content: space-between;  
+.full-name #lastname {
+  margin: 10px 0px 0px 30px;
 }
 
-.full-name input,label{
-  width:40%;
-}
-
-#lastname{
-  left:54%;
-}
-
-#rp-p{
-    font-size:.9em;
-}
-
-.last-name{
-  left:inherit;
-}
