@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2022 at 04:49 PM
+-- Generation Time: Nov 16, 2022 at 11:26 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -127,6 +127,7 @@ CREATE TABLE `devlog` (
   `name` varchar(50) NOT NULL,
   `gameID` int(11) NOT NULL,
   `gameDeveloperID` int(11) NOT NULL,
+  `devlogCoverImg` varchar(255) NOT NULL,
   `Tagline` varchar(255) NOT NULL,
   `Type` varchar(50) NOT NULL,
   `Visibility` varchar(255) NOT NULL
@@ -136,23 +137,33 @@ CREATE TABLE `devlog` (
 -- Dumping data for table `devlog`
 --
 
-INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`) VALUES
-(8, '2022-11-11 08:53:53', 'pojpoo', 'yyy', 0, 6, '', '', ''),
-(9, '2022-11-11 10:10:08', 'jyyfyutfyuss', 'yetee', 0, 6, '', '', ''),
-(10, '2022-11-11 10:10:54', 'jgk', 'y33', 0, 6, '', '', ''),
-(11, '2022-11-11 10:11:23', 'yjtuj', 'd44gf', 0, 6, '', '', ''),
-(12, '2022-11-11 10:12:48', 'nhmn', 'd5', 0, 6, '', '', ''),
-(13, '2022-11-11 10:17:36', 'jyyxcfyutfyusregs', 'y6', 0, 6, '', '', ''),
-(14, '2022-11-11 10:20:13', 'uigi', 'yy7', 0, 6, '', '', 'public'),
-(15, '2022-11-11 10:20:53', 'ihhosidiuf', 'yy8', 0, 6, '', '', 'draft'),
-(16, '2022-11-11 10:31:32', 'hi4i', 'yy8', 0, 6, '', 'Tutorial', 'draft'),
-(17, '2022-11-11 10:32:00', 'teesrees', 'yy9', 0, 6, '', 'Major Update', 'public'),
-(18, '2022-11-11 10:32:31', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(19, '2022-11-11 12:11:59', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(20, '2022-11-11 12:12:55', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(21, '2022-11-11 12:18:44', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(22, '2022-11-11 12:32:11', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(23, '2022-11-11 12:34:20', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public');
+INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `devlogCoverImg`, `Tagline`, `Type`, `Visibility`) VALUES
+(8, '2022-11-11 08:53:53', 'pojpoo', 'yyy', 0, 6, '', '', '', ''),
+(9, '2022-11-11 10:10:08', 'jyyfyutfyuss', 'yetee', 0, 6, '', '', '', ''),
+(10, '2022-11-11 10:10:54', 'jgk', 'y33', 0, 6, '', '', '', ''),
+(11, '2022-11-11 10:11:23', 'yjtuj', 'd44gf', 0, 6, '', '', '', ''),
+(12, '2022-11-11 10:12:48', 'nhmn', 'd5', 0, 6, '', '', '', ''),
+(13, '2022-11-11 10:17:36', 'jyyxcfyutfyusregs', 'y6', 0, 6, '', '', '', ''),
+(14, '2022-11-11 10:20:13', 'uigi', 'yy7', 0, 6, '', '', '', 'public'),
+(15, '2022-11-11 10:20:53', 'ihhosidiuf', 'yy8', 0, 6, '', '', '', 'draft'),
+(16, '2022-11-11 10:31:32', 'hi4i', 'yy8', 0, 6, '', '', 'Tutorial', 'draft'),
+(17, '2022-11-11 10:32:00', 'teesrees', 'yy9', 0, 6, '', '', 'Major Update', 'public'),
+(18, '2022-11-11 10:32:31', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(19, '2022-11-11 12:11:59', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(20, '2022-11-11 12:12:55', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(21, '2022-11-11 12:18:44', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(22, '2022-11-11 12:32:11', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(23, '2022-11-11 12:34:20', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
+(24, '2022-11-16 09:28:25', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
+(25, '2022-11-16 09:32:24', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
+(26, '2022-11-16 09:33:34', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
+(27, '2022-11-16 09:33:58', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
+(28, '2022-11-16 09:51:51', 'juk ill l o', 'new pnme', 0, 1, 'Cover-.jpg', '', 'New Game', 'draft'),
+(29, '2022-11-16 09:53:25', 'jytj ukkik', 'fewd', 0, 1, 'Cover-fewd.jpg', '', 'New Game 1', 'draft'),
+(30, '2022-11-16 09:58:04', 'luiloul olo lolo', 'uklil', 0, 1, 'Cover-uklil.jpg', '', 'New Game 1', 'draft'),
+(31, '2022-11-16 09:59:32', 'luiloul olo lolo', 'uklil', 0, 1, 'Cover-uklil.jpg', '', 'New Game 1', 'draft'),
+(32, '2022-11-16 10:00:24', 'rgrgrg', 'fwefegrgrgr', 2, 1, 'Cover-fwefegrgrgr.jpg', '', 'Tutorial', 'draft'),
+(33, '2022-11-16 10:22:47', 'jyjytj', 'dewww', 1, 1, 'Cover-dewww.jpg', 'bgthrhy', 'Tutorial', 'draft');
 
 -- --------------------------------------------------------
 
@@ -823,7 +834,7 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
