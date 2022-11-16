@@ -36,7 +36,7 @@
 }
 
 /*Normal Form Input*/
-form input {
+form input[type=text], input[type=password] {
   display: inline-block;
   height: 40px;
   width: 500px;
@@ -53,7 +53,7 @@ form input {
   font-family: 'Kreon', serif;
 }
 
-#login {
+#login, #register {
   color: #0D3860;
   background-color: #7FAFDB;
   width: 200px;
@@ -90,9 +90,10 @@ form input {
 
 .full-name {
   display: flex;
+  margin-bottom: 15px;
 }
 
-.full-name input{
+.full-name input[type=text]{
   display: inline-block;
   height: 40px;
   width: 232.5px;
@@ -108,5 +109,19 @@ form input {
 
 .full-name #lastname {
   margin: 10px 0px 0px 30px;
+}
+
+form input[type=checkbox] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #8CB8D1;
+  color: #8CB8D1;
+}
+
+#tos {
+  display: inline-block;
+  font-size: 18px;
+  color: white;
 }
 

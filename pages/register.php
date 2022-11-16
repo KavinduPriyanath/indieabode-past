@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
     </div>
     <form action="#" method="POST" id="form">
         <!--register form-->
-        <br><br>
         <div class="full-name">
             <div class="first-name">
                 <label class="form-login-label" id="firstname">First Name</label>
@@ -52,15 +51,14 @@ if (isset($_POST['submit'])) {
                 <label class="form-login-label" id="lastname">Last Name</label>
                 <input type="text" name="lastname" id="lastname" placeholder="lastname" required /><br>
             </div>
-        </div><br><br>
-        <label class="form-login-label">Username</label><br>
-        <input type="text" name="username" id="username" placeholder="username" required /><br>
-        <p>Pattern: 4-50 length, only alphanumeric or -_chars</p><br><br><br>
+        </div>
+        <label class="form-login-label">Username</label> <br>
+        <input type="text" name="username" id="user-name" placeholder="username" required /><br>
 
         <label class="form-login-label">Email</label><br>
-        <input type="email" name="email" id="title" placeholder="email" required /><br><br><br><br>
+        <input type="text" name="email" id="title" placeholder="email" required /><br>
         <label class="form-login-label">Password</label><br>
-        <input type="password" name="password" id="password" placeholder="Password" required /><br><br><br><br>
+        <input type="password" name="password" id="password" placeholder="Password" required /><br>
         <label class="form-login-label">Confirm Password</label><br>
         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" /><br><br>
         <!--  <div class="about-you">
@@ -71,11 +69,10 @@ if (isset($_POST['submit'])) {
                 <label for="">I'm interested in distributing content</label>
                 <p>You can change your responses to these questions later, they are used to hint itch.io in how it should present itself to you.</p>
             </div> -->
-        <br><br><br><br>
         <input type="checkbox" name="" id="" value="">
-        <label for="" id="tos">I accept the terms of service </label><br><br><br><br>
+        <label for="" id="tos">I accept the terms of service </label><br>
 
-        <button type="submit" name="submit">Register</button><br><br>
+        <button type="submit" name="submit" id="register">Register</button><br><br>
 
     </form>
 
