@@ -1,51 +1,120 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family:'Kreon' ;
+  font-style: normal;
+}
+
+body{
+  background:#335879;
+}
+
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 10px;
+
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  left: 0px;
+  top: 0px;
+
+  background: #2C4862;
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  padding: 5% 40% 5% 40%;
+}
+
+.logo a{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
 
 a{
     text-decoration: none;
     color:white;
 }
 .wrapper{
-  width: 40%;
-  padding: 2rem 0 1rem 0;
   margin: 50px auto;
+  text-align: center;
   margin-bottom:0;
   padding-bottom: 0;
-  background: #fff;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 60%;
+  left:20%;
+  top:10%;
+  bottom:10%;
+  padding: 5% 5% 5% 5%;
+
+  background: rgba(138, 155, 198, 0.44);
+  border-radius: 8px;
+}
+
+.register-box{
+  height:fit-content;
 }
 
 .wrapper input{
-  width:65%;
+  width:85%;
   outline: none;
   border: none;
-  background: #dfe9f5;
+  background-color: rgba(115,170,193,0.72);
   padding: 12px 14px;
-  margin-top:2%;
+  margin-top:0;
+  margin-bottom:0;
   border-radius: 10px;
+  position: absolute;
+  left:10%;
+
 }
 
-fieldset{
-  width:65%;
-  padding:12px 14px;
-  border-radius:10px ;
-  margin-left:50px;
+::placeholder{
+  position:absolute;
+  font-size:1.1em;
+  font-weight:400;
+  line-height:2%;
+  color: rgba(72,95,117,0.6);
+}
+
+.form-login-label{
+  left:11%;
+  color:white;
+  font-size:1.3em;
+  text-align:justify;
+  position:absolute;
+  font-weight:500;
+  line-height:2%;
 }
 
 .wrapper button{
   font-size: 1.1rem;
   margin-top: 1rem;
   padding: 8px 0;
-  border-radius: 5px;
+  border-radius: 8px;
   outline: none;
   border: none;
   width: 55%;
-  background: rgb(156, 150, 150);
-  color: #fff;
+  background:#7FAFDB;
+  color:#0D3860;
   cursor: pointer;
+  font-weight:1000;
 }
+
+.login-toggle-btn{
+  margin-right:5%;
+}
+
 button:hover{
-  background: rgba(42, 31, 31, 0.767);
+  background: rgba(80, 110, 155, 0.767);
 }
 .or{
   font-size: 0.8rem;
@@ -53,21 +122,26 @@ button:hover{
 }
 
 .forgot-pw{
-  font-size: 0.8rem;
+  width:100%;
+  height:24%;
+  color:white;
+  text-align:center;
+  font-size: 1rem;
   margin-top: 1.4rem;
+  font-weight:600;
   padding:5%;
-  background-color: darkgray;
+  background-color:rgba(138, 155, 198, 0.44);
 }
 .forgot-pw a{
-  color: tomato;
+  color:#372372;
 }
 
 .btn-box button{
     width:30%;
     margin-top:0;
     margin-bottom:10%;
-    border-radius:30px;
-    background:rgb(69, 66, 66);
+    border-radius:12px;
+    background:#84AED5;
 }
 
 .about-you{
@@ -78,17 +152,20 @@ button:hover{
     border-style:groove;
     text-align:left;
     padding:4%;
-    border-radius:10px;
+    border-radius:12px;
 }
 
 input[type="checkbox"]{
     width:auto;
+    color:white;
+    font-size:1em;
 }
 
-label{
-    text-align:left;
-    font-size:.7em;
+#tos{
+  color:white;
+  font-size:1.2em;
 }
+
 .about-you label{
     font-size:.7em;
 }
@@ -108,13 +185,22 @@ p{
 
 .full-name{
     margin:0 18% 5% 18%;
-    display:flex;   
+    display:flex; 
+    justify-content: space-between;  
 }
 
-#firstname{
-    margin-right:3%;
+.full-name input,label{
+  width:40%;
+}
+
+#lastname{
+  left:54%;
 }
 
 #rp-p{
     font-size:.9em;
+}
+
+.last-name{
+  left:inherit;
 }
