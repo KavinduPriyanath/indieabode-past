@@ -1,4 +1,12 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 /*
 body {
     margin: 0;
@@ -6,13 +14,12 @@ body {
     background-color: rgb(209, 204, 204);
 } */
 
-
 /*
 .navbar {
     display: block;
     height: 70px;
     text-align: center;
-    background-color: gray;
+    background-color: #2C4862;
     color: white;
 }*/
 
