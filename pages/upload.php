@@ -8,6 +8,7 @@ echo $_SESSION['id'];
 require '../db/database.php';
 
 $allowed_exts = array("jpg", "jpeg", "png");
+$screenshots = array();
 
 if (isset($_POST['asset-submit'])) {
     $assetName = $_POST['asset-title'];
@@ -38,16 +39,33 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //Screenshots
-    $ss_img_name = $_FILES['asset-screenshots']['name'];
-    $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
+    // $ss_img_name = $_FILES['asset-screenshots']['name'];
+    // $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
 
-    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+    // $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
 
-    if (in_array($ss_img_ext, $allowed_exts)) {
-        $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
-        $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
-        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    // if (in_array($ss_img_ext, $allowed_exts)) {
+    //     $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
+    //     $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
+    //     move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    // }
+
+    $ssCount = count($_FILES['asset-screenshots']['name']);
+    for ($i = 0; $i < $ssCount; $i++) {
+        $ssName = $_FILES['asset-screenshots']['name'][$i];
+        $ssExt = strtolower(pathinfo($ssName, PATHINFO_EXTENSION));
+        if (in_array($ssExt, $allowed_exts)) {
+
+            $newSSName = "SS-" . $assetName . '-' . $i . '.' . $ssExt;
+            $ss_upload_path = '../uploads/assets/ss/' . $newSSName;
+
+            move_uploaded_file($_FILES['asset-screenshots']['tmp_name'][$i], $ss_upload_path);
+
+            array_push($screenshots, $newSSName);
+        }
     }
+
+    $screenshotsURL = implode(',', $screenshots);
 
     //Asset File
     $asset_file = $_FILES['upload-asset']['name'];
@@ -66,7 +84,7 @@ if (isset($_POST['asset-submit'])) {
 
 
     //upload to db
-    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile, assetVisibility, assetVideoURL, assetType, assetStyle) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$new_ss_img_name', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name', '$assetVisibility', '$assetVideoUrl', '$assetType', '$assetStyle')";
+    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile, assetVisibility, assetVideoURL, assetType, assetStyle) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$screenshotsURL', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name', '$assetVisibility', '$assetVideoUrl', '$assetType', '$assetStyle')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -457,7 +475,7 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-screenshots" for="asset-screenshots">Screenshots</label><br>
                     <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
-                    <input type="file" id="asset-screenshots" name="asset-screenshots" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
+                    <input type="file" id="asset-screenshots" name="asset-screenshots[]" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
                 </div>
             </div>
             <br><br>

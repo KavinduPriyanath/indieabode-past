@@ -27,7 +27,7 @@
                     <a href="/indieabode/pages/games.php" data-dropdown-button>Games<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow1"></div>
                         <div class=".ulsub">
                             <a>Gigs <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a href="/indieabode/pages/devlogForm.php">Devlogs <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
@@ -49,7 +49,7 @@
                     <a href="/indieabode/pages/assets.php" data-dropdown-button>Assets<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow2"></div>
                         <div class=".ulsub">
                             <a>2D <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>3D <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
@@ -69,7 +69,7 @@
                     <a href="/indieabode/pages/gamejam.php" data-dropdown-button>Jams<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow3"></div>
                         <div class=".ulsub">
                             <a>Join Jams <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a href="/indieabode/pages/gamejamform.php">Host Jams <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
@@ -83,7 +83,7 @@
                     <a href="#" data-dropdown-button>Community<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow4"></div>
                         <div class=".ulsub">
                             <a>Feed <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a>Forum <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
@@ -97,7 +97,7 @@
                     <a href="#" data-dropdown-button>Sign Up<i class="fa fa-angle-down droparrow"></i></a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow5"></div>
                         <div class=".ulsub">
                             <a href="/indieabode/pages/login.php">Log&nbsp;In <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a href="/indieabode/pages/register.php">Sign&nbsp;Up
@@ -113,7 +113,7 @@
                     </a>
 
                     <div class="dropdown-menu">
-                        <div class="arrow"></div>
+                        <div class="arrow arrow6"></div>
                         <div class=".ulsub">
                             <a>Library <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>
                             <a href="/indieabode/pages/cart.php">Cart <i class="fa fa-angle-right rightdown single"></i><i class="fa fa-angle-double-right rightdown double"></i></a>

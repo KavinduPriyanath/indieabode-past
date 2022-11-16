@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2022 at 11:26 AM
+-- Generation Time: Nov 16, 2022 at 06:56 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -230,7 +230,9 @@ INSERT INTO `freeasset` (`assetID`, `assetName`, `assetDetails`, `assetScreensho
 (37, 'New Asset 333', 'gh h jukj kiki l oil ', 'SS-New Asset 333.png', 'Buy this one ASAP', '2d', 'Upcoming', 'h hy jjuj ', '', 'permissive', 'Cover-New Asset 333.png', 0, '', '', '', 5),
 (38, 'fe feg', 'tr htrh h yhj y j', 'SS-fe feg.png', 'rgrgr', '2d', 'Prototype', 'yt jj', 'Asset-fe feg.txt', 'proprietary', 'Cover-fe feg.png', 0, '', '', '', 5),
 (39, 'Sprout Lands', 'hytjyujuykju', 'SS-Sprout Lands.png', 'cute pixel farming', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, '', '', '', 5),
-(40, 'Sprout Lands', 'fefgegg rh hth hth ', 'SS-Sprout Lands.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', 'lowpoly', 5);
+(40, 'Sprout Lands', 'fefgegg rh hth hth ', 'SS-Sprout Lands.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', 'lowpoly', 5),
+(41, 'Sprout Valley', 'degfre hgrhtrh htj tj tjrt j', 'SS-Sprout Valley-0.jpg,SS-Sprout Valley-1.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Valley.txt', 'open-source', 'Cover-Sprout Valley.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
+(42, 'New Asset 989', 'thyj jjkj k k6k', 'SS-New Asset 989-0.png,SS-New Asset 989-1.jpg,SS-New Asset 989-2.jpg,SS-New Asset 989-3.jpg,SS-New Asset 989-4.jpg', 'Buy this one ASAP', '2d', 'released', ' jkk k kk  k', 'Asset-New Asset 989.txt', 'open-source', 'Cover-New Asset 989.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1);
 
 -- --------------------------------------------------------
 
@@ -840,7 +842,7 @@ ALTER TABLE `devlog`
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `freegame`
