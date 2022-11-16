@@ -55,26 +55,27 @@ if (isset($_POST['submit'])) {
         <?php
         include('../src/css/login.css');
         ?>
+
     </style>
 
 
     <div class="wrapper">
         <div class="btn-box">
-            <a href="/indieabode/pages/login.php"><button type="button" class="toggle-btn">Login</button></a>
+            <a href="/indieabode/pages/login.php"><button type="button" class="toggle-btn login-toggle-btn">Login</button></a>
             <a href="/indieabode/pages/register.php"><button type="button" class="toggle-btn">Register</button></a>
         </div>
         <form action="#" method="POST">
-            <input type="email" placeholder="email" name="email">
-            <input type="password" placeholder="Password" name="password">
+            <label class="form-login-label">Email or Username</label><br>
+            <input type="email" placeholder="email" name="email"><br><br><br><br>
+            <label class="form-login-label">Password</label><br>
+            <input type="password" placeholder="Password" name="password"><br><br><br>
 
             <button type="submit" name="submit">Login</button>
 
         </form>
-
-
         <div class="forgot-pw">
             Forgot Password? <br><a href="/indieabode/pages/resetpassword.php">Reset Password</a>
-        </div>
+    </div>
     </div>
 
 
