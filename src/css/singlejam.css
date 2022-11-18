@@ -7,16 +7,17 @@
 }
 
 .card {
-    width: 99%;
+    width: 100%;
     box-sizing: inherit;
     box-align: center;
     background-color: rgb(124, 124, 124);
     border-radius: 25px;
-    display: inline-block;
+    display: flex;
     justify-content: center;
+    
 
 
-    /*padding: 0 50px;*/
+    padding: 0 50px;
 }
 
 .box {
@@ -58,3 +59,18 @@ img {
 .block {
     text-align: center;
 }
+
+.launch-time{
+    display: flex;
+    word-spacing: 80px;
+}
+
+.launch-time div{
+    flex-basis: 100px;
+}
+
+.launch-time div p{
+    font-size: 60px;
+    margin-bottom: -14px;
+}
+
