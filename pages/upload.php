@@ -8,6 +8,7 @@ echo $_SESSION['id'];
 require '../db/database.php';
 
 $allowed_exts = array("jpg", "jpeg", "png");
+$screenshots = array();
 
 if (isset($_POST['asset-submit'])) {
     $assetName = $_POST['asset-title'];
@@ -17,9 +18,12 @@ if (isset($_POST['asset-submit'])) {
     $assetStatus = $_POST['asset-status'];
     $assetDetails = $_POST['asset-details'];
     $assetTags = $_POST['asset-tags'];
+    $assetType = $_POST['asset-type'];
+    $assetStyle = $_POST['asset-style'];
     // $assetPricing = 
     $assetLicense = $_POST['asset-license'];
-    // $assetVisibility = 
+    $assetVideoUrl = $_POST['asset-illustration-video'];
+    $assetVisibility = $_POST['asset-visibility'];
 
     //cover image
     //$cover_img_size = $_FILES['asset-upload-cover-img']['size'];
@@ -35,16 +39,33 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //Screenshots
-    $ss_img_name = $_FILES['asset-screenshots']['name'];
-    $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
+    // $ss_img_name = $_FILES['asset-screenshots']['name'];
+    // $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
 
-    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+    // $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
 
-    if (in_array($ss_img_ext, $allowed_exts)) {
-        $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
-        $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
-        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    // if (in_array($ss_img_ext, $allowed_exts)) {
+    //     $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
+    //     $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
+    //     move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    // }
+
+    $ssCount = count($_FILES['asset-screenshots']['name']);
+    for ($i = 0; $i < $ssCount; $i++) {
+        $ssName = $_FILES['asset-screenshots']['name'][$i];
+        $ssExt = strtolower(pathinfo($ssName, PATHINFO_EXTENSION));
+        if (in_array($ssExt, $allowed_exts)) {
+
+            $newSSName = "SS-" . $assetName . '-' . $i . '.' . $ssExt;
+            $ss_upload_path = '../uploads/assets/ss/' . $newSSName;
+
+            move_uploaded_file($_FILES['asset-screenshots']['tmp_name'][$i], $ss_upload_path);
+
+            array_push($screenshots, $newSSName);
+        }
     }
+
+    $screenshotsURL = implode(',', $screenshots);
 
     //Asset File
     $asset_file = $_FILES['upload-asset']['name'];
@@ -63,7 +84,7 @@ if (isset($_POST['asset-submit'])) {
 
 
     //upload to db
-    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$new_ss_img_name', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name')";
+    $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile, assetVisibility, assetVideoURL, assetType, assetStyle) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$screenshotsURL', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name', '$assetVisibility', '$assetVideoUrl', '$assetType', '$assetStyle')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -78,6 +99,7 @@ if (isset($_POST['asset-submit'])) {
     $gameStatus = $_POST['game-status'];
     $gameDetails = $_POST['game-details'];
     $gameTags = $_POST['game-tags'];
+    $gameIllustrationVedio = $_POST['game-illustration-vedio'];
 
     $minGameOS = $_POST['min-game-OS'];
     $minGameProcessor = $_POST['min-game-processor'];
@@ -137,7 +159,7 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //upload to db
-    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility ) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility')";
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -176,6 +198,8 @@ if (isset($_POST['asset-submit'])) {
             <button type="button" class="toggle-btn" onclick="uploadGame()">Game</button>
             <button type="button" class="toggle-btn" onclick="uploadAsset()">Assets</button>
         </div><br>
+
+        <!--Game Form-->
 
         <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
             <div class="upload-row">
@@ -244,17 +268,17 @@ if (isset($_POST['asset-submit'])) {
 
 
                             <label id="min-game-OS" for="min-game-OS">OS</label><br>
-                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10"/><br><br>
+                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10" /><br><br>
                             <label id="min-game-processor" for="min-game-processor">Processor</label><br>
-                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5"/><br><br>
+                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5" /><br><br>
                             <label id="min-game-memory" for=" min-game-memory">Memory</label><br>
-                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB"/><br><br>
+                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB" /><br><br>
                             <label id="min-game-storage" for="min-game-storage">Storage</label><br>
-                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB"/><br><br>
+                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB" /><br><br>
                             <label id="min-game-graphics" for="min-game-graphics">Graphics</label><br>
-                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660"/><br><br>
+                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660" /><br><br>
                             <label id="min-game-other" for="min-game-other">Other</label><br>
-                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support"/><br><br>
+                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support" /><br><br>
 
                         </div>
                         <div class="game-spec-item-details">
@@ -330,7 +354,59 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-details" for="asset-details">Details</label><br>
                     <p id="p">This will be the content of your assets page</p><br>
-                    <textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea><br><br>
+                    <textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea>
+
+
+
+                    <div class="main-content">
+                        <div class="text-editor-header">
+                            <button type="button" class="rbtn" data-element="bold">
+                                <i class="fa fa-bold"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="italic">
+                                <i class="fa fa-italic"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="underline">
+                                <i class="fa fa-underline"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertUnorderedList">
+                                <i class="fa fa-list-ul"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertOrderedList">
+                                <i class="fa fa-list-ol"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="createLink">
+                                <i class="fa fa-link"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyLeft">
+                                <i class="fa fa-align-left"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyCenter">
+                                <i class="fa fa-align-center"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyRight">
+                                <i class="fa fa-align-right"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="justifyFull">
+                                <i class="fa fa-align-justify"></i>
+                            </button>
+                            <button type="button" class="rbtn" data-element="insertImage">
+                                <i class="fa fa-image"></i>
+                            </button>
+                        </div>
+                        <!--Content-->
+                        <div class="content-box" id="redactor" contenteditable="true"></div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <br><br>
 
                     <label id="asset-tags" for="asset-tags">Tags</label><br>
                     <p id="p">Keywords that someone would search to find your assets</p><br>
@@ -357,6 +433,27 @@ if (isset($_POST['asset-submit'])) {
                         <option value="copyleft">Copy Left</option>
                     </select><br><br>
 
+                    <!--AssetType-->
+                    <label id="asset-type" for="asset-type">Type</label><br>
+                    <p>Helps viewers to filter your asset. Select the most suitable one</p><br>
+                    <select id="asset-type" name="asset-type">
+                        <option value="sprite" selected>Sprite</option>
+                        <option value="skybox">Skybox</option>
+                        <option value="character">Character</option>
+                        <option value="tileset">Tileset</option>
+                    </select><br><br>
+
+                    <!--AssetStyle-->
+                    <label id="asset-style" for="asset-style">Style</label><br>
+                    <p>Helps viewers to filter your asset. Select the most suitable one</p><br>
+                    <select id="asset-style" name="asset-style">
+                        <option value="pixelart" selected>Pixel Art</option>
+                        <option value="8bit">8-Bit</option>
+                        <option value="16bit">16-Bit</option>
+                        <option value="lowpoly">Low Poly</option>
+                        <option value="voxel">Voxel</option>
+                    </select><br><br>
+
                     <label id="asset-visibility" for="asset-visibility">Visibility</label><br>
                     <p>Decide when is your page ready for the public</p><br>
                     <input type="radio" id="asset-draft" name="asset-visibility" value="draft">
@@ -374,11 +471,11 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Vedio</label><br>
                     <p>Provide a link to youtube</p><br>
-                    <input type="url" id="asset-illustration-vedio" name="asset-illustration-vedio" placeholder="eg: https://www.youtube.com/"><br><br>
+                    <input type="url" id="asset-illustration-vedio" name="asset-illustration-video" placeholder="eg: https://www.youtube.com/"><br><br>
 
                     <label id="asset-screenshots" for="asset-screenshots">Screenshots</label><br>
                     <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
-                    <input type="file" id="asset-screenshots" name="asset-screenshots" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
+                    <input type="file" id="asset-screenshots" name="asset-screenshots[]" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
                 </div>
             </div>
             <br><br>
@@ -395,8 +492,12 @@ if (isset($_POST['asset-submit'])) {
 <?php include("../components/footer.php"); ?>
 
 
+
+
 <!--script-->
+<script src="../src/js/redactor.js"></script>
 <script src="../src/js/upload.js"></script>
+<script src="https://use.fontawesome.com/a31a3f8384.js"></script>
 <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
     <script src="../src/js/navbar.js"></script>
 <?php } else { ?>

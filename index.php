@@ -6,7 +6,7 @@
 <html lang="en">
 
 <!--Including Navbar-->
-<?php include("components/navbar.php"); ?>
+<?php include("components/homenavbar.php"); ?>
 
 <!--Including Home Content-->
 

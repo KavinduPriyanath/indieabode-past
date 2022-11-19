@@ -32,7 +32,7 @@ $assets = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <!--Page Topic-->
 <div class="page-topic">
-    <h1>Assets</h1>
+    <h1>-Assets-</h1>
 </div>
 
 <!-- Filters-->
