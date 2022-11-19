@@ -179,15 +179,9 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
         <div class="details">
           <div class="host">Hosted by, <span><?php echo $jam['firstName'] . ' ' . $jam['lastName'] ?></span></div>
-          <div class="deadline">Starts in, <span><?php
-                                                  //$date1 = date_format($jam['submissionStartDate']);
-
-                                                  //$date2 = date('Y-m-d');
-                                                  //$diff = date_diff($date1,$date2);
-                                                  //$diff = $date1 - $date2;
-                                                  //echo $diff; 
-                                                  ?></span>
-            days </div>
+          <div class="deadline">Starts on, 
+            
+          </div>
           <div class="count">
             <h2>56</h2>
             joined

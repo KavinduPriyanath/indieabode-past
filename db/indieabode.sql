@@ -1,11 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Nov 16, 2022 at 06:56 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -216,6 +218,7 @@ CREATE TABLE `freeasset` (
 -- Dumping data for table `freeasset`
 --
 
+
 INSERT INTO `freeasset` (`assetID`, `assetName`, `assetDetails`, `assetScreenshots`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`) VALUES
 (25, 'New Assets 7', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 7.jpg', 0, '', '', '', 5),
 (26, 'sword pack', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-sword pack.jpg', 0, '', '', '', 5),
@@ -233,6 +236,7 @@ INSERT INTO `freeasset` (`assetID`, `assetName`, `assetDetails`, `assetScreensho
 (40, 'Sprout Lands', 'fefgegg rh hth hth ', 'SS-Sprout Lands.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', 'lowpoly', 5),
 (41, 'Sprout Valley', 'degfre hgrhtrh htj tj tjrt j', 'SS-Sprout Valley-0.jpg,SS-Sprout Valley-1.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Valley.txt', 'open-source', 'Cover-Sprout Valley.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
 (42, 'New Asset 989', 'thyj jjkj k k6k', 'SS-New Asset 989-0.png,SS-New Asset 989-1.jpg,SS-New Asset 989-2.jpg,SS-New Asset 989-3.jpg,SS-New Asset 989-4.jpg', 'Buy this one ASAP', '2d', 'released', ' jkk k kk  k', 'Asset-New Asset 989.txt', 'open-source', 'Cover-New Asset 989.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1);
+
 
 -- --------------------------------------------------------
 
@@ -253,30 +257,21 @@ CREATE TABLE `freegame` (
   `gameFile` varchar(255) NOT NULL,
   `gameVisibility` tinyint(1) NOT NULL,
   `gameCoverImg` varchar(255) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL,
-  `minOS` varchar(255) NOT NULL,
-  `minProcessor` varchar(255) NOT NULL,
-  `minMemory` varchar(255) NOT NULL,
-  `minStorage` varchar(255) NOT NULL,
-  `minGraphics` varchar(255) NOT NULL,
-  `minOther` varchar(255) NOT NULL,
-  `recommendOS` varchar(255) NOT NULL,
-  `recommendProcessor` varchar(255) NOT NULL,
-  `recommendMemory` varchar(255) NOT NULL,
-  `recommendStorage` varchar(255) NOT NULL,
-  `recommendGraphics` varchar(255) NOT NULL,
-  `recommendOther` varchar(255) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freegame`
 --
 
+
+
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
 (1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
 (2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
 (4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
 (18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
+
 
 -- --------------------------------------------------------
 
@@ -330,11 +325,9 @@ CREATE TABLE `gamejam` (
 --
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
-(38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', ''),
-(41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
-(42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
-(44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
-(45, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hththth', '0000-00-00 00:00:00', 'GTML', 'rgrger', 'Non-Ranked', 'grg', 'Draft', 0, 1, 5, 'Submitters Only', 'hh', 'Cover-GTML.png');
+(45, '2022-11-25 12:00:00', '2022-11-26 12:00:00', ' this is a game jam', '2022-11-28 12:00:00', 'Game Jam', '24 hour Game Jam', 'Ranked', 'creativity', 'Draft', 10, 1, 6, 'Moderators Only', '#gmtk', 'Cover-Game Jam.png'),
+(46, '2020-10-05 12:00:00', '2020-10-07 12:00:00', ' This is a gamejam.', '2020-10-09 12:00:00', 'gamejam2', '2 Day gamejam', 'Non-Ranked', 'creativity', 'Public', 50, 1, 6, 'Public', '#gmtk', 'Cover-gamejam2.jpg');
+
 
 -- --------------------------------------------------------
 
@@ -844,6 +837,7 @@ ALTER TABLE `devlog`
 ALTER TABLE `freeasset`
   MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
+
 --
 -- AUTO_INCREMENT for table `freegame`
 --
@@ -854,7 +848,7 @@ ALTER TABLE `freegame`
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `gamer`
@@ -1025,8 +1019,7 @@ ALTER TABLE `handlecomplaint`
 --
 ALTER TABLE `joinjam`
   ADD CONSTRAINT `joinjam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `usertype` (`gamerID`);
+  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `organizegamejam`
@@ -1091,6 +1084,12 @@ ALTER TABLE `ratesubmission`
 --
 ALTER TABLE `submission`
   ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `usertype`
+--
+ALTER TABLE `usertype`
+  ADD CONSTRAINT `usertype_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
