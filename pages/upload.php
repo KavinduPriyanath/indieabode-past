@@ -352,9 +352,9 @@ if (isset($_POST['asset-submit'])) {
                         <option value="Upcoming">Upcoming</option>
                     </select><br><br>
 
-                    <label id="asset-details" for="asset-details">Details</label><br>
+                    <label for="asset-details">Details</label><br>
                     <p id="p">This will be the content of your assets page</p><br>
-                    <textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea>
+                    <!--<textarea id="asset-details" name="asset-details" rows="9" cols="50"></textarea>-->
 
 
 
@@ -397,6 +397,7 @@ if (isset($_POST['asset-submit'])) {
                         <!--Content-->
                         <div class="content-box" id="redactor" contenteditable="true"></div>
                     </div>
+                    <input type="hidden" name="asset-details" id="asset-details">
 
 
 
@@ -479,7 +480,7 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="asset-submit">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="MoveData();">Save & View Page</button>
         </form>
     </div>
 </div>

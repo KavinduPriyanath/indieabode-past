@@ -21,3 +21,10 @@ const redactorBox = document.getElementById("redactor");
 const storeInput = document.getElementById("asset-details");
 
 //storeInput.replaceWith(redactorBox);
+
+//function to move data from innerhtml to input tag
+function MoveData() {
+  let data = document.getElementById("redactor");
+  let inputField = document.getElementById("asset-details");
+  inputField.value = data;
+}

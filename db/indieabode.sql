@@ -4,7 +4,7 @@
 --
 -- Host: 127.0.0.1
 
--- Generation Time: Nov 16, 2022 at 06:56 PM
+-- Generation Time: Nov 20, 2022 at 06:06 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -235,7 +235,9 @@ INSERT INTO `freeasset` (`assetID`, `assetName`, `assetDetails`, `assetScreensho
 (39, 'Sprout Lands', 'hytjyujuykju', 'SS-Sprout Lands.png', 'cute pixel farming', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, '', '', '', 5),
 (40, 'Sprout Lands', 'fefgegg rh hth hth ', 'SS-Sprout Lands.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', 'lowpoly', 5),
 (41, 'Sprout Valley', 'degfre hgrhtrh htj tj tjrt j', 'SS-Sprout Valley-0.jpg,SS-Sprout Valley-1.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Valley.txt', 'open-source', 'Cover-Sprout Valley.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
-(42, 'New Asset 989', 'thyj jjkj k k6k', 'SS-New Asset 989-0.png,SS-New Asset 989-1.jpg,SS-New Asset 989-2.jpg,SS-New Asset 989-3.jpg,SS-New Asset 989-4.jpg', 'Buy this one ASAP', '2d', 'released', ' jkk k kk  k', 'Asset-New Asset 989.txt', 'open-source', 'Cover-New Asset 989.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1);
+(42, 'New Asset 989', 'thyj jjkj k k6k', 'SS-New Asset 989-0.png,SS-New Asset 989-1.jpg,SS-New Asset 989-2.jpg,SS-New Asset 989-3.jpg,SS-New Asset 989-4.jpg', 'Buy this one ASAP', '2d', 'released', ' jkk k kk  k', 'Asset-New Asset 989.txt', 'open-source', 'Cover-New Asset 989.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
+(43, 'New Asset 123', '', 'SS-New Asset 123-0.jpg,SS-New Asset 123-1.jpg,SS-New Asset 123-2.jpg', 'Buy this one ASAP', '2d', 'Prototype', 'food, sprites, icons', 'Asset-New Asset 123.txt', 'proprietary', 'Cover-New Asset 123.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', '16bit', 1),
+(44, 'New Assets 1111', '', 'SS-New Assets 1111-0.jpg,SS-New Assets 1111-1.jpg', '50+ Stylized Anime Food Art Pack', 'visualEffects', 'Upcoming', 'fewg gergreg rg rgrg', 'Asset-New Assets 1111.txt', 'permissive', 'Cover-New Assets 1111.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', '16bit', 1);
 
 
 -- --------------------------------------------------------
@@ -835,7 +837,7 @@ ALTER TABLE `devlog`
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 
 --
