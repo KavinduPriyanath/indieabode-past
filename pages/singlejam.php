@@ -40,49 +40,55 @@ if(isset($_GET['id'])){
 </style>
 
 <div class="container">
-
+    
+        
     <?php if($gamejams): ?>
             <div class="box">
-            <h1><?php echo htmlspecialchars($gamejams['jamTitle']); ?></h1>
-            <p><?php echo htmlspecialchars($gamejams['jamTagline']); ?></p>
-            
+                <h1><?php echo htmlspecialchars($gamejams['jamTitle']); ?></h1>
+                <p><?php echo htmlspecialchars($gamejams['jamTagline']); ?></p>
+            </div>
+    <div class="card">
 
+            <div class="launch-time"><h2>Starts in</h2> 
+               
+      
+            <div>
+                <p id = "days">00</p>
+                <span>Days</span>
             </div>
-            <div class="box">
-                <h3>22</h3>
-                <p>Days</p>
+
+            <div>
+                <p id = "hours">00</p>
+                <span>Hours</span>
             </div>
-            <div class="box">
-                <h3>14</h3>
-                <p>hours</p>
+
+            <div>
+                <p id = "minutes">00</p>
+                <span>Minutes</span>
             </div>
-            <div class="box">
-                <h3>40</h3>
-                <p>mins</p>
+
+            <div>
+                <p id = "seconds">00</p>
+                <span>Seconds</span>
             </div>
-            <div class="box">
-                <h3>56</h3>
-                <p>secs</p>
-            </div>
+
             <div class="box">
                 <div class="button">
                     <input type="submit" value="Join Jam">
                 </div>
             </div>
+            
         </div>
     </div>
 
 </div>
 
-<div class="container">
-    <img src="https://img.itch.zone/aW1nLzY1ODQ2NDUucG5n/original/YQmP3O.png">
 
+<div class="container">
+    <img src="../uploads/gamejams/covers/<?= $gamejams['jamCoverImg'] ?>" alt="" />
     <div class="block">
         <h2>About The Jam</h2>
-        <p>The Lost Cartridge Jam is an annual game jam where game designers, writers, composers, programmers and other creatives
-            from all over the world spend 72 hours creating a Lost Cartridge Game from scratch.
-
-            This is the fourth jam in a row. For previous entries, check out the website.</p>
+        <p><?php echo htmlspecialchars($gamejams['jamContent']); ?></p>
     </div>
     <div class="block">
         <h2>What is A "Lost Cartridge Game"</h2>
@@ -137,6 +143,38 @@ if(isset($_GET['id'])){
         </div>
 
     <?php endif; ?>
+
+
+
+
+<script type = "text/javascript" >
+    var count_id = "<?php echo $gamejams['submissionStartDate'];?>";
+    var countDownDate = new Date(count_id).getTime();
+    var x = setInterval(function(){
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance/(1000*60*60*24));
+        var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+        var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+        var seconds = Math.floor((distance%(1000*60))/1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if(distance<0){
+            clearInterval(x);
+            document.getElementById("days").innerHTML = 00;
+            document.getElementById("hours").innerHTML = 00;
+            document.getElementById("minutes").innerHTML = 00;
+            document.getElementById("seconds").innerHTML = 00;
+
+        }
+    },1000);
+</script>
+
+
 
 <style>
     <?php include('../src/css/footer.css') ?>
