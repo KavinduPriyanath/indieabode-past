@@ -125,3 +125,59 @@ form input[type=checkbox] {
   color: white;
 }
 
+.captcha label {
+  display: block;
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 3px;
+
+}
+
+.captcha {
+  margin: 15px 0px;
+}
+
+.captcha .preview {
+  color: rgb(222, 207, 207);
+  width: 250px;
+  text-align: center;
+  height: 40px;
+  margin-left: 100px;
+  line-height: 40px;
+  letter-spacing: 8px;
+  background-color: rgba(115, 170, 193, 0.4);
+  /* border: 1px dashed rgb(15, 66, 129); */
+  border-radius: 8px 8px 0px 0px;
+  font-family: monospace;
+}
+
+.captcha .preview span {
+  display: inline-block;
+  user-select: none;
+}
+
+.captcha .captcha-form {
+  display: flex;
+}
+
+.captcha .captcha-form input {
+  width: 210px;
+  padding: 8px;
+  margin-top: 0px;
+  margin-right: 0px;
+  border-radius: 0px 0px 0px 8px;
+  /* border: 1px solid rgb(38, 103, 183); */
+}
+
+.captcha .captcha-form .captcha-refresh {
+  width: 40px;
+  border: none;
+  outline: none;
+  background-color: rgb(42, 79, 126);
+  color: rgb(176, 223, 232);
+  height: 40px;
+  cursor: pointer;
+  border-radius: 0px 0px 8px 0px;
+}
+
+

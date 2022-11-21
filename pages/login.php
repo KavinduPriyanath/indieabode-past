@@ -57,13 +57,33 @@ if (isset($_POST['submit'])) {
         <label class="form-login-label">Password</label><br>
         <input type="password" placeholder="Password" name="password"><br>
 
+
+        <!-- Add Recaptcha -->
+        <div class="captcha">
+            <!-- <label for="captcha-input"> Enter Captcha</label> -->
+            <div class="preview"><span></span></div>
+            <div class="captcha-form">
+                <input type="text" id="captcha-input" placeholder="Enter Captcha Text" />
+                <button class="captcha-refresh"><i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="status-text"></div>
+        </div>
+        <!-- End of Recaptcha -->
+
+
         <button type="submit" name="submit" id="login">Login</button>
+
+
 
     </form>
     <div class="forgot-pw">
         <div> Forgot Password? </div><a href="/indieabode/pages/resetpassword.php">Reset Password</a>
     </div>
 </div>
+
+<script>
+    <?php include('../src/js/captcha.js'); ?>
+</script>
 
 
 <!--Including Footer-->
