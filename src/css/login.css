@@ -135,6 +135,7 @@ form input[type=checkbox] {
 
 .captcha {
   margin: 15px 0px;
+  display: none;
 }
 
 .captcha .preview {
@@ -180,4 +181,13 @@ form input[type=checkbox] {
   border-radius: 0px 0px 8px 0px;
 }
 
+.check-bar {
+  text-align: left;
+  margin-left: 100px;
+}
 
+#robotlabel {
+  display: inline-block;
+  font-size: 18px;
+  color: white;
+}

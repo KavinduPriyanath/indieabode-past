@@ -57,9 +57,17 @@ if (isset($_POST['submit'])) {
         <label class="form-login-label">Password</label><br>
         <input type="password" placeholder="Password" name="password"><br>
 
+        <!-- checkbox -->
+        <div class="check-bar">
+            <label for="robot" id="robotlabel">
+                <input type="checkbox" name="robot" id="robot" onclick="checkboxClicked()"> I'm not a Robot
+            </label>
+        </div>
+        <!-- checkbox closed -->
+
 
         <!-- Add Recaptcha -->
-        <div class="captcha">
+        <div class="captcha" id="captcha">
             <!-- <label for="captcha-input"> Enter Captcha</label> -->
             <div class="preview"><span></span></div>
             <div class="captcha-form">
