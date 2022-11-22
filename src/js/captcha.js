@@ -81,6 +81,7 @@ getCaptcha(); //calling getCaptcha when the page open
 //calling getCaptcha & removeContent on the reload btn click
 reloadBtn.addEventListener("click", () => {
   e.preventDefault();
+  //checkbox.checked = "true";
   removeContent();
   getCaptcha();
 });
@@ -120,4 +121,16 @@ function removeContent() {
   inputField.value = "";
   captcha.innerText = "";
   statusTxt.style.display = "none";
+}
+
+//viewing captcha
+function checkboxClicked() {
+  const checkbox = document.getElementById("robot");
+  const captchaBox = document.getElementById("captcha");
+
+  if (checkbox.checked) {
+    captchaBox.style.display = "block";
+  } else {
+    captchaBox.style.display = "none";
+  }
 }
