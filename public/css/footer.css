@@ -1,0 +1,40 @@
+/*Footer*/
+
+.footer {
+    background-color: #2C4862;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left {
+    display: block;
+    margin: 10px 10px 5px 10px;
+}
+
+.left a {
+    padding: 10px;
+    color: #89C0D8;
+    opacity: 74%;
+    text-decoration: none;
+}
+
+.right {
+    display: block;
+    margin: 10px 10px 5px 10px;
+}
+
+.right img {
+    width: 17px;
+    height: 17px;
+    margin: 5px;
+}
+
+.second-row {
+    display: block;
+    text-align: center;
+    color: #A3BDDC;
+    padding-bottom: 10px;
+}

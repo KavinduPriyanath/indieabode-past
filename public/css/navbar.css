@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #335879;
+    font-family: 'Kreon', serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #2C4862;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    font-size: 32px;
+    margin: 15px 20px 15px 180px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-links .ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+
+.navbar-links a  {
+    text-decoration: none;
+    padding: 1.3rem;
+    font-size: 20px;
+    color: white;
+    display: block;
+}
+
+.droparrow {
+    padding-left: 3.4px;
+
+}
+
+.navbar-links a:hover {
+    color: rgb(109, 171, 199);
+}
+
+.toggle-button {
+    position:absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content:space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links .ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links a {
+        text-align: center;
+    }
+
+    .navbar-links a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .logo {
+        margin: 15px;
+        transition: margin 200ms ease-in-out;
+    }
+}
+
+.dropdown {
+    position: relative
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100%);
+    background-color: #8EA8B0;
+    /*padding: 0px 80px 10px 20px;*/
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(84, 82, 82);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
+    z-index: 2;
+}
+
+/*
+.dropdown-menu.active {
+    opacity: 1;
+}*/
+
+
+
+.dropdown.active > a + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu .ulsub {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.dropdown-menu a  {
+    text-decoration: none;
+    padding: 5px 70px 2px 8px;
+    margin: 3px 4px 2px 5px;
+    border-radius: 5px;
+    font-size: 19px;
+    color: #3D4363;
+    display: flex;
+}
+
+.dropdown-menu a:hover {
+    background-color: #AEC3D7;
+    color: #3D4363;
+}
+
+.rightdown {
+    position: absolute;
+    right: 6px;
+}
+
+a .double {
+    display: none;
+}
+
+a:hover .single{
+    display: none;
+}
+
+a:hover .double{
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: #8EA8B0;
+    transform: rotate(45deg);
+    z-index: -10;
+}
+
+/* Hardcoded arrows for dropdowns */
+.arrow1 {
+    left: 74px;
+    top: -10px;
+}
+
+.arrow2 {
+    left: 74px;
+    top: -10px;
+}
+
+.arrow3 {
+    left: 60px;
+    top: -10px;
+}
+
+.arrow4 {
+    right: 70px;
+    top: -10px;
+}
+
+.arrow5 {
+    left: 84px;
+    top: -10px;
+}
+
+.arrow6 {
+    left: 24px;
+    top: -10px;
+}
+
+#logged a{
+    display: flex;
+}
+
+.pp {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(185, 175, 175);
+    margin-right: 5px;
+    border-radius: 10px;
+    background-image: url('public/images/navbar/profile.png');
+    background-size: cover;
+}
+
+.search img {
+    width: 20px;
+    height: 20px;
+
+}
+
+.search-bar {
+    margin-top: 15px;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    min-width: 400px;
+    border: 1px solid rgb(31, 69, 119);
+    border-radius: 8px;
+    box-shadow: 2px 3px #4d597d;
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 5px 5px;
+    font-size: 16px;
+    color: rgba(213, 210, 210, 0.805);
+}
+
+::placeholder {
+    font-size: 19px;
+    color: #8BA8B9;
+    font-family: 'Kreon', serif;
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    cursor: pointer;
+}
