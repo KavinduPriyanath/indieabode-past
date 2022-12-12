@@ -41,45 +41,60 @@ if (isset($_POST['submit'])) {
 
 <!--Including Navbar-->
 <?php include("../components/loginnavbar.php"); ?>
+<style>
+    <?php include '../src/css/login.css'; ?>
+</style>
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="wrapper">
+    <div class="btn-box">
+        <a href="/indieabode/pages/login.php"><button type="button" class="toggle-btn login-toggle-btn">Login</button></a>
+        <a href="/indieabode/pages/register.php"><button type="button" class="toggle-btn">Register</button></a>
+    </div>
+    <form action="#" method="POST" id="form">
+        <label class="form-login-label" id="username">Email or Username</label><br>
+        <input type="text" placeholder="email" name="email"><br>
+        <label class="form-login-label">Password</label><br>
+        <input type="password" placeholder="Password" name="password"><br>
 
-<body>
-    <style>
-        <?php
-        include('../src/css/login.css');
-        ?>
-
-    </style>
-
-
-    <div class="wrapper">
-        <div class="btn-box">
-            <a href="/indieabode/pages/login.php"><button type="button" class="toggle-btn login-toggle-btn">Login</button></a>
-            <a href="/indieabode/pages/register.php"><button type="button" class="toggle-btn">Register</button></a>
+        <!-- checkbox -->
+        <div class="check-bar">
+            <label for="robot" id="robotlabel">
+                <input type="checkbox" name="robot" id="robot" onclick="checkboxClicked()"> I'm not a Robot
+            </label>
         </div>
-        <form action="#" method="POST">
-            <label class="form-login-label">Email or Username</label><br>
-            <input type="email" placeholder="email" name="email"><br><br><br><br>
-            <label class="form-login-label">Password</label><br>
-            <input type="password" placeholder="Password" name="password"><br><br><br>
+        <!-- checkbox closed -->
 
-            <button type="submit" name="submit">Login</button>
 
-        </form>
-        <div class="forgot-pw">
-            Forgot Password? <br><a href="/indieabode/pages/resetpassword.php">Reset Password</a>
+        <!-- Add Recaptcha -->
+        <div class="captcha" id="captcha">
+            <!-- <label for="captcha-input"> Enter Captcha</label> -->
+            <div class="preview"><span></span></div>
+            <div class="captcha-form">
+                <input type="text" id="captcha-input" placeholder="Enter Captcha Text" />
+                <button class="captcha-refresh"><i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="status-text"></div>
+        </div>
+        <!-- End of Recaptcha -->
+
+
+        <button type="submit" name="submit" id="login">Login</button>
+
+
+
+    </form>
+    <div class="forgot-pw">
+        <div> Forgot Password? </div><a href="/indieabode/pages/resetpassword.php">Reset Password</a>
     </div>
-    </div>
+</div>
+
+<script>
+    <?php include('../src/js/captcha.js'); ?>
+</script>
 
 
-    <!--Including Footer-->
+<!--Including Footer-->
 
     <style>
           .login-footer{
@@ -89,5 +104,6 @@ if (isset($_POST['submit'])) {
     </style>
     <?php include("../components/footer.php"); ?>
 </body>
+
 
 </html>

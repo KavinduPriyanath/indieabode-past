@@ -169,12 +169,15 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
 
-        </div>
+        
 
         <div class="button">
             <input type="submit" name="submit" value="Save & View Page">
         </div>
+
     </form>
+    </div>
+
 </div>
 
 

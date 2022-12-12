@@ -4,8 +4,6 @@ body {
     /*height: 100vh;*/
     justify-content: center;
     align-items:flex-end;
-
-    background: hsla(0, 3%, 77%, 0.867);
 }
 
 .form-container {
