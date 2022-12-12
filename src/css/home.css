@@ -11,6 +11,10 @@
 }
 
 #topic-break {
+    color: #86AFEC;
+    background-color: #86AFEC;
+    border-width: 0px;
+    height: 0.5px;
     margin: 5px 150px 15px 175px;
 }
 
@@ -24,7 +28,7 @@
 }
 
 .card {
-    background-color: gray;
+    background-color: #95B2C8;
     width: 282.5px;
     margin: 10px;
     border-radius: 10px;
@@ -44,7 +48,8 @@
     left: 8px;
     bottom: 5px;
     display: block;
-    background-color: rgb(193, 186, 186);
+    color: #2B5594;
+    background-color: #95B2C8;
     padding: 5px;
     border-radius: 7px;
 }
@@ -87,12 +92,16 @@
 
 .game-intro {
     display: flex;
+    font-size: 18px;
+    color: #1F1E1E;
     justify-content: space-between;
     margin: 10px 10px 2px 10px;
 }
 
 .tagline{
-    padding: 10px;
+    padding: 3px 10px;
+    font-size: 17px;
+    color: #475872;
     margin-bottom: 7px;
     text-align: justify;
 }

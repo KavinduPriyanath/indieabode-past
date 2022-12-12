@@ -28,7 +28,7 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </style>
 
 <div class="page-topic">
-    <h1>Games</h1>
+    <h1>-Games-</h1>
 </div>
 
 <!-- Filters-->
@@ -159,7 +159,7 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php foreach ($games as $game) { ?>
         <a href="singlegame.php?id=<?= $game['gameID']; ?>">
             <div class="card">
-                <div class="card-image game"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
+                <div class="card-image"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
                 </div>
                 <div class="game-intro">
                     <h3><?= $game['gameName'] ?></h3>

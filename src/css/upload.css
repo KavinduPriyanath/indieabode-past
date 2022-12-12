@@ -17,7 +17,7 @@
     /*background:rgb(28,4,28);*/
     background:#95B2C8;
     width:75%;
-    height:2100px;
+    height:2200px;
     position:relative;
     padding:10px;
     margin-top: 0;
@@ -199,4 +199,28 @@ select option{
 
 .game-spec-item-details input{
     width:100%;
+}
+
+/* Redactor Box */
+
+.main-content {
+    width: 425.4px;
+    border: 2px solid;
+    
+}
+
+.text-editor-header {
+    background-color: rgb(244, 238, 238);
+    padding: 5px;
+}
+
+.text-editor-header .rbtn {
+    margin-right: 5px;
+}
+
+.content-box {
+    min-height: 250px;
+    border-top: 0.7px solid;
+    padding: 15px;
+
 }
