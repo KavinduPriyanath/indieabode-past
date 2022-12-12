@@ -82,6 +82,9 @@ if (isset($_POST['submit'])) {
     <!--Including Footer-->
 
     <style>
+          .login-footer{
+            margin-top:100vh;
+        }
         <?php include('../src/css/footer.css'); ?>
     </style>
     <?php include("../components/footer.php"); ?>

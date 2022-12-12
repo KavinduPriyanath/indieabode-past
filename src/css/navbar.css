@@ -7,13 +7,13 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(209, 204, 204);
+    background:#335879;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    background-color: gray;
+    background-color: #2C4862;
     color: white;
 }
 

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2022 at 11:03 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Dec 12, 2022 at 08:25 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -222,6 +222,7 @@ CREATE TABLE `freegame` (
   `gameTagline` varchar(255) NOT NULL,
   `gameClassification` varchar(50) NOT NULL,
   `gameTags` varchar(30) NOT NULL,
+  `gameFeatures` varchar(255) NOT NULL,
   `gameFile` varchar(255) NOT NULL,
   `gameVisibility` tinyint(1) NOT NULL,
   `gameCoverImg` varchar(255) NOT NULL,
@@ -244,13 +245,13 @@ CREATE TABLE `freegame` (
 -- Dumping data for table `freegame`
 --
 
-
-INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
-(1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
-(4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
-
+INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
+(1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', '', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(19, 'ndffgfhg', 'early access', 'cccccccccccccccccccccccccccccccccccc', 'SS-ndffgfhg.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'mnbjknmecrvvgb', 'RPG', 'cccccxz', '', '', 0, 'Cover-ndffgfhg.png', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(20, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
 
 -- --------------------------------------------------------
 
@@ -309,7 +310,6 @@ INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, 
 (42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
 (44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
 (45, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hththth', '0000-00-00 00:00:00', 'GTML', 'rgrger', 'Non-Ranked', 'grg', 'Draft', 0, 1, 5, 'Submitters Only', 'hh', 'Cover-GTML.png');
-
 
 -- --------------------------------------------------------
 
@@ -823,15 +823,13 @@ ALTER TABLE `freeasset`
 -- AUTO_INCREMENT for table `freegame`
 --
 ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `gamer`

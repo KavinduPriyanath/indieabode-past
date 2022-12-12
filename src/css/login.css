@@ -46,8 +46,6 @@ a{
 .wrapper{
   margin: 50px auto;
   text-align: center;
-  margin-bottom:0;
-  padding-bottom: 0;
   position: absolute;
   width: 60%;
   left:20%;
@@ -69,8 +67,6 @@ a{
   border: none;
   background-color: rgba(115,170,193,0.72);
   padding: 12px 14px;
-  margin-top:0;
-  margin-bottom:0;
   border-radius: 10px;
   position: absolute;
   left:10%;

@@ -1,3 +1,7 @@
+*{
+    font-family: 'Kreon';
+    font-style: normal;
+}
 .upload-row{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -5,31 +9,46 @@
 
 .outer-box{
     /*background: linear-gradient(rgb(5, 5, 5),rgb(34, 3, 34));*/
-    background-color: white;
     background-size:cover;
     background-position: center;
 }
 
 .form-box{
     /*background:rgb(28,4,28);*/
-    background-color: white;
+    background:#95B2C8;
     width:75%;
-    height:2000px;
+    height:2100px;
     position:relative;
     padding:10px;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    margin:auto;
+    margin: 5% 10% 5% 10%;
     overflow:hidden;
+}
+
+.upload-topic{
+    color:#060606;
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 34px;
+    margin-left:3%;
+}
+
+hr{
+    border: 2.5px solid #315168;
+    transform: rotate(0.06deg);
+    margin-top:1%;
 }
 
 .btn-box{
     margin:35px auto;
     position: relative;
-    border-radius: 30px;
-    box-shadow:0 0 20px 3px rgb(122, 120, 122);
+    border-radius: 7px;
+    box-shadow: 0 0 10px 3px #315168;
     width:320px;
 }
 
@@ -40,8 +59,9 @@
     outline:none;
     border:0;
     position:relative;
-
+    font-size: 20px;
 }
+
 
 #btn{
     top:0;
@@ -49,9 +69,9 @@
     position:absolute;
     align-items: center;
     width:160px;
-    height:35px;
-    background:linear-gradient(to right, rgb(105, 101, 104), rgb(245, 240, 245));
-    border-radius:30px;
+    height:41px;
+    background: #749ABD;
+    border-radius: 7px;
     border-width:2px;
     transition:.5s;
 }
@@ -62,35 +82,79 @@
     transition:.5s;
 }
 
+label{
+    font-weight: 1000;
+    font-size: 20px;
+    line-height: 25px;
+    color: #000000;
+
+}
+
 input,select,textarea{
-    width:75%;
-    padding:10px 0;
-    margin:5px 0;
-    border-left:0;
-    border-top:0;
-    border-right:0;
-    border-bottom: 2px solid rgb(150,129,150);
-    background:transparent;
-    outline:none;
+    width: 85%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: 2px solid #1E3455;
+    background: transparent;
+    outline: none;
+    border-radius: 4px;
+}
+
+input::placeholder,option,select:checked{
+    color: rgba(72, 95, 117, 0.6);
+    padding-left:2%;
+    font-weight:800;
 }
 
 input[type=radio]{
     width:auto;
 }
+
+
 p{
-    color:rgb(79, 74, 74);
-    font-style:italic;
+    color:#203446;
+    font-weight:800;
+}
+
+.visibility label{
+    color:#203446;
+    font-weight:800;
+    font-size:1em;
 }
 
 textarea{
-    border:2px solid rgb(150,129,150);
+    border: 2px solid #1E3455;
+    
 }
 
 select option{
-    background:rgb(169, 166, 169);
+    background:#749ABD;
+    color:#1E3455;
 }
 
-.submit-btn{
+.submit-btn {
+    cursor: pointer;
+    color:white;
+    display: block;
+    margin: auto;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 1px #315168;
+    width: 160px;
+    height: 41px;
+    background:#383F7D;
+    border-radius: 7px;
+    border-width: 2px;
+    transition: .5s;
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1emx;
+    line-height: 25px;
+}
+
+/* .submit-btn{
     width:50%;
     height:35px;
     padding:10px 30px;
@@ -101,15 +165,21 @@ select option{
     border: 0;
     outline:none;
     border-radius:30px;
+} */
+
+#upload-game-form,#upload-asset-form{
+    margin: 2% 5% 2% 5%;
+    overflow: hidden;
 }
 
-#upload-game{
+#upload-game-form{
     left:5px;
 }
 
-#upload-asset{
-    left:1405px;
+#upload-asset-form{
+    left:1705px;
 }
+
 
 .game-spec-type{
     margin:0 0 0 0;
