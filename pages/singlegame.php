@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
+<body>
 <!--Including Navbar-->
 <style>
   <?php
@@ -66,8 +66,27 @@ if (isset($_GET['id'])) {
       </li>
     </ul>
 
-    <!--Ratings, Views, Downloads-->
+    <div class="tagline">
+    <p>
+    As Spirit Guardians our duty is to  help the troubled humans of this world before
+    the world collapses.
+      <?= $game['gameTagline']; ?>
+    </p>
+    </div>
 
+    <div class="genre-feature">
+      <div class="genre">
+          Genre<br>
+          <p>Action, Adventure, Strategy</p>
+      </div>
+      <div class="feature">
+          Feature<br>
+          <p>Single Player</p>
+      </div>
+    </div>
+
+    <!--Ratings, Views, Downloads-->
+<!--
     <div class="ratings">
       <div class="stars">
         <img src="../images/singlegame/Filled Star.png" alt="" />
@@ -85,23 +104,22 @@ if (isset($_GET['id'])) {
           <img src="../images/singlegame/download.png" alt="" />
           <p id="downloads">10</p>
     </div>
-
+-->
 
     <!--Rate & View All-->
-
+<!--
     <div class="info-box">
       <button id="rate-btn" onclick="AddReview()">Rate this Game</button>
       <button id="all-btn">View all by miHoYo</button>
     </div>
+-->
 
+<!--
     <div class="tagline">
       <p>
-        Embark on a journey across Teyvat to find your lost sibling and seek
-        answers from The Seven — the gods of each element. Explore this
-        wondrous world, join forces with a diverse range of characters, and
-        unravel the countless mysteries that Teyvat holds...
+      <?= $game['gameTagline']; ?>
       </p>
-    </div>
+    </div>  -->
   </div>
 
 
@@ -134,7 +152,7 @@ if (isset($_GET['id'])) {
 
     <div class="row">
       <p class="title">Platform</p>
-      <p class="sub-title">Windows 10</p>
+      <p class="sub-title"><?= $game['minOS']; ?></p>
     </div>
     <hr />
 
@@ -142,11 +160,15 @@ if (isset($_GET['id'])) {
       <p class="title">Game Status</p>
       <p class="sub-title"><?= $game['releaseStatus']; ?></p>
     </div>
+    <hr />
   </div>
 </div>
 
-
 <!--Description-->
+
+<div class="game-details">
+  
+</div>
 
 <div class="description">
   <p>
@@ -154,9 +176,11 @@ if (isset($_GET['id'])) {
   </p>
 </div>
 
+
+
 <!--Reviews-->
 <div class="reviews">
-  <h1>Reviews</h1>
+  <h3>Ratings</h3>
 
   <div class="review">
     <div class="left">
@@ -249,10 +273,14 @@ if (isset($_GET['id'])) {
         <img src="../images/singlegame/dislike.png" alt="" />
       </div>
     </div>
+  </div>
+
+  <div class="rate-game">
+      <button id="rate-btn" onclick="AddReview()">Rate this Game</button>
   </div>
 
   <div class="review-form" id="review-form">
-    <h2>Write a review for Genshin Impact</h2>
+    <h4>Write a review for Genshin Impact</h4><br>
     <p>
       Please describe what you liked or disliked about this asset and
       whether you recommend it to others
@@ -265,10 +293,53 @@ if (isset($_GET['id'])) {
       <label for="rate">Rating: </label> <br />
       <label for="details">Details:</label>
       <textarea name="details" id="details" placeholder="Write somethinghttps://github.com/KavinduPriyanath/indieabode/pull/26/conflict?name=pages%252Fupload.php&ancestor_oid=28074c1e30dee2fde2d68aed9995442d835617d2&base_oid=37233d93a73700f961036609e0416eadc182c437&head_oid=1913d302ae98bbd67f41579c6f668d45a625baa5..."></textarea>
-      <input type="submit" value="Post Review" />
+      <input type="submit" value="Post Review" /><br>
     </form>
   </div>
+
+  <div class="game-specification">
+  <h3>Specifications</h3>
+  <div class="game-spec-details">
+    <h3>Windows</h3>
+    <hr>
+
+    <table>
+    <tr>
+      <th>Minimum</th>
+      <th>Recommended</th>
+    </tr>
+    <tr>
+      <td><p>OS</p>Windows 10</td>
+      <td><p>OS</p>Windows 10</td>
+    </tr>
+    <tr>
+      <td><p>Processor</p>Intel Core I5</td>
+      <td><p>Processor</p>Intel Core I5</td>
+    </tr>
+    <tr>
+      <td><p>Memory</p>8GB</td>
+      <td><p>Memory</p>8GB</td>
+    </tr>
+    <tr>
+      <td><p>Storage</p>14 GB</td>
+      <td><p>Storage</p>14 GB</td>
+    </tr>
+    <tr>
+      <td><p>Graphics</p>NVIDIA GeForce 1660</td>
+      <td><p>Graphics</p>NVIDIA GeForce 1660</td>
+    </tr>
+    <tr>
+      <td><p>Other</p>English Language Support</td>
+      <td><p>Other</p>English Language Support</td>
+    </tr>
+  </table>
+
+  </div>
+
+  </div>
 </div>
+
+
 
 <style>
   <?php include('../src/css/footer.css'); ?>
@@ -281,6 +352,6 @@ if (isset($_GET['id'])) {
   <script src="../src/js/navbarcopy.js"></script>
 <?php } ?>
 <script src="../src/js/singlegame.js"></script>
-
+</body>
 
 </html>
