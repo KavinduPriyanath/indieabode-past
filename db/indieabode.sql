@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2022 at 08:04 PM
+-- Generation Time: Dec 13, 2022 at 11:13 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -283,8 +283,9 @@ CREATE TABLE `gamejam` (
 --
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
-(45, '2022-11-25 12:00:00', '2022-11-26 12:00:00', ' this is a game jam', '2022-11-28 12:00:00', 'Game Jam', '24 hour Game Jam', 'Ranked', 'creativity', 'Draft', 10, 1, 6, 'Moderators Only', '#gmtk', 'Cover-Game Jam.png'),
-(46, '2020-10-05 12:00:00', '2020-10-07 12:00:00', ' This is a gamejam.', '2020-10-09 12:00:00', 'gamejam2', '2 Day gamejam', 'Non-Ranked', 'creativity', 'Public', 50, 1, 6, 'Public', '#gmtk', 'Cover-gamejam2.jpg');
+(45, '2023-01-12 12:00:00', '2023-01-13 12:00:00', ' this is a game jam', '2023-01-15 12:00:00', 'Game Jam', '24 hour Game Jam', 'Ranked', 'creativity', 'Draft', 10, 1, 6, 'Moderators Only', '#gmtk', 'Cover-Game Jam.png'),
+(46, '2020-10-05 12:00:00', '2020-10-07 12:00:00', ' This is a gamejam.', '2020-10-09 12:00:00', 'gamejam2', '2 Day gamejam', 'Non-Ranked', 'creativity', 'Public', 50, 1, 6, 'Public', '#gmtk', 'Cover-gamejam2.jpg'),
+(48, '2023-01-20 13:00:00', '2023-01-22 13:00:00', ' This is a 48 Hour GameJam.', '2023-01-24 13:00:00', 'GameJAM ', '48 Hour Gamejam', 'Non-Ranked', 'creativity', 'Draft', 40, 1, 6, 'Public', '#gj3', 'Cover-GameJAM .jpg');
 
 -- --------------------------------------------------------
 
@@ -803,7 +804,7 @@ ALTER TABLE `freegame`
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `gamer`
