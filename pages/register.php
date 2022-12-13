@@ -89,11 +89,14 @@ if (isset($_POST['submit'])) {
 </div>
 
 <!--Including Footer-->
+    <style>
+         .register-footer{
+            margin-top:160vh;
+        }
+        <?php include('../src/css/footer.css'); ?>
+    </style>
+    <?php include("../components/footer.php"); ?>
 
-<style>
-    <?php include('../src/css/footer.css'); ?>
-</style>
-<?php include("../components/footer.php"); ?>
 
 <script src="../src/js/navbarcopy.js"></script>
 

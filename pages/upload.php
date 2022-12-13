@@ -99,6 +99,7 @@ if (isset($_POST['asset-submit'])) {
     $gameStatus = $_POST['game-status'];
     $gameDetails = $_POST['game-details'];
     $gameTags = $_POST['game-tags'];
+    $gameFeatures = $_POST['game-features'];
     $gameIllustrationVedio = $_POST['game-illustration-vedio'];
 
     $minGameOS = $_POST['min-game-OS'];
@@ -159,7 +160,7 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //upload to db
-    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFeatures, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$gameFeatures','$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
 
     if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
@@ -187,21 +188,19 @@ if (isset($_POST['asset-submit'])) {
     <?php include('../src/css/assets.css'); ?>
 </style>
 
-<div class="page-topic">
-    <h1>Upload Projects</h1>
-</div>
-
 <div class="outer-box">
     <div class="form-box">
+        <div class="upload-topic">
+           Create a new project
+        </div>
+        <hr>
         <div class="btn-box">
             <div id="btn"></div>
             <button type="button" class="toggle-btn" onclick="uploadGame()">Game</button>
             <button type="button" class="toggle-btn" onclick="uploadAsset()">Assets</button>
         </div><br>
 
-        <!--Game Form-->
-
-        <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
+        <form method="POST" id="upload-game-form" class="input-upload-group" enctype="multipart/form-data">
             <div class="upload-row">
                 <div class="upload-col">
 
@@ -209,10 +208,12 @@ if (isset($_POST['asset-submit'])) {
                     <input type="text" name="game-title" id="game-title" required /><br><br>
 
                     <label id="game-tagline" for="game-tagline">Tagline</label><br>
-                    <input type="text" name="game-tagline" id="game-tagline" placeholder="Optional" /><br><br>
+                    <p>Shown when we link your game to other pages</p>
+                    <input type="text" name="game-tagline" id="game-tagline" placeholder="Short Description about your game" /><br><br>
 
                     <!--classification details-->
                     <label id="game-classification" for="game-classification">Classification</label><br>
+                    <p>Choose the category your game suits the most</p>
                     <select id="game-classification" name="game-classification">
                         <option value="adventure">Adventure Games</option>
                         <option value="action" selected>Action Games</option>
@@ -248,16 +249,13 @@ if (isset($_POST['asset-submit'])) {
                     <input type="text" id="game-price-val" name="game-price-val" /><br><br>
 
 -->
+                    <label id="game-features" for="game-features">Features</label><br>
+                    <p id="p">Special features your game has that players would prefer</p><br>
+                    <input type="text" id="game-features" name="game-features" /> <br><br>
+<!--
                     <label id="upload-game" for="upload-game">Upload Game</label><br>
                     <input type="file" id="upload-game" name="upload-game"><br><br>
-
-                    <label id="game-visibility" for="game-visibility">Visibility</label><br>
-                    <p>Decide when is your page ready for the public</p><br>
-                    <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
-                    <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
-                    <input type="radio" id="game-public" name="game-visibility" value="public">
-                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
-
+-->
                     <label>Game Specification</label><br><br>
                     <div class="game-spec-type">
                         <p class="game-spec-item">Minimum</p>
@@ -299,17 +297,29 @@ if (isset($_POST['asset-submit'])) {
                         </div>
                     </div>
 
+                    <label id="game-visibility" for="game-visibility">Visibility</label><br>
+                    <div class="visibility">
+                    <p>Decide when is your page ready for the public</p><br>
+                    <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
+                    <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
+                    <input type="radio" id="game-public" name="game-visibility" value="public">
+                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
+                    </div>
+
                 </div>
 
                 <div class="upload-col">
 
                     <label id="game-upload-cover-img" for="game-upload-cover-img">Upload Cover Image</label><br>
-                    <p>This image will be shown and used to identify your game</p><br>
+                    <p>Used when we link your game with other parts of the site</p><br>
                     <input type="file" id="game-upload-cover-img" name="game-upload-cover-img" accept=".jpg,.jpeg,.png"><br><br>
 
                     <label id="game-illustration-vedio" for="game-illustration-vedio">Game Illustration Vedio</label><br>
-                    <p>Provide a link to youtube</p><br>
+                    <p>Add the link to your Youtube video</p><br>
                     <input type="url" id="game-illustration-vedio" name="game-illustration-vedio" placeholder="eg: https://www.youtube.com/"><br><br>
+
+                    <label id="upload-game" for="upload-game">Upload Game</label><br>
+                    <input type="file" id="upload-game" name="upload-game"><br><br>
 
                     <label id="game-screenshots" for="game-screenshots">Screenshots</label><br>
                     <p>These will appear on your game's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
@@ -317,13 +327,14 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="game-submit"><a href="singlegame.php?id=<?= $game['gameID']; ?>">Save & View Page</a></button>
+            <button type="submit" class="submit-btn" name="game-submit">Save & View Page</button>
+            <!-- <button type="submit" class="submit-btn" name="game-submit"><a href="singlegame.php?id=<?= $game['gameID']; ?>">Save & View Page</a></button> -->
         </form>
 
 
         <!--upload assets form-->
 
-        <form method="POST" id="upload-asset" class="input-upload-group" enctype="multipart/form-data">
+        <form method="POST" id="upload-asset-form" class="input-upload-group" enctype="multipart/form-data">
             <div class="upload-row">
                 <div class="upload-col">
                     <label id="asset-title" for="asset-title">Title</label><br>
