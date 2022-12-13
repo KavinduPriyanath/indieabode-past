@@ -70,9 +70,12 @@ if (isset($_POST['submit'])) {
 </style>
 
 <div class="form-container">
+    <div class="heading">Host a New Jam</div>
+    <hr id="topic-break" />
 
     <form method="POST" id="upload-jam" class="input-upload-group" enctype="multipart/form-data">
         <div class="card-details">
+            
             <div class="left">
                 <div class="card-box">
                     <span class="details">Title</span>
