@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 05:12 AM
+
+-- Generation Time: Dec 13, 2022 at 10:45 AM
+
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -176,35 +178,18 @@ CREATE TABLE `freeasset` (
   `assetVideoURL` varchar(255) NOT NULL,
   `assetType` varchar(30) NOT NULL,
   `assetStyle` varchar(20) NOT NULL,
-  `assetCreatorID` int(11) NOT NULL
+  `assetCreatorID` int(11) NOT NULL,
+  `created_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freeasset`
 --
 
-INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`) VALUES
-(1, 'Skybox pack for Unity', '', '', '', '', 'This consists of various skyboxes', '', '', '', '', '', '', 0, '', 'Skybox', '', 1),
-(14, 'New Asset', '', '', '', '', 'Buy thus one', '', '', '', '', '', '', 0, '', '', '', 5),
-(16, 'New Asset 1', '', '', '', '', 'hytjytjtyjytjy', '', '', '', '', '', '', 0, '', '', '', 5),
-(20, 'New Asset 2', '', '', '', '', 'h9', '', '', '', '', '', '', 0, '', '', '', 5),
-(22, 'New Assets 4', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', '', 0, '', '', '', 5),
-(23, 'New Assets 5', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', '', 0, '', '', '', 5),
-(24, 'New Assets 6', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 6.jpg', 0, '', '', '', 5),
-(25, 'New Assets 7', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 7.jpg', 0, '', '', '', 5),
-(26, 'sword pack', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-sword pack.jpg', 0, '', '', '', 5),
-(27, 'Red Hat Boy', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-Red Hat Boy.png', 0, '', '', '', 5),
-(28, 'Lisa Model', '', '', '', '', 'Hi Cutie', '', '', '', '', '', 'Cover-Lisa Model.jpg', 0, '', '', '', 1),
-(29, 'New Assets 11', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 11.jpg', 0, '', '', '', 1),
-(30, 'New Asset 12', '', '', '', '', 'Buy this one ASAP', 'visualEffects', '', '', '', '', 'Cover-New Asset 12.jpg', 0, '', '', '', 1),
-(31, 'Food Icons', '', 'Food Icons - 50+ Stylized Anime Food Art Pack contains 50+ food icons:\r\n\r\n\r\nFeatures:\r\n\r\n- 53 Food Icons\r\n\r\n- Sorted named, easy to read\r\n\r\n- Hand Painted Stylized\r\n\r\n- High and low-resolution sizes\r\n\r\n- Mobile Ready\r\n\r\n- Demo Scene', 'Cover-Food Icons.png', '', '50+ Stylized Anime Food Art Pack', '2d', 'Prototype', 'food, sprites, icons', '', 'copyleft', 'Cover-Food Icons.png', 0, '', '', '', 5),
-(32, 'Food Icons 2', '', '50+ Stylized Anime Food Art Pack', 'SS-Food Icons 2.png', '', '50+ Stylized Anime Food Art Pack', 'textures', 'Prototype', 'food, sprites, icons', '', 'permissive', 'Cover-Food Icons 2.png', 0, '', '', '', 5),
-(33, 'New Asset 44', '', 'gtehyjr j  jyj yjy jyjyj y', '', '', 'Buy this one ASAP', '2d', 'released', 'j jyjyj', '', 'proprietary', '', 0, '', '', '', 5),
-(34, 'New Asset 44', '', 'gtehyjr j  jyj yjy jyjyj y', 'SS-New Asset 44.jpg', '', 'Buy this one ASAP', '2d', 'released', 'j jyjyj', '', 'proprietary', '', 0, '', '', '', 5),
-(35, 'e frgeg', '', 'thy5jh uju', 'SS-e frgeg.png', '', 'ggethth', '2d', 'Prototype', 'j uju', '', 'proprietary', 'Cover-e frgeg.png', 0, '', '', '', 5),
-(36, 'New Asset 23', '', 'tyj k k k ki kik i', 'SS-New Asset 23.png', '', '5h5jk jk', '2d', 'Prototype', 'h h hyjyj jyj', '', 'proprietary', 'Cover-New Asset 23.png', 0, '', '', '', 5),
-(37, 'New Asset 333', '', 'gh h jukj kiki l oil ', 'SS-New Asset 333.png', '', 'Buy this one ASAP', '2d', 'Upcoming', 'h hy jjuj ', '', 'permissive', 'Cover-New Asset 333.png', 0, '', '', '', 5),
-(38, 'fe feg', '', 'tr htrh h yhj y j', 'SS-fe feg.png', '', 'rgrgr', '2d', 'Prototype', 'yt jj', 'Asset-fe feg.txt', 'proprietary', 'Cover-fe feg.png', 0, '', '', '', 5);
+
+INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
+(40, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png,SS-Sprout Lands-2.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixel art, sprout la', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', '8bit', 5, '2022-12-13');
+
 
 -- --------------------------------------------------------
 
@@ -246,8 +231,7 @@ CREATE TABLE `freegame` (
 --
 
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
-(1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+
 (4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
 (18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', '', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
 (19, 'ndffgfhg', 'early access', 'cccccccccccccccccccccccccccccccccccc', 'SS-ndffgfhg.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'mnbjknmecrvvgb', 'RPG', 'cccccxz', '', '', 0, 'Cover-ndffgfhg.png', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
@@ -339,7 +323,11 @@ INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, 
 (1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20'),
 (5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23'),
 (6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35'),
-(7, 'nadeedarshi1999@gmail.com', '1234', 0, '', 'darshi', 'nadee', 'darshika', '2022-11-10 20:59:51', '2022-11-10 20:59:51');
+(7, 'nadeedarshi1999@gmail.com', '1234', 0, '', 'darshi', 'nadee', 'darshika', '2022-11-10 20:59:51', '2022-11-10 20:59:51'),
+(8, 'hello@gmail.com', '$2y$10$LGlkktm3kwCEzdmzZB', 0, '', 'dwdwd', 'hello', 'dwdw', '2022-12-13 07:36:14', '2022-12-13 07:36:14'),
+(9, 'fefrg@tht.com', 'Kimalrasanka123!', 0, '', 'fefef', 'fef', 'fef', '2022-12-13 07:43:49', '2022-12-13 07:43:49'),
+(10, 'gg@gmail.com', 'Kimal123!', 0, '', ';o;;', 'kl', 'l9l;', '2022-12-13 09:02:09', '2022-12-13 09:02:09'),
+(11, 'ggg@gmail.com', '$2y$10$r/eDQdzK9.seLod5zH', 0, '', 'gegeg', 'fefe', 'fegfe', '2022-12-13 09:03:06', '2022-12-13 09:03:06');
 
 -- --------------------------------------------------------
 
@@ -818,7 +806,8 @@ ALTER TABLE `devlog`
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 
 --
 -- AUTO_INCREMENT for table `freegame`
@@ -836,7 +825,7 @@ ALTER TABLE `gamejam`
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `gamesale`
