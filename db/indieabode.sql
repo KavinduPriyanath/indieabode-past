@@ -1,13 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-
--- Generation Time: Nov 20, 2022 at 06:06 PM
+-- Generation Time: Dec 13, 2022 at 10:45 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -125,47 +123,12 @@ CREATE TABLE `crowdfund` (
 CREATE TABLE `devlog` (
   `devLogID` int(11) NOT NULL,
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `author` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
   `gameID` int(11) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL,
-  `devlogCoverImg` varchar(255) NOT NULL,
-  `Tagline` varchar(255) NOT NULL,
-  `Type` varchar(50) NOT NULL,
-  `Visibility` varchar(255) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `devlog`
---
-
-INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `devlogCoverImg`, `Tagline`, `Type`, `Visibility`) VALUES
-(8, '2022-11-11 08:53:53', 'pojpoo', 'yyy', 0, 6, '', '', '', ''),
-(9, '2022-11-11 10:10:08', 'jyyfyutfyuss', 'yetee', 0, 6, '', '', '', ''),
-(10, '2022-11-11 10:10:54', 'jgk', 'y33', 0, 6, '', '', '', ''),
-(11, '2022-11-11 10:11:23', 'yjtuj', 'd44gf', 0, 6, '', '', '', ''),
-(12, '2022-11-11 10:12:48', 'nhmn', 'd5', 0, 6, '', '', '', ''),
-(13, '2022-11-11 10:17:36', 'jyyxcfyutfyusregs', 'y6', 0, 6, '', '', '', ''),
-(14, '2022-11-11 10:20:13', 'uigi', 'yy7', 0, 6, '', '', '', 'public'),
-(15, '2022-11-11 10:20:53', 'ihhosidiuf', 'yy8', 0, 6, '', '', '', 'draft'),
-(16, '2022-11-11 10:31:32', 'hi4i', 'yy8', 0, 6, '', '', 'Tutorial', 'draft'),
-(17, '2022-11-11 10:32:00', 'teesrees', 'yy9', 0, 6, '', '', 'Major Update', 'public'),
-(18, '2022-11-11 10:32:31', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(19, '2022-11-11 12:11:59', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(20, '2022-11-11 12:12:55', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(21, '2022-11-11 12:18:44', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(22, '2022-11-11 12:32:11', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(23, '2022-11-11 12:34:20', 'trr655e65', 'yy10', 0, 6, '', '', 'Game Design', 'public'),
-(24, '2022-11-16 09:28:25', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
-(25, '2022-11-16 09:32:24', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
-(26, '2022-11-16 09:33:34', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
-(27, '2022-11-16 09:33:58', 'grehtrh jyjuy uyjuj j uju', 'New Devlog', 0, 5, '', '', 'Game Design', 'draft'),
-(28, '2022-11-16 09:51:51', 'juk ill l o', 'new pnme', 0, 1, 'Cover-.jpg', '', 'New Game', 'draft'),
-(29, '2022-11-16 09:53:25', 'jytj ukkik', 'fewd', 0, 1, 'Cover-fewd.jpg', '', 'New Game 1', 'draft'),
-(30, '2022-11-16 09:58:04', 'luiloul olo lolo', 'uklil', 0, 1, 'Cover-uklil.jpg', '', 'New Game 1', 'draft'),
-(31, '2022-11-16 09:59:32', 'luiloul olo lolo', 'uklil', 0, 1, 'Cover-uklil.jpg', '', 'New Game 1', 'draft'),
-(32, '2022-11-16 10:00:24', 'rgrgrg', 'fwefegrgrgr', 2, 1, 'Cover-fwefegrgrgr.jpg', '', 'Tutorial', 'draft'),
-(33, '2022-11-16 10:22:47', 'jyjytj', 'dewww', 1, 1, 'Cover-dewww.jpg', 'bgthrhy', 'Tutorial', 'draft');
 
 -- --------------------------------------------------------
 
@@ -198,8 +161,10 @@ CREATE TABLE `downloadgame` (
 CREATE TABLE `freeasset` (
   `assetID` int(11) NOT NULL,
   `assetName` varchar(50) NOT NULL,
+  `assetGenre` varchar(50) NOT NULL,
   `assetDetails` text NOT NULL,
   `assetScreenshots` varchar(255) NOT NULL,
+  `assetTitle` varchar(50) NOT NULL,
   `assetTagline` varchar(255) NOT NULL,
   `assetClasification` varchar(20) NOT NULL,
   `assetReleaseStatus` varchar(20) NOT NULL,
@@ -211,34 +176,16 @@ CREATE TABLE `freeasset` (
   `assetVideoURL` varchar(255) NOT NULL,
   `assetType` varchar(30) NOT NULL,
   `assetStyle` varchar(20) NOT NULL,
-  `assetCreatorID` int(11) NOT NULL
+  `assetCreatorID` int(11) NOT NULL,
+  `created_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freeasset`
 --
 
-
-INSERT INTO `freeasset` (`assetID`, `assetName`, `assetDetails`, `assetScreenshots`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`) VALUES
-(25, 'New Assets 7', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 7.jpg', 0, '', '', '', 5),
-(26, 'sword pack', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-sword pack.jpg', 0, '', '', '', 5),
-(27, 'Red Hat Boy', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-Red Hat Boy.png', 0, '', '', '', 5),
-(28, 'Lisa Model', '', '', 'Hi Cutie', '', '', '', '', '', 'Cover-Lisa Model.jpg', 0, '', '', '', 1),
-(29, 'New Assets 11', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 11.jpg', 0, '', '', '', 1),
-(30, 'New Asset 12', '', '', 'Buy this one ASAP', 'visualEffects', '', '', '', '', 'Cover-New Asset 12.jpg', 0, '', '', '', 1),
-(31, 'Food Icons', 'Food Icons - 50+ Stylized Anime Food Art Pack contains 50+ food icons:\r\n\r\n\r\nFeatures:\r\n\r\n- 53 Food Icons\r\n\r\n- Sorted named, easy to read\r\n\r\n- Hand Painted Stylized\r\n\r\n- High and low-resolution sizes\r\n\r\n- Mobile Ready\r\n\r\n- Demo Scene', 'Cover-Food Icons.png', '50+ Stylized Anime Food Art Pack', '2d', 'Prototype', 'food, sprites, icons', '', 'copyleft', 'Cover-Food Icons.png', 0, '', '', '', 5),
-(32, 'Food Icons 2', '50+ Stylized Anime Food Art Pack', 'SS-Food Icons 2.png', '50+ Stylized Anime Food Art Pack', 'textures', 'Prototype', 'food, sprites, icons', '', 'permissive', 'Cover-Food Icons 2.png', 0, '', '', '', 5),
-(35, 'e frgeg', 'thy5jh uju', 'SS-e frgeg.png', 'ggethth', '2d', 'Prototype', 'j uju', '', 'proprietary', 'Cover-e frgeg.png', 0, '', '', '', 5),
-(36, 'New Asset 23', 'tyj k k k ki kik i', 'SS-New Asset 23.png', '5h5jk jk', '2d', 'Prototype', 'h h hyjyj jyj', '', 'proprietary', 'Cover-New Asset 23.png', 0, '', '', '', 5),
-(37, 'New Asset 333', 'gh h jukj kiki l oil ', 'SS-New Asset 333.png', 'Buy this one ASAP', '2d', 'Upcoming', 'h hy jjuj ', '', 'permissive', 'Cover-New Asset 333.png', 0, '', '', '', 5),
-(38, 'fe feg', 'tr htrh h yhj y j', 'SS-fe feg.png', 'rgrgr', '2d', 'Prototype', 'yt jj', 'Asset-fe feg.txt', 'proprietary', 'Cover-fe feg.png', 0, '', '', '', 5),
-(39, 'Sprout Lands', 'hytjyujuykju', 'SS-Sprout Lands.png', 'cute pixel farming', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, '', '', '', 5),
-(40, 'Sprout Lands', 'fefgegg rh hth hth ', 'SS-Sprout Lands.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', 'lowpoly', 5),
-(41, 'Sprout Valley', 'degfre hgrhtrh htj tj tjrt j', 'SS-Sprout Valley-0.jpg,SS-Sprout Valley-1.png', 'Buy this one ASAP', '2d', 'released', 'food, sprites, icons', 'Asset-Sprout Valley.txt', 'open-source', 'Cover-Sprout Valley.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
-(42, 'New Asset 989', 'thyj jjkj k k6k', 'SS-New Asset 989-0.png,SS-New Asset 989-1.jpg,SS-New Asset 989-2.jpg,SS-New Asset 989-3.jpg,SS-New Asset 989-4.jpg', 'Buy this one ASAP', '2d', 'released', ' jkk k kk  k', 'Asset-New Asset 989.txt', 'open-source', 'Cover-New Asset 989.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 1),
-(43, 'New Asset 123', '', 'SS-New Asset 123-0.jpg,SS-New Asset 123-1.jpg,SS-New Asset 123-2.jpg', 'Buy this one ASAP', '2d', 'Prototype', 'food, sprites, icons', 'Asset-New Asset 123.txt', 'proprietary', 'Cover-New Asset 123.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', '16bit', 1),
-(44, 'New Assets 1111', '', 'SS-New Assets 1111-0.jpg,SS-New Assets 1111-1.jpg', '50+ Stylized Anime Food Art Pack', 'visualEffects', 'Upcoming', 'fewg gergreg rg rgrg', 'Asset-New Assets 1111.txt', 'permissive', 'Cover-New Assets 1111.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'skybox', '16bit', 1);
-
+INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
+(40, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png,SS-Sprout Lands-2.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixel art, sprout la', 'Asset-Sprout Lands.txt', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', '8bit', 5, '2022-12-13');
 
 -- --------------------------------------------------------
 
@@ -256,24 +203,35 @@ CREATE TABLE `freegame` (
   `gameTagline` varchar(255) NOT NULL,
   `gameClassification` varchar(50) NOT NULL,
   `gameTags` varchar(30) NOT NULL,
+  `gameFeatures` varchar(255) NOT NULL,
   `gameFile` varchar(255) NOT NULL,
   `gameVisibility` tinyint(1) NOT NULL,
   `gameCoverImg` varchar(255) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL,
+  `minOS` varchar(255) NOT NULL,
+  `minProcessor` varchar(255) NOT NULL,
+  `minMemory` varchar(255) NOT NULL,
+  `minStorage` varchar(255) NOT NULL,
+  `minGraphics` varchar(255) NOT NULL,
+  `minOther` varchar(255) NOT NULL,
+  `recommendOS` varchar(255) NOT NULL,
+  `recommendProcessor` varchar(255) NOT NULL,
+  `recommendMemory` varchar(255) NOT NULL,
+  `recommendStorage` varchar(255) NOT NULL,
+  `recommendGraphics` varchar(255) NOT NULL,
+  `recommendOther` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freegame`
 --
 
-
-
-INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
-(1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
-(4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
-(18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
-
+INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
+(4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', '', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(19, 'ndffgfhg', 'early access', 'cccccccccccccccccccccccccccccccccccc', 'SS-ndffgfhg.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'mnbjknmecrvvgb', 'RPG', 'cccccxz', '', '', 0, 'Cover-ndffgfhg.png', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(20, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(21, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
 
 -- --------------------------------------------------------
 
@@ -327,9 +285,11 @@ CREATE TABLE `gamejam` (
 --
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
-(45, '2022-11-25 12:00:00', '2022-11-26 12:00:00', ' this is a game jam', '2022-11-28 12:00:00', 'Game Jam', '24 hour Game Jam', 'Ranked', 'creativity', 'Draft', 10, 1, 6, 'Moderators Only', '#gmtk', 'Cover-Game Jam.png'),
-(46, '2020-10-05 12:00:00', '2020-10-07 12:00:00', ' This is a gamejam.', '2020-10-09 12:00:00', 'gamejam2', '2 Day gamejam', 'Non-Ranked', 'creativity', 'Public', 50, 1, 6, 'Public', '#gmtk', 'Cover-gamejam2.jpg');
-
+(38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', ''),
+(41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
+(42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
+(44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
+(45, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hththth', '0000-00-00 00:00:00', 'GTML', 'rgrger', 'Non-Ranked', 'grg', 'Draft', 0, 1, 5, 'Submitters Only', 'hh', 'Cover-GTML.png');
 
 -- --------------------------------------------------------
 
@@ -358,7 +318,11 @@ INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, 
 (1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20'),
 (5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23'),
 (6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35'),
-(7, 'nadeedarshi1999@gmail.com', '1234', 0, '', 'darshi', 'nadee', 'darshika', '2022-11-10 20:59:51', '2022-11-10 20:59:51');
+(7, 'nadeedarshi1999@gmail.com', '1234', 0, '', 'darshi', 'nadee', 'darshika', '2022-11-10 20:59:51', '2022-11-10 20:59:51'),
+(8, 'hello@gmail.com', '$2y$10$LGlkktm3kwCEzdmzZB', 0, '', 'dwdwd', 'hello', 'dwdw', '2022-12-13 07:36:14', '2022-12-13 07:36:14'),
+(9, 'fefrg@tht.com', 'Kimalrasanka123!', 0, '', 'fefef', 'fef', 'fef', '2022-12-13 07:43:49', '2022-12-13 07:43:49'),
+(10, 'gg@gmail.com', 'Kimal123!', 0, '', ';o;;', 'kl', 'l9l;', '2022-12-13 09:02:09', '2022-12-13 09:02:09'),
+(11, 'ggg@gmail.com', '$2y$10$r/eDQdzK9.seLod5zH', 0, '', 'gegeg', 'fefe', 'fegfe', '2022-12-13 09:03:06', '2022-12-13 09:03:06');
 
 -- --------------------------------------------------------
 
@@ -831,32 +795,31 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `freegame`
 --
 ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `gamesale`
@@ -949,6 +912,8 @@ ALTER TABLE `crowdfund`
 -- Constraints for table `devlog`
 --
 ALTER TABLE `devlog`
+  ADD CONSTRAINT `devlog_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `devlog_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `devlog_ibfk_3` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -1021,7 +986,8 @@ ALTER TABLE `handlecomplaint`
 --
 ALTER TABLE `joinjam`
   ADD CONSTRAINT `joinjam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `joinjam_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `usertype` (`gamerID`);
 
 --
 -- Constraints for table `organizegamejam`
@@ -1086,12 +1052,6 @@ ALTER TABLE `ratesubmission`
 --
 ALTER TABLE `submission`
   ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `usertype`
---
-ALTER TABLE `usertype`
-  ADD CONSTRAINT `usertype_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

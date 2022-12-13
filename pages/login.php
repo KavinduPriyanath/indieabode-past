@@ -13,21 +13,28 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    //$encrypted_password = md5($password);
+    $user_matched = false;
+
     //check with db
-    $sql = "SELECT * FROM gamer WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM gamer WHERE email = '$email'";
     $user = mysqli_query($conn, $sql) or die("Couldn't proceed");
 
     $row = mysqli_fetch_assoc($user);
 
-    if (is_array($row) && !empty($row)) {
+
+    if (empty($row)) {
+        echo "Invalid Username or Email";
+    } else if ($password != $row['password']) {
+        echo "Invalid password";
+    } else {
+        $user_matched = true;
+    }
+
+    if (is_array($row) && $user_matched) {
         $_SESSION['valid'] = $row['username'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['id'] = $row['gamerID'];
-    } else {
-        echo "Invalid Username or password";
-    }
-
-    if (isset($_SESSION['valid'])) {
         header('Location: ../index.php');
     }
 }
