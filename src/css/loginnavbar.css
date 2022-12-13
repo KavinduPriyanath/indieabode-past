@@ -1,3 +1,6 @@
+
+
+/*
 @import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -13,11 +16,13 @@ body {
     font-family: 'Kreon', serif;
 }
 
+
+/*
 .navbar {
     display: block;
     height: 70px;
-    align-items: center;
-    background-color: #2C4862;
+    text-align: center;
+    background-color: gray;
     color: white;
 }
 

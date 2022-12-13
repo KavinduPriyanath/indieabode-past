@@ -2,8 +2,8 @@
 
 .footer {
     background-color: #2C4862;
+    padding:.5%;
 }
-
 .first-row {
     display: flex;
     justify-content: space-around;
