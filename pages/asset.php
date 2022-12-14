@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 require '../db/database.php';
 
@@ -15,6 +15,11 @@ if (isset($_GET['id'])) {
 
     $result1 = mysqli_query($conn, $gamerSql);
     $gamer = mysqli_fetch_assoc($result1);
+
+    //list of screenshots
+    $ss = $asset['assetScreenshots'];
+    $screenshots = explode(',', $ss);
+    $n = count($screenshots);
 }
 
 
@@ -49,14 +54,13 @@ if (isset($_GET['id'])) {
         </button>
         <ul data-slides>
             <li class="slide" data-active>
-                <img src="../uploads/assets/ss/<?= $asset['assetScreenshots'] ?>" alt="Nature Image #1" />
+                <img src="../uploads/assets/ss/<?= $screenshots[0]; ?>" alt="Nature Image #1" />
             </li>
-            <li class="slide">
-                <img src="../images/games/2.png" alt="Nature Image #2" />
-            </li>
-            <li class="slide">
-                <img src="../images/games/3.png" alt="Nature Image #3" />
-            </li>
+            <?php for ($i = 1; $i < $n; $i++) { ?>
+                <li class="slide">
+                    <img src="../uploads/assets/ss/<?= $screenshots[$i]; ?>" alt="Nature Image #2" />
+                </li>
+            <?php } ?>
         </ul>
 
         <!--Ratings, Views, Downloads-->
@@ -255,7 +259,13 @@ if (isset($_GET['id'])) {
 <?php include("../components/footer.php"); ?>
 
 
-<script src="../src/js/navbar.js"></script>
+
 <script src="../src/js/asset.js"></script>
+
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
 </html>

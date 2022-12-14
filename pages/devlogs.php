@@ -1,3 +1,4 @@
+
 <?php session_start();
 
 require '../db/database.php';
@@ -121,6 +122,7 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
+
 
 
 <script src="../src/js/devlogs.js"></script>
