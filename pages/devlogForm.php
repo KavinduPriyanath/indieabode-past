@@ -25,32 +25,32 @@ if (isset($_POST['submit'])) {
     $foreignKey = $_SESSION['id'];
 
     // //upload cover photo
-    
-
-    $ss_img_name = $_FILES['devlog_ss']['name'];
-    $ss_img_temp_name = $_FILES['devlog_ss']['tmp_name'];
-
-    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
-
-    if (in_array($ss_img_ext, $allowed_exts)) {
-        $new_ss_img_name = "SS-" . $devLogTitle . '.' . $ss_img_ext;
-        $ss_upload_path = '../uploads/devlog/' . $new_ss_img_name;
-        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
-    }
 
 
-    $devlog_cover_img_ext = strtolower(pathinfo($devlog_cover_img_name, PATHINFO_EXTENSION));
+    // $ss_img_name = $_FILES['devlog_ss']['name'];
+    // $ss_img_temp_name = $_FILES['devlog_ss']['tmp_name'];
+
+    // $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+
+    // if (in_array($ss_img_ext, $allowed_exts)) {
+    //     $new_ss_img_name = "SS-" . $devLogTitle . '.' . $ss_img_ext;
+    //     $ss_upload_path = '../uploads/devlog/' . $new_ss_img_name;
+    //     move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    // }
+
+
+    // $devlog_cover_img_ext = strtolower(pathinfo($devlog_cover_img_name, PATHINFO_EXTENSION));
 
 
     $gamesQuery = "SELECT * FROM freegame WHERE gameDeveloperID = '$foreignKey'";
     $gamesD = mysqli_query($conn, $gamesQuery);
 
 
-   
+
 
 
     // -- upload to database
-    $sql = "INSERT INTO devlog (description,name,gameDeveloperID,Visibility,Type,Tagline,devlogImg) VALUES ('$devLogContent','$devLogTitle','$foreignKey','$devVisibility','$type','$tagline','$new_ss_img_name')";
+    $sql = "INSERT INTO devlog (description,name,Visibility,Type,Tagline) VALUES ('$devLogContent','$devLogTitle','$devVisibility','$type','$tagline')";
 
 
 
@@ -76,9 +76,7 @@ if (isset($_POST['submit'])) {
 <?php include('../components/navbar.php') ?>
 
 <style>
-
-<?php include('../src/css/devlogform.css')?>
-
+    <?php include('../src/css/devlogform.css') ?>
 </style>
 
 <h1>Devlog Form</h1>
@@ -143,11 +141,11 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
 
-                </div>
-                <div class="button">
+            </div>
+            <div class="button">
                 <input type="submit" name="submit" value="Save & View Page">
             </div>
-                <div class="right">
+            <div class="right">
 
                 <div class="card-box">
                     <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
@@ -159,31 +157,10 @@ if (isset($_POST['submit'])) {
 
 
 
-               
-                            $query = "SELECT * FROM freegame";
-                            $result = mysqli_query($conn, $query);
 
-                            if(mysqli_num_rows($result) > 0)
-                            {
-                                
-                                foreach($result as $devGames)
-                                {
-                                    ?>
-                                                <div class="cards">
-                                                    <div class="location-header"><h5> <?= $devGames['gameName']; ?> </h5></div>
-                                                </div>
-                                    <?php
-                                }
-                            }
-                            else
-                            {
-                                echo "<h3> No Services Found </h4>";
-                            }
-                        
 
-                            ?>
-            
-        </form>
+
+    </form>
 
 </div>
 
