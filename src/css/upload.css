@@ -172,13 +172,13 @@ select option{
     overflow: hidden;
 }
 
-#upload-game-form{
+/* #upload-game-form{
     left:5px;
-}
+} */
 
-#upload-asset-form{
+/* #upload-asset-form{
     left:1705px;
-}
+} */
 
 
 .game-spec-type{
@@ -210,12 +210,14 @@ select option{
 }
 
 .text-editor-header {
-    background-color: rgb(244, 238, 238);
+    background-color: rgb(162, 198, 213);
     padding: 5px;
 }
 
 .text-editor-header .rbtn {
     margin-right: 5px;
+    background-color: rgb(156, 185, 196);
+    padding: 2px;
 }
 
 .content-box {
@@ -224,3 +226,15 @@ select option{
     padding: 15px;
 
 }
+
+.errors-display {
+    font-size: 17px;
+    display: block;
+    color: rgb(213, 69, 69);
+    background-color: rgb(115, 170, 193, 0.72);
+    margin: 0px 70px 6px 0px;
+    border-radius: 7px;
+    height: 30px;
+    padding: 4px;
+  }
+  

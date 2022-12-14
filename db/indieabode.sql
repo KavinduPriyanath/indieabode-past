@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 04:14 PM
+-- Generation Time: Dec 15, 2022 at 12:32 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -123,11 +123,14 @@ CREATE TABLE `crowdfund` (
 CREATE TABLE `devlog` (
   `devLogID` int(11) NOT NULL,
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `author` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
   `gameID` int(11) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL,
+  `tagline` varchar(255) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `visibility` varchar(50) NOT NULL,
+  `devlogImg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -180,6 +183,13 @@ CREATE TABLE `freeasset` (
   `created_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `freeasset`
+--
+
+INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
+(55, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixelart, sprout lan', 'Asset-Sprout Lands.zip', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', 'pixelart', 12, '2022-12-15');
+
 -- --------------------------------------------------------
 
 --
@@ -214,6 +224,13 @@ CREATE TABLE `freegame` (
   `recommendGraphics` varchar(255) NOT NULL,
   `recommendOther` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `freegame`
+--
+
+INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
+(26, 'Stray', 'early access', 'Stray is a 2022 adventure game developed by BlueTwelve Studio and published by Annapurna Interactive. The story follows a stray cat who falls into a walled city populated by robots, machines, and mutant bacteria, and sets out to return to the surface with the help of a drone companion, B-12. The game is presented through a third-person perspective. The player traverses by leaping across platforms and climbing up obstacles, and can interact with the environment to open new paths. Using B-12, they can store items found throughout the world and hack into technology to solve puzzles. Throughout the game, the player must evade the antagonistic Zurks and Sentinels, which attempt to kill them.', 'SS-Stray.jpg', 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'follows a stray cat who falls into a walled city populated by robots, machines', 'action', 'cat, game, 3d', 'singleplayer', 'Game-Stray.zip', 0, 'Cover-Stray.jpg', 12, 'windows 7', 'Intel Core I3', '4 GB', '5 GB', 'mx330', 'English', 'windows 10', 'Intel Core I5', '8 GB', '10 GB', 'mx1650', 'English');
 
 -- --------------------------------------------------------
 
@@ -261,6 +278,13 @@ CREATE TABLE `gamejam` (
   `jamTwitter` varchar(255) NOT NULL,
   `jamCoverImg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gamejam`
+--
+
+INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
+(46, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hrth', '0000-00-00 00:00:00', 'thrt', 'thtr', '', 'thtrh', 'Draft', 0, 1, 12, 'Submitters Only', 'thr', 'Cover-thrt.png');
 
 -- --------------------------------------------------------
 
@@ -759,25 +783,25 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `freegame`
 --
 ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `gamejam`
 --
 ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `gamer`
