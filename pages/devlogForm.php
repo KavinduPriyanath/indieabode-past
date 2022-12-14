@@ -19,26 +19,38 @@ if (isset($_POST['submit'])) {
     $devLogContent = $_POST['devLog-details'];
     $devVisibility = $_POST['dev-visibility'];
     $type = $_POST['type'];
-    $gameID = $_POST['game'];
 
+    $tagline = $_POST['tagline'];
 
+    $foreignKey = $_SESSION['id'];
 
-    //upload cover photo
-    $devlog_cover_img_name = $_FILES['cover-img']['name'];
-    $devlog_cover_img_temp_name = $_FILES['cover-img']['tmp_name'];
+    // //upload cover photo
+    
 
-    $devlog_cover_img_ext = strtolower(pathinfo($devlog_cover_img_name, PATHINFO_EXTENSION));
+    $ss_img_name = $_FILES['devlog_ss']['name'];
+    $ss_img_temp_name = $_FILES['devlog_ss']['tmp_name'];
 
-    if (in_array($devlog_cover_img_ext, $allowed_exts)) {
-        $new_devlog_cover_img_name = "Cover-" . $devLogTitle . '.' . $devlog_cover_img_ext;
-        $devlog_cover_upload_path = '../uploads/games/devlogs/cover/' . $new_devlog_cover_img_name;
-        move_uploaded_file($devlog_cover_img_temp_name, $devlog_cover_upload_path);
+    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+
+    if (in_array($ss_img_ext, $allowed_exts)) {
+        $new_ss_img_name = "SS-" . $devLogTitle . '.' . $ss_img_ext;
+        $ss_upload_path = '../uploads/devlog/' . $new_ss_img_name;
+        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
     }
 
 
-    //upload to database
-    $sql = "INSERT INTO devlog(description,name,gameDeveloperID,Visibility,Type, devlogCoverImg, gameID, Tagline) 
-                VALUES ('$devLogContent','$devLogTitle','$foreignKey','$devVisibility','$type', '$new_devlog_cover_img_name', '$gameID', '$devTagline')";
+    $devlog_cover_img_ext = strtolower(pathinfo($devlog_cover_img_name, PATHINFO_EXTENSION));
+
+
+    $gamesQuery = "SELECT * FROM freegame WHERE gameDeveloperID = '$foreignKey'";
+    $gamesD = mysqli_query($conn, $gamesQuery);
+
+
+   
+
+
+    // -- upload to database
+    $sql = "INSERT INTO devlog (description,name,gameDeveloperID,Visibility,Type,Tagline,devlogImg) VALUES ('$devLogContent','$devLogTitle','$foreignKey','$devVisibility','$type','$tagline','$new_ss_img_name')";
 
 
 
@@ -64,7 +76,9 @@ if (isset($_POST['submit'])) {
 <?php include('../components/navbar.php') ?>
 
 <style>
-    <?php include('../src/css/gamejamform.css') ?>
+
+<?php include('../src/css/devlogform.css')?>
+
 </style>
 
 <h1>Devlog Form</h1>
@@ -128,21 +142,48 @@ if (isset($_POST['submit'])) {
 
                     </div>
                 </div>
-            </div>
 
-            <div class="right">
+                </div>
+                <div class="button">
+                <input type="submit" name="submit" value="Save & View Page">
+            </div>
+                <div class="right">
 
                 <div class="card-box">
-                    <span class="details">Upload Cover Image</span>
-                    <input type="file" accept=".jpg,.jpeg,.png" placeholder="Upload Cover Image" name="cover-img">
+                    <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
+                    <input type="file" id="devlog_ss" name="devlog_ss" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
+
                 </div>
             </div>
 
 
-            <div class="button">
-                <input type="submit" name="submit" value="Save & View Page">
-            </div>
-    </form>
+
+
+               
+                            $query = "SELECT * FROM freegame";
+                            $result = mysqli_query($conn, $query);
+
+                            if(mysqli_num_rows($result) > 0)
+                            {
+                                
+                                foreach($result as $devGames)
+                                {
+                                    ?>
+                                                <div class="cards">
+                                                    <div class="location-header"><h5> <?= $devGames['gameName']; ?> </h5></div>
+                                                </div>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "<h3> No Services Found </h4>";
+                            }
+                        
+
+                            ?>
+            
+        </form>
 
 </div>
 

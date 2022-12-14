@@ -1,7 +1,7 @@
 <!--Footer-->
 
 
-<div class="footer">
+<div class="footer login-footer register-footer">
     <div class="first-row">
         <div class="left">
             <a href="#">About</a>

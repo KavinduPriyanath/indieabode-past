@@ -24,7 +24,6 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <?php include('../src/css/gamejam.css'); ?>
 </style>
 
-
 <!--Page Topic-->
 <div class="page-topic">
   <h1>Game Jams</h1>
@@ -210,6 +209,8 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <a href="#">6</a>
   <a href="#"><i class="fa fa-angle-right"></i></a>
 </div>
+
+
 
 
 

@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
         <label class="form-login-label" id="username">Email or Username</label><br>
         <input type="text" placeholder="email" name="email"><br>
         <label class="form-login-label">Password</label><br>
-        <input type="password" placeholder="Password" name="password"><br>
+        <input type="password" placeholder="Password" name="password"><br><br><br>
 
         <!-- checkbox -->
         <div class="check-bar">
@@ -116,9 +116,14 @@ if (isset($_POST['submit'])) {
 
 <!--Including Footer-->
 
-<style>
-    <?php include('../src/css/footer.css'); ?>
-</style>
-<?php include("../components/footer.php"); ?>
+    <style>
+          .login-footer{
+            margin-top:100vh;
+        }
+        <?php include('../src/css/footer.css'); ?>
+    </style>
+    <?php include("../components/footer.php"); ?>
+</body>
+
 
 </html>
