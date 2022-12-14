@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
+
 /*Slideshow and Overview*/
 
 .container {
@@ -72,7 +74,7 @@
   }
 
   .card {
-    background-color: rgb(182, 179, 179);
+    background-color:#335879;
     position: relative;
     width: 350px;
     margin: 20px 180px 10px 10px;
@@ -82,6 +84,7 @@
 
 .asset-name {
     margin: 10px 10px 2px 10px;
+    color: #A0CCDA;
 }
 
 .profile-info {
@@ -99,6 +102,7 @@
 
 .profile-info p {
     display: inline-block;
+    color: #A6CEDB;
 }
 
 .category {
@@ -111,6 +115,7 @@
 
 .card h1 {
     margin: 7px 10px;
+    color: #8BB4DA;
 }
 
 .buy-btn {
@@ -120,9 +125,9 @@
     padding: 14px;
     font-weight: bold;
     font-size: 23px;
-    color: rgb(81, 71, 71);
+    color: #132759;
     border-radius: 8px;
-    background-color: rgb(125, 188, 169);
+    background-color: #A5B9BD;
 }
 
 .details {
@@ -139,6 +144,7 @@
     justify-content: space-between;
     margin: 5px 8px 0px 12px;
     font-size: 21px;
+    color: #6DA0C6;
 }
 
 .row p{
@@ -146,12 +152,12 @@
 }
 
 .sub-title {
-    color: rgb(73, 66, 66);
+    color: #9DC7E5;
 }
 
 .card hr {
     margin: 5px 12px;
-    border: 0.8px solid gray;
+    border: 0.8px solid #618D9F;
     opacity: 0.5;
 }
 
@@ -220,9 +226,9 @@
 }
 
 .info-box button {
-    background-color: #4CAF50; /* Green */
+    background-color: #97c4d0; /* Green */
     border: none;
-    color: white;
+    color: rgb(8, 26, 51);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -230,6 +236,8 @@
     border-radius: 7px;
     display: inline-block;
     font-size: 16px;
+    font-family: 'Kreon', serif;
+    font-weight: bold;
 }
 
 
@@ -250,7 +258,7 @@
     margin-left: 180px;
     margin-bottom: 10px;
     border-radius: 7px;
-    background-color: rgb(204, 191, 191);
+    background-color: rgb(53, 111, 136);
 }
 
 
@@ -270,7 +278,7 @@
     margin: 10px 3px;
     padding: 8px;
     border-radius: 9px;
-    background-color: rgb(180, 182, 183);
+    background-color: #bad3e192;
 }
 
 .left {
@@ -329,7 +337,7 @@
 }
 
 .review-form h2 {
-    color: rgb(90, 83, 83);
+    color: rgb(115, 155, 198);
 }
 
 .review-form input[type=text], textarea {
@@ -338,7 +346,7 @@
     padding: 10px 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: rgba(174, 174, 174, 0.905);
+    background-color: rgba(165, 205, 238, 0.905);
 }
 
 .review-form label {
@@ -356,7 +364,7 @@ textarea {
 }
 
 input[type=submit] {
-    background-color: rgb(92, 97, 92);
+    background-color: rgb(94, 150, 202);
     border: none;
     color: white;
     padding: 12px 20px;

@@ -9,6 +9,8 @@
 
 require '../db/database.php';
 
+$error_msg = null;
+
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -16,20 +18,23 @@ if (isset($_POST['submit'])) {
     //$encrypted_password = md5($password);
     $user_matched = false;
 
+
     //check with db
     $sql = "SELECT * FROM gamer WHERE email = '$email'";
     $user = mysqli_query($conn, $sql) or die("Couldn't proceed");
 
     $row = mysqli_fetch_assoc($user);
 
-
     if (empty($row)) {
-        echo "Invalid Username or Email";
+        $error_msg = "Invalid Username or Email";
+    } else if ($password == null) {
+        $error_msg = "Empty password";
     } else if ($password != $row['password']) {
-        echo "Invalid password";
+        $error_msg = "Invalid password";
     } else {
         $user_matched = true;
     }
+
 
     if (is_array($row) && $user_matched) {
         $_SESSION['valid'] = $row['username'];
@@ -84,6 +89,14 @@ if (isset($_POST['submit'])) {
             <div class="status-text"></div>
         </div>
         <!-- End of Recaptcha -->
+
+        <!--Display error Messages-->
+        <?php if ($error_msg != null) { ?>
+            <div class="errors-display" id="errors">
+                <?php echo $error_msg; ?>
+            </div>
+        <?php } ?>
+
 
 
         <button type="submit" name="submit" id="login">Login</button>

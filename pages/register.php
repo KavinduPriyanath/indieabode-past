@@ -2,6 +2,13 @@
 
 require '../db/database.php';
 
+//error messages
+$usernameExistsError = null;
+$emailExistsError = null;
+$passwordNotStrongError = null;
+$passwordsDoNotMatchError = null;
+$usernameError = null;
+$emailError = null;
 
 if (isset($_POST['submit'])) {
     $fname = $_POST['firstname'];
@@ -21,8 +28,24 @@ if (isset($_POST['submit'])) {
     $number    = preg_match('@[0-9]@', $password);
     $specialChars = preg_match('@[^\w]@', $password);
 
+
+
+    $usernameSql = "SELECT * FROM gamer WHERE username='$username'";
+    $usernameQuery = mysqli_query($conn, $usernameSql) or die("fialed");
+    $usernameError = mysqli_fetch_assoc($usernameQuery);
+
+    $emailSql = "SELECT * FROM gamer WHERE email='$email'";
+    $emailQuery = mysqli_query($conn, $emailSql) or die("fialed");
+    $emailError = mysqli_fetch_assoc($emailQuery);
+
     if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
-        echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+        $passwordNotStrongError = 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+    } else if (!empty($usernameError)) {
+        $usernameExistsError = 'This username already exists';
+    } else if (!empty($emailError)) {
+        $emailExistsError = 'This email already exists';
+    } else if ($password != $_POST['confirmPassword']) {
+        $passwordsDoNotMatchError = 'Passwords do not match';
     } else if (mysqli_query($conn, $sql)) {
         header('Location: login.php');
     } else {
@@ -65,12 +88,46 @@ if (isset($_POST['submit'])) {
         <label class="form-login-label">Username</label> <br>
         <input type="text" name="username" id="user-name" placeholder="username" required /><br>
 
+        <!--Display error Messages-->
+        <?php if ($usernameError != null) { ?>
+            <div class="errors-display" id="errors">
+                <?php echo $usernameExistsError; ?>
+            </div>
+        <?php } ?>
+
         <label class="form-login-label">Email</label><br>
         <input type="text" name="email" id="title" placeholder="email" required /><br>
+
+        <!--Display error Messages-->
+        <?php if ($emailError != null) { ?>
+            <div class="errors-display" id="errors">
+                <?php echo $emailExistsError; ?>
+            </div>
+        <?php } ?>
+
+
         <label class="form-login-label">Password</label><br>
         <input type="password" name="password" id="password" placeholder="Password" required /><br>
+
+
+        <!--Display error Messages-->
+        <?php if ($passwordNotStrongError != null) { ?>
+            <div class="errors-display" id="errors">
+                <?php echo $passwordNotStrongError; ?>
+            </div>
+        <?php } ?>
+
+
         <label class="form-login-label">Confirm Password</label><br>
         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" /><br><br>
+
+        <!--Display error Messages-->
+        <?php if ($passwordsDoNotMatchError != null) { ?>
+            <div class="errors-display" id="errors">
+                <?php echo $passwordsDoNotMatchError; ?>
+            </div>
+        <?php } ?>
+
         <!--  <div class="about-you">
                 <p><b>About You</b></p>
                 <input type="checkbox" name="" id="" value="">
@@ -79,7 +136,7 @@ if (isset($_POST['submit'])) {
                 <label for="">I'm interested in distributing content</label>
                 <p>You can change your responses to these questions later, they are used to hint itch.io in how it should present itself to you.</p>
             </div> -->
-        <input type="checkbox" name="" id="" value="">
+        <input type="checkbox" name="" id="checkbox" value="" onclick="checkboxClicked()">
         <label for="" id="tos">I accept the terms of service </label><br>
 
         <button type="submit" name="submit" id="register">Register</button><br><br>
@@ -87,6 +144,10 @@ if (isset($_POST['submit'])) {
     </form>
 
 </div>
+
+<script>
+    <?php include('../src/js/register.js'); ?>
+</script>
 
 <!--Including Footer-->
     <style>

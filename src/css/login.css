@@ -100,7 +100,7 @@ form input[type=text], input[type=password] {
   font-family: 'Kreon', serif;
 }
 
-#login, #register {
+#login {
   color: #0D3860;
   background-color: #7FAFDB;
   width: 200px;
@@ -115,6 +115,23 @@ form input[type=text], input[type=password] {
   font-family: 'Kreon', serif;
   font-weight: bold;
 }
+
+
+#register {
+  color: #0D3860;
+  background-color: #9eb7cf;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
+}
+
+
 
 .forgot-pw{
   width:100%;
@@ -238,4 +255,15 @@ form input[type=checkbox] {
   display: inline-block;
   font-size: 18px;
   color: white;
+}
+
+.errors-display {
+  font-size: 17px;
+  display: block;
+  color: rgb(213, 69, 69);
+  background-color: rgb(115, 170, 193, 0.72);
+  margin: 25px 90px 0px 100px;
+  border-radius: 7px;
+  height: 30px;
+  padding: 4px;
 }

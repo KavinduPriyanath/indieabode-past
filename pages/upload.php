@@ -2,7 +2,9 @@
 
 session_start();
 
-echo $_SESSION['id'];
+$id = $_SESSION['id'];
+
+echo $id;
 
 
 require '../db/database.php';
@@ -481,7 +483,7 @@ if (isset($_POST['asset-submit'])) {
                     <p>This image will be shown and used to identify your asset</p><br>
                     <input type="file" id="asset-upload-cover-img" name="asset-upload-cover-img" accept=".jpg,.jpeg,.png"><br><br>
 
-                    <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Vedio</label><br>
+                    <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Video</label><br>
                     <p>Provide a link to youtube</p><br>
                     <input type="url" id="asset-illustration-vedio" name="asset-illustration-video" placeholder="eg: https://www.youtube.com/"><br><br>
 
@@ -491,7 +493,7 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="MoveData();">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="asset-submit" id="asset-submit">Save & View Page</button>
         </form>
     </div>
 </div>
