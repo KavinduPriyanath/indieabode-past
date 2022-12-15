@@ -91,6 +91,7 @@ if (isset($_POST['asset-submit'])) {
     } else {
         echo "error";
     }
+    
 } elseif (isset($_POST['game-submit'])) {
     $gameName = $_POST['game-title'];
     $gameTagline = $_POST['game-tagline'];
