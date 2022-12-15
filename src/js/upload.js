@@ -6,6 +6,7 @@ function uploadAsset() {
   // x.style.left = "-1700px";
   // y.style.left = "5px";
   // z.style.left = "160px";
+
   window.location.href = "assetupload.php";
 }
 
@@ -13,6 +14,7 @@ function uploadGame() {
   // x.style.left = "5px";
   // y.style.left = "1705px";
   // z.style.left = "0";
+  console.log("prasad gona");
   window.location.href = "gameupload.php";
 }
 

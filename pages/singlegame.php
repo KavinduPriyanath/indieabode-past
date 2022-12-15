@@ -19,6 +19,9 @@ if (isset($_GET['id'])) {
     $coverImg = $game['gameCoverImg'];
     $addressCoverImg = '../uploads/games/cover/' . $coverImg;
 
+    $ss = $game['assetScreenshots'];
+    $screenshots = explode(',', $ss);
+    $n = count($screenshots);
 }
 
 
@@ -56,14 +59,14 @@ if (isset($_GET['id'])) {
     </button>
     <ul data-slides>
       <li class="slide" data-active>
-        <img src="../images/singlegame/1.jpg" alt="Nature Image #1" />
+        <img src="../uploads/games/ss/<?= $screenshots[0]; ?>" alt="Nature Image #1" />
+        <!-- <img src="../images/singlegame/1.jpg" alt="Nature Image #1" /> -->
       </li>
-      <li class="slide">
-        <img src="../images/singlegame/2.jpeg" alt="Nature Image #2" />
-      </li>
-      <li class="slide">
-        <img src="../images/singlegame/3.jpg" alt="Nature Image #3" />
-      </li>
+      <?php for ($i = 1; $i < $n; $i++) { ?>
+          <li class="slide">
+              <img src="../uploads/games/ss/<?= $screenshots[$i]; ?>" alt="Nature Image #2" />
+          </li>
+        <?php } ?>
     </ul>
 
     <div class="tagline">
@@ -345,6 +348,7 @@ if (isset($_GET['id'])) {
   <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
+
 
 <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
   <script src="../src/js/navbar.js"></script>

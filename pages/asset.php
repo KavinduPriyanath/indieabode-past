@@ -262,7 +262,6 @@ if (isset($_GET['id'])) {
 
 
 <script src="../src/js/asset.js"></script>
-
 <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
     <script src="../src/js/navbar.js"></script>
 <?php } else { ?>

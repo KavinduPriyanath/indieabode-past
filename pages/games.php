@@ -169,8 +169,9 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="tagline"><?= $game['gameTagline'] ?></div>
             </div>
+        </a>
         <?php } ?>
-
+        
 
 </div>
 

@@ -6,7 +6,12 @@ session_start();
 
 require '../db/database.php';
 
-
+$new_game_file_name = null;
+$new_game_cover_img_name = null;
+$noTitleError = null;
+$error_msg = null;
+$incompatibleFileType = false;
+$incompatibleImageType = false;
 
 $allowed_exts = array("jpg", "jpeg", "png");
 $screenshots = array();
@@ -50,43 +55,81 @@ if (isset($_POST['game-submit'])) {
         $new_game_cover_img_name = "Cover-" . $gameName . '.' . $game_cover_img_ext;
         $game_cover_upload_path = '../uploads/games/cover/' . $new_game_cover_img_name;
         move_uploaded_file($game_cover_img_temp_name, $game_cover_upload_path);
+    }else if (!in_array($game_cover_img_ext, $allowed_exts) && $game_cover_img_name) {
+        $incompatibleImageType = true;
     }
 
     //Screenshots
-    $game_ss_img_name = $_FILES['game-screenshots']['name'];
-    $game_ss_img_temp_name = $_FILES['game-screenshots']['tmp_name'];
-
-    $game_ss_img_ext = strtolower(pathinfo($game_ss_img_name, PATHINFO_EXTENSION));
-
-    if (in_array($game_ss_img_ext, $allowed_exts)) {
-        $new_game_ss_img_name = "SS-" . $gameName . '.' . $game_ss_img_ext;
-        $game_ss_upload_path = '../uploads/games/ss/' . $new_game_ss_img_name;
-        move_uploaded_file($game_ss_img_temp_name, $game_ss_upload_path);
+    
+        //Screenshots
+    $ssCount = count($_FILES['game-screenshots']['name']);
+    for ($i = 0; $i < $ssCount; $i++) {
+        $ssName = $_FILES['game-screenshots']['name'][$i];
+        $ssExt = strtolower(pathinfo($ssName, PATHINFO_EXTENSION));
+        if (in_array($ssExt, $allowed_exts)) {
+    
+            $newSSName = "SS-" . $gameName . '-' . $i . '.' . $ssExt;
+            $ss_upload_path = '../uploads/games/ss/' . $newSSName;
+    
+            move_uploaded_file($_FILES['game-screenshots']['tmp_name'][$i], $ss_upload_path);
+    
+            array_push($screenshots, $newSSName);
+        }
     }
+    
+    // $game_ss_img_name = $_FILES['game-screenshots']['name'];
+    // $game_ss_img_temp_name = $_FILES['game-screenshots']['tmp_name'];
 
-    //Asset File
+    // $game_ss_img_ext = strtolower(pathinfo($game_ss_img_name, PATHINFO_EXTENSION));
+
+    // if (in_array($game_ss_img_ext, $allowed_exts)) {
+    //     $new_game_ss_img_name = "SS-" . $gameName . '.' . $game_ss_img_ext;
+    //     $game_ss_upload_path = '../uploads/games/ss/' . $new_game_ss_img_name;
+    //     move_uploaded_file($game_ss_img_temp_name, $game_ss_upload_path);
+    // }
+
+    $screenshotsURL = implode(',', $screenshots);
+
+    //Game File
     $game_file = $_FILES['upload-game']['name'];
     $game_file_size = $_FILES['upload-game']['size'];
     $game_file_temp_name = $_FILES['upload-game']['tmp_name'];
 
     $game_file_ext = strtolower(pathinfo($game_file, PATHINFO_EXTENSION));
 
-    $allowed_game_types = array("zip", "blend", "txt");
+    $allowed_game_types = array("zip", "blend", "rar");
 
     if (in_array($game_file_ext, $allowed_game_types)) {
         $new_game_file_name = "Game-" . $gameName . '.' . $game_file_ext;
         $game_upload_path = '../uploads/games/file/' . $new_game_file_name;
         move_uploaded_file($game_file_temp_name, $game_upload_path);
+    } else if (!in_array($game_file_ext, $allowed_game_types) && $game_file) {
+        $incompatibleFileType = true;
     }
 
     //upload to db
-    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFeatures, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$new_game_ss_img_name', '$gameDetails', '$gameStatus', '$gameTags', '$gameFeatures','$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
+    $sql = "INSERT INTO freegame (gameName, gameTagline, gameDeveloperID, gameCoverImg, gameClassification, gameScreenshots, gameDetails, releaseStatus, gameTags, gameFeatures, gameFile, minOS, minProcessor ,minMemory,minStorage,minGraphics,minOther, recommendOS, recommendProcessor ,recommendMemory,recommendStorage,recommendGraphics,recommendOther,gameVisibility,gameTrailor) VALUES ('$gameName', '$gameTagline', '$foreignKey', '$new_game_cover_img_name', '$gameClassification', '$screenshotsURL', '$gameDetails', '$gameStatus', '$gameTags', '$gameFeatures','$new_game_file_name','$minGameOS','$minGameProcessor','$minGameMemory','$minGameStorage','$minGameGraphics','$minGameOther','$GameOS','$GameProcessor','$GameMemory','$GameStorage','$GameGraphics','$GameOther','$gameVisibility','$gameIllustrationVedio')";
 
-    if (mysqli_query($conn, $sql)) {
+    if ($gameName == null) {
+        $error_msg =  "Game Name is required.";
+    } else if ($incompatibleFileType) {
+        $error_msg = "Incompatible file type";
+    } else if ($new_game_file_name == null) {
+        $error_msg = "Game file should be added.";
+    } else if ($incompatibleImageType) {
+        $error_msg = "Image type is not compatible.";
+    } else if ($new_game_cover_img_name == null) {
+        $error_msg = "Cover Image should be added.";
+    } else if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
     } else {
         echo "error";
     }
+    // if (mysqli_query($conn, $sql)) {
+    //     echo "Upload successful!";
+    // } else {
+    //     echo "error";
+    // }
 }
 
 ?>
@@ -108,7 +151,7 @@ if (isset($_POST['game-submit'])) {
     <?php include('../src/css/assets.css'); ?>
 </style>
 
-<div class="outer-box" onload="SayHi();">
+<div class="outer-box">
     <div class="form-box">
         <div class="upload-topic">
             Create a new project
@@ -116,16 +159,22 @@ if (isset($_POST['game-submit'])) {
         <hr>
         <div class="btn-box">
             <div id="btn"></div>
-            <button type="button" class="toggle-btn" id="game-active">Game</button>
+            <button type="button" class="toggle-btn" id="game-active" style="background-color:#749ABD">Game</button>
             <button type="button" class="toggle-btn" onclick="uploadAsset()">Assets</button>
         </div><br>
 
         <form method="POST" id="upload-game-form" class="input-upload-group" enctype="multipart/form-data">
+            
+            <?php if ($error_msg != null) { ?>
+                <div class="errors-display" id="errors">
+                    <?php echo "*" . $error_msg; ?>
+                </div>
+            <?php } ?>
             <div class="upload-row">
                 <div class="upload-col">
 
                     <label id="game-title" for="game-title">Title</label><br>
-                    <input type="text" name="game-title" id="game-title" required /><br><br>
+                    <input type="text" name="game-title" id="game-title" placeholder="game title" required /><br><br>
 
                     <label id="game-tagline" for="game-tagline">Tagline</label><br>
                     <p>Shown when we link your game to other pages</p>
@@ -167,11 +216,18 @@ if (isset($_POST['game-submit'])) {
                     <label for="game-paid">Paid</label><br>
                     <p id="p">Minimum Price - Set to $0 for free games</p>
                     <input type="text" id="game-price-val" name="game-price-val" /><br><br>
+            -->
+                    <label id="game-price" for="game-price">Pricing</label><br>
+                    <input type="radio" id="game-free" name="game-price" value="free" checked>
+                    <label for="game-free">Free</label><br>
+                    <input type="radio" id="game-paid" name="game-price" value="paid">
+                    <label for="game-paid">Paid</label><br>
+                    <p id="p">Minimum Price - Set to $0 for free games</p>
+                    <input type="text" id="game-price-val" name="game-price-val" /><br><br>
 
--->
                     <label id="game-features" for="game-features">Features</label><br>
                     <p id="p">Special features your game has that players would prefer</p><br>
-                    <input type="text" id="game-features" name="game-features" /> <br><br>
+                    <input type="text" id="game-features" name="game-features"/> <br><br>
                     <!--
                     <label id="upload-game" for="upload-game">Upload Game</label><br>
                     <input type="file" id="upload-game" name="upload-game"><br><br>
@@ -239,15 +295,16 @@ if (isset($_POST['game-submit'])) {
                     <input type="url" id="game-illustration-vedio" name="game-illustration-vedio" placeholder="eg: https://www.youtube.com/"><br><br>
 
                     <label id="upload-game" for="upload-game">Upload Game</label><br>
+                    <p>(Required file types : .zip, .rar, .blend)</p><br>
                     <input type="file" id="upload-game" name="upload-game"><br><br>
 
                     <label id="game-screenshots" for="game-screenshots">Screenshots</label><br>
                     <p>These will appear on your game's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
-                    <input type="file" id="game-screenshots" name="game-screenshots" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
+                    <input type="file" id="game-screenshots" name="game-screenshots[]" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="game-submit">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="game-submit">Upload Game</button>
             <!-- <button type="submit" class="submit-btn" name="game-submit"><a href="singlegame.php?id=<?= $game['gameID']; ?>">Save & View Page</a></button> -->
         </form>
 
