@@ -10,11 +10,11 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $sql);
     $devlog = mysqli_fetch_assoc($result);
 
-    $gamerID = $devlog['gameDeveloperID'];
-    $gamerSql = "SELECT * FROM gamer WHERE gamerID=$gamerID";
+    // $gamerID = $devlog['gameDeveloperID'];
+    // $gamerSql = "SELECT * FROM gamer WHERE gamerID=$gamerID";
 
-    $result1 = mysqli_query($conn, $gamerSql);
-    $gamer = mysqli_fetch_assoc($result1);
+    // $result1 = mysqli_query($conn, $gamerSql);
+    // $gamer = mysqli_fetch_assoc($result1);
 
     // $sqld = "SELECT * FROM freegame WHERE devLogID=$id";
     // $resultd = mysqli_query($conn, $sqld);
@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
         </div>    
 
         <div class="devdate">
-            <p>Published <?= $devlog['publishDate'] ?></p>
+            <p>Published <?= $devlog['publishDate']; ?></p>
         </div>
         
 
@@ -79,21 +79,23 @@ if (isset($_GET['id'])) {
 
       <div class="card">
        
-        <div class="category">Related Game Name</div>
+        <div class="category">
+          <p><?= $devlog['gameName']; ?></p>
+        </div>
         
         <div class="buy-btn">Add to Cart</div>
 
         <div class="row">
           <p class="title">Status</p>
-          <p class="sub-title"><?= $freegame['releaseStatus']; ?></p>
+          <p class="sub-title"><?= $devlog['gameName']; ?></p>
         </div>
         <hr />
         
-        <div class="row">
+        <!-- <div class="row">
           <p class="title">Author</p>
           <p class="sub-title"><?= $gamer['username']; ?></p>
         </div>
-        <hr />
+        <hr /> -->
 
         <div class="row">
           <p class="title">Genre</p>
@@ -103,7 +105,7 @@ if (isset($_GET['id'])) {
 
         <div class="row">
           <p class="title">Release Date</p>
-          <p class="sub-title">Windows 10</p>
+          <p class="sub-title"><?= $devlog['ReleaseDate']; ?></p>
         </div>
         <hr />
 
