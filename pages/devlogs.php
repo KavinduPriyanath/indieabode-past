@@ -1,3 +1,4 @@
+
 <?php session_start();
 
 require '../db/database.php';
@@ -80,23 +81,25 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <div class="container" id="card-container">
 
 <?php foreach ($devlogs as $devlog) { ?>
-    <div class="card">
-        <div class="card-image game">
-        <img src="../uploads/devlog/<?= $devlog['devlogImg'] ?>" alt="">
-
-            <div class="dev-log-type"><h4><?= $devlog['Type'] ?></h4></div>
-        </div>
-        <div class="game-intro">
-            <h3><?= $devlog['name'] ?></h3>
-            <div class="cmts">
+    <a href="singledevlog.php?id=<?= $devlog['devLogID'] ?>">
+        <div class="card">
+            <div class="card-image game">
             <img src="../uploads/devlog/<?= $devlog['devlogImg'] ?>" alt="">
+
+                <div class="dev-log-type"><h4><?= $devlog['Type'] ?></h4></div>
+            </div>
+            <div class="game-intro">
+                <h3><?= $devlog['name'] ?></h3>
+                <div class="cmts">
+                <img src="../uploads/devlog/<?= $devlog['devlogImg'] ?>" alt="">
+                </div>
+            </div>
+            <div class="post-title"><h3><?= $devlog['name'] ?></h3></div>
+            <div class="tagline">
+            <h3><?= $devlog['Tagline'] ?></h3>
             </div>
         </div>
-        <div class="post-title"><h3><?= $devlog['name'] ?></h3></div>
-        <div class="tagline">
-        <h3><?= $devlog['Tagline'] ?></h3>
-        </div>
-    </div>
+    </a>    
     <?php } ?>
 </div>
 
@@ -119,6 +122,7 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php include('../src/css/footer.css'); ?>
 </style>
 <?php include("../components/footer.php"); ?>
+
 
 
 <script src="../src/js/devlogs.js"></script>

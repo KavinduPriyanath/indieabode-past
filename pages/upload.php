@@ -2,10 +2,15 @@
 
 session_start();
 
-echo $_SESSION['id'];
 
 
 require '../db/database.php';
+
+$new_asset_file_name = null;
+$new_cover_img_name = null;
+$noTitleError = null;
+$error_msg = null;
+
 
 $allowed_exts = array("jpg", "jpeg", "png");
 $screenshots = array();
@@ -39,17 +44,6 @@ if (isset($_POST['asset-submit'])) {
     }
 
     //Screenshots
-    // $ss_img_name = $_FILES['asset-screenshots']['name'];
-    // $ss_img_temp_name = $_FILES['asset-screenshots']['tmp_name'];
-
-    // $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
-
-    // if (in_array($ss_img_ext, $allowed_exts)) {
-    //     $new_ss_img_name = "SS-" . $assetName . '.' . $ss_img_ext;
-    //     $ss_upload_path = '../uploads/assets/ss/' . $new_ss_img_name;
-    //     move_uploaded_file($ss_img_temp_name, $ss_upload_path);
-    // }
-
     $ssCount = count($_FILES['asset-screenshots']['name']);
     for ($i = 0; $i < $ssCount; $i++) {
         $ssName = $_FILES['asset-screenshots']['name'][$i];
@@ -86,7 +80,13 @@ if (isset($_POST['asset-submit'])) {
     //upload to db
     $sql = "INSERT INTO freeasset (assetName, assetTagline, assetCreatorID, assetCoverImg, assetClasification, assetScreenshots, assetDetails, assetReleaseStatus, assetTags, assetLicense, assetFile, assetVisibility, assetVideoURL, assetType, assetStyle) VALUES ('$assetName', '$assetTagline', '$foreignKey', '$new_cover_img_name', '$assetClassification', '$screenshotsURL', '$assetDetails', '$assetStatus', '$assetTags', '$assetLicense', '$new_asset_file_name', '$assetVisibility', '$assetVideoUrl', '$assetType', '$assetStyle')";
 
-    if (mysqli_query($conn, $sql)) {
+    if ($assetName == null) {
+        $error_msg =  "Asset Name is required";
+    } else if ($new_asset_file_name == null) {
+        $error_msg = "Asset file should be added";
+    } else if ($new_cover_img_name == null) {
+        $error_msg = "Cover Image should be added";
+    } else if (mysqli_query($conn, $sql)) {
         echo "Upload successful!";
     } else {
         echo "error";
@@ -188,10 +188,10 @@ if (isset($_POST['asset-submit'])) {
     <?php include('../src/css/assets.css'); ?>
 </style>
 
-<div class="outer-box">
+<div class="outer-box" onload="SayHi();">
     <div class="form-box">
         <div class="upload-topic">
-           Create a new project
+            Create a new project
         </div>
         <hr>
         <div class="btn-box">
@@ -252,7 +252,7 @@ if (isset($_POST['asset-submit'])) {
                     <label id="game-features" for="game-features">Features</label><br>
                     <p id="p">Special features your game has that players would prefer</p><br>
                     <input type="text" id="game-features" name="game-features" /> <br><br>
-<!--
+                    <!--
                     <label id="upload-game" for="upload-game">Upload Game</label><br>
                     <input type="file" id="upload-game" name="upload-game"><br><br>
 -->
@@ -299,11 +299,11 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="game-visibility" for="game-visibility">Visibility</label><br>
                     <div class="visibility">
-                    <p>Decide when is your page ready for the public</p><br>
-                    <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
-                    <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
-                    <input type="radio" id="game-public" name="game-visibility" value="public">
-                    <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
+                        <p>Decide when is your page ready for the public</p><br>
+                        <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
+                        <label for="game-draft">Draft - Only those who can edit the project can view the page</label><br>
+                        <input type="radio" id="game-public" name="game-visibility" value="public">
+                        <label for="game-public">Public - Anyone can view the page, you can enable this after you've saved</label><br><br>
                     </div>
 
                 </div>
@@ -335,7 +335,18 @@ if (isset($_POST['asset-submit'])) {
         <!--upload assets form-->
 
         <form method="POST" id="upload-asset-form" class="input-upload-group" enctype="multipart/form-data">
+            <!--Display error Messages-->
+            <?php if ($error_msg != null) { ?>
+                <div class="errors-display" id="errors">
+                    <?php echo "*" . $error_msg; ?>
+                </div>
+            <?php } ?>
             <div class="upload-row">
+
+                <!--Display error Messages-->
+
+
+
                 <div class="upload-col">
                     <label id="asset-title" for="asset-title">Title</label><br>
                     <input type="text" name="asset-title" id="asset-title" /><br><br>
@@ -425,7 +436,7 @@ if (isset($_POST['asset-submit'])) {
                     <input type="text" id="asset-tags" name="asset-tags" /> <br><br>
 
                     <label id="asset-price" for="asset-price">Pricing</label><br>
-                    <input type="radio" id="asset-free" name="asset-price" value="free">
+                    <input type="radio" id="asset-free" name="asset-price" value="free" checked>
                     <label for="asset-free">Free</label><br>
                     <input type="radio" id="asset-paid" name="asset-price" value="paid">
                     <label for="asset-paid">Paid</label><br>
@@ -468,7 +479,7 @@ if (isset($_POST['asset-submit'])) {
 
                     <label id="asset-visibility" for="asset-visibility">Visibility</label><br>
                     <p>Decide when is your page ready for the public</p><br>
-                    <input type="radio" id="asset-draft" name="asset-visibility" value="draft">
+                    <input type="radio" id="asset-draft" name="asset-visibility" value="draft" checked>
                     <label for="asset-draft">Draft - Only those who can edit the project can view the page</label><br>
                     <input type="radio" id="asset-public" name="asset-visibility" value="public">
                     <label for="asset-public">Public - Anyone can view the page, you can enable this after you've saved</label><br>
@@ -481,7 +492,7 @@ if (isset($_POST['asset-submit'])) {
                     <p>This image will be shown and used to identify your asset</p><br>
                     <input type="file" id="asset-upload-cover-img" name="asset-upload-cover-img" accept=".jpg,.jpeg,.png"><br><br>
 
-                    <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Vedio</label><br>
+                    <label id="asset-illustration-vedio" for="asset-illustration-vedio">Asset Illustration Video</label><br>
                     <p>Provide a link to youtube</p><br>
                     <input type="url" id="asset-illustration-vedio" name="asset-illustration-video" placeholder="eg: https://www.youtube.com/"><br><br>
 
@@ -491,7 +502,7 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="MoveData();">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="uploadAsset()" id="asset-submit">Save & View Page</button>
         </form>
     </div>
 </div>
