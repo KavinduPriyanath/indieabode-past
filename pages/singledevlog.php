@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
 
         <div class="row">
           <p class="title">Status</p>
-          <p class="sub-title"><?= $devlog['gameName']; ?></p>
+          <p class="sub-title">Released</p>
         </div>
         <hr />
         
@@ -99,7 +99,7 @@ if (isset($_GET['id'])) {
 
         <div class="row">
           <p class="title">Genre</p>
-          <p class="sub-title">miHiYo Studios</p>
+          <p class="sub-title">Action</p>
         </div>
         <hr />
 
