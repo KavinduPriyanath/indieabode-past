@@ -3,6 +3,9 @@ const captcha = document.querySelector(".preview"),
   inputField = document.getElementById("captcha-input"),
   submitBtn = document.getElementById("submitBtn"),
   statusTxt = document.querySelector(".status-text");
+const logBtn = document.getElementById("login");
+
+logBtn.disabled = true;
 
 //storing all captcha characters in array
 let allCharacters = [
@@ -114,8 +117,14 @@ function checkboxClicked() {
   if (checkbox.checked) {
     console.log("ji");
     captchaBox.style.display = "block";
+    logBtn.style.backgroundColor = "#7FAFDB";
+    logBtn.style.cursor = "pointer";
+    logBtn.disabled = false;
   } else {
     captchaBox.style.display = "none";
+    logBtn.style.backgroundColor = "#9eb7cf";
+    logBtn.style.cursor = "none";
+    logBtn.disabled = true;
   }
 }
 
@@ -130,3 +139,15 @@ if (errorDisplay.innerHTML == "") {
   errorDisplay.style.display = "block";
   console.log("Error");
 }
+
+//active login button
+// const robotCheckbox = document.getElementById("robot");
+// const logBtn = document.getElementById("login");
+
+// function checkboxClicked() {
+//   if (robotCheckbox.checked) {
+//     logBtn.style.backgroundColor = "#7FAFDB";
+//   } else {
+//     logBtn.style.backgroundColor = "#9eb7cf";
+//   }
+// }
