@@ -161,26 +161,31 @@ $gamejams = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
   <?php foreach ($gamejams as $jam) { ?>
-    <a href="singlejam.php?id=<?php echo $jam['gameJamID'] ?>">
+    <a href="singlejam.php?id=<?= $jam['gameJamID'] ?>">
       <div class="card">
 
-        <div class="first-row">
+        <!--<div class="first-row">-->
+          <div class="jam-name">
+            <h3><?= $jam['jamTitle'] ?></h3>
+          </div>
           <div class="card-image">
             <img src="../uploads/gamejams/covers/<?= $jam['jamCoverImg'] ?>" alt="" />
           </div>
-          <div class="jam-name">
-            <h3><?php echo $jam['jamTitle'] ?></h3>
-            <div class="tagline">
-              <p><?php echo $jam['jamTagline'] ?></p>
-            </div>
-
+          
+          <div class="tagline">
+              <p><?= $jam['jamTagline'] ?></p>
           </div>
-        </div>
-        <div class="details">
-          <div class="host">Hosted by, <span><?php echo $jam['firstName'] . ' ' . $jam['lastName'] ?></span></div>
-          <div class="deadline">Starts on, 
+
+          
+       <!--</div>-->
+         <div class="details">
+          <div class="host">Hosted by, 
+            <div class="host-name"><span><?= $jam['firstName'] . ' ' . $jam['lastName'] ?></span></div>
             
           </div>
+          <!--<div class="deadline">Starts on, 
+            
+          </div>-->
           <div class="count">
             <h2>56</h2>
             joined

@@ -44,6 +44,10 @@ body {
     display: flex;
 }
 
+.form-container form .card-details p{
+    font-size:15px;
+}
+
 /*
 .card-details{
     display: flex;
@@ -90,7 +94,39 @@ form .circle-form .circle-title {
     transform: rotate(0.06deg);
 }
 
-#button{
+.submit{
+    cursor: pointer;
+    color: white;
+    display: block;
+    margin: auto;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    width: 160px;
+    height: 41px;
     background: #383F7D;
+    border-radius: 7px;
+    border-width: 2px;
+    transition: .5s;
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1emx;
+    line-height: 25px;
     
+}
+
+#game-details{
+    width: 392px;
+}
+
+.conditions{
+    font-size: smaller;
+    color: rgba(255, 0, 0, 0.721);
+}
+
+#coverImg{
+    border: 1px solid black;
+    width: 385px;
+    height: 200px;
 }
