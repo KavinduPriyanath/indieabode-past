@@ -1,11 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2022 at 06:37 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+
+-- Generation Time: Dec 15, 2022 at 05:01 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -122,6 +124,7 @@ CREATE TABLE `crowdfund` (
 
 CREATE TABLE `devlog` (
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `author` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
   `Tagline` varchar(255) NOT NULL,
@@ -210,6 +213,7 @@ INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `
 (27, 'Red Hat Boy', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-Red Hat Boy.png', 0, '', '', '', 5),
 (28, 'Lisa Model', '', '', '', '', 'Hi Cutie', '', '', '', '', '', 'Cover-Lisa Model.jpg', 0, '', '', '', 1),
 (29, 'New Assets 11', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 11.jpg', 0, '', '', '', 1),
+
 (30, 'New Asset 12', '', '', '', '', 'Buy this one ASAP', 'visualEffects', '', '', '', '', 'Cover-New Asset 12.jpg', 0, '', '', '', 1),
 (31, 'Food Icons', '', 'Food Icons - 50+ Stylized Anime Food Art Pack contains 50+ food icons:\r\n\r\n\r\nFeatures:\r\n\r\n- 53 Food Icons\r\n\r\n- Sorted named, easy to read\r\n\r\n- Hand Painted Stylized\r\n\r\n- High and low-resolution sizes\r\n\r\n- Mobile Ready\r\n\r\n- Demo Scene', 'Cover-Food Icons.png', '', '50+ Stylized Anime Food Art Pack', '2d', 'Prototype', 'food, sprites, icons', '', 'copyleft', 'Cover-Food Icons.png', 0, '', '', '', 5),
 (32, 'Food Icons 2', '', '50+ Stylized Anime Food Art Pack', 'SS-Food Icons 2.png', '', '50+ Stylized Anime Food Art Pack', 'textures', 'Prototype', 'food, sprites, icons', '', 'permissive', 'Cover-Food Icons 2.png', 0, '', '', '', 5),
@@ -220,6 +224,7 @@ INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `
 (37, 'New Asset 333', '', 'gh h jukj kiki l oil ', 'SS-New Asset 333.png', '', 'Buy this one ASAP', '2d', 'Upcoming', 'h hy jjuj ', '', 'permissive', 'Cover-New Asset 333.png', 0, '', '', '', 5),
 (38, 'fe feg', '', 'tr htrh h yhj y j', 'SS-fe feg.png', '', 'rgrgr', '2d', 'Prototype', 'yt jj', 'Asset-fe feg.txt', 'proprietary', 'Cover-fe feg.png', 0, '', '', '', 5),
 (39, 'New Asset 15', '', '', 'SS-New Asset 15-0.jpg', '', 'jkkkkkkkkkkkkkkkkkkk', 'visualEffects', 'Prototype', 'm mmrfmlr', '', 'permissive', 'Cover-New Asset 15.jpg', 0, '', 'character', '16bit', 9);
+
 
 -- --------------------------------------------------------
 
@@ -234,31 +239,22 @@ CREATE TABLE `freegame` (
   `gameDetails` text NOT NULL,
   `gameScreenshots` varchar(255) NOT NULL,
   `gameTrailor` varchar(255) NOT NULL,
+  `gameTitle` varchar(50) NOT NULL,
   `gameTagline` varchar(255) NOT NULL,
   `gameClassification` varchar(50) NOT NULL,
+  `gamePlatform` varchar(20) NOT NULL,
+  `gameFeatures` varchar(30) NOT NULL,
   `gameTags` varchar(30) NOT NULL,
-  `gameFeatures` varchar(255) NOT NULL,
   `gameFile` varchar(255) NOT NULL,
   `gameVisibility` tinyint(1) NOT NULL,
   `gameCoverImg` varchar(255) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL,
-  `minOS` varchar(255) NOT NULL,
-  `minProcessor` varchar(255) NOT NULL,
-  `minMemory` varchar(255) NOT NULL,
-  `minStorage` varchar(255) NOT NULL,
-  `minGraphics` varchar(255) NOT NULL,
-  `minOther` varchar(255) NOT NULL,
-  `recommendOS` varchar(255) NOT NULL,
-  `recommendProcessor` varchar(255) NOT NULL,
-  `recommendMemory` varchar(255) NOT NULL,
-  `recommendStorage` varchar(255) NOT NULL,
-  `recommendGraphics` varchar(255) NOT NULL,
-  `recommendOther` varchar(255) NOT NULL
+  `gameDeveloperID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freegame`
 --
+
 
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
 (1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -269,6 +265,7 @@ INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `g
 (20, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
 (21, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
 (22, 'Ghost Of Tsushima', 'early access', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'SS-Ghost Of Tsushima.jpg', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'racing', 'cdcdcdc', 'qaaaqqq', '', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support');
+
 
 -- --------------------------------------------------------
 
@@ -322,11 +319,13 @@ CREATE TABLE `gamejam` (
 --
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
+
 (38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', ''),
 (41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
 (42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
 (44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
 (45, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hththth', '0000-00-00 00:00:00', 'GTML', 'rgrger', 'Non-Ranked', 'grg', 'Draft', 0, 1, 5, 'Submitters Only', 'hh', 'Cover-GTML.png');
+
 
 -- --------------------------------------------------------
 
@@ -353,6 +352,7 @@ CREATE TABLE `gamer` (
 -- Dumping data for table `gamer`
 --
 
+
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`, `verified`, `token`) VALUES
 (1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20', '', ''),
 (5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23', '', ''),
@@ -361,6 +361,7 @@ INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, 
 (8, 'ruwanhanska99@gmail.com', '$2y$10$TopLDJh0cj5QpTInxA', 0, '', 'nadee_darshika', '', '', '2022-12-15 00:54:45', '2022-12-15 00:54:45', '', 'cd7e19e6f7f9052401c702779aa9e55099f749ccbe321c6aeb8509576cfc378b8a1dc6b8663a4fd44786a23cecc3f8d438bd'),
 (9, 'sandaru@gmail.com', '$2y$10$jb5pQ6XABhahq5AoikJlX.7xMOrOokm70wR0aweGHvAYaQ1TQA46W', 0, '', 'sandaru', '', '', '2022-12-15 01:02:02', '2022-12-15 01:02:02', '', '1d7e1f28864e6fae354d895a57faaafb1d3837b691cfd45856d9a2e8d6cd1c3ca7582fa16b4a8fca2e827b5cdd105db1baed'),
 (12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16', '', '');
+
 
 -- --------------------------------------------------------
 
@@ -634,7 +635,9 @@ ALTER TABLE `devlog`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
+
   MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
