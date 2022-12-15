@@ -3,6 +3,7 @@
 .footer {
     background-color: #2C4862;
     padding:.5%;
+    width: 100%;
 }
 .first-row {
     display: flex;

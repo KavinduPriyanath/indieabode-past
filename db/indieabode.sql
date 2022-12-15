@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Dec 15, 2022 at 06:46 PM
+
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -121,7 +123,6 @@ CREATE TABLE `crowdfund` (
 --
 
 CREATE TABLE `devlog` (
-  `devLogID` int(11) NOT NULL,
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -129,18 +130,23 @@ CREATE TABLE `devlog` (
   `Type` varchar(50) NOT NULL,
   `Visibility` varchar(255) NOT NULL,
   `devlogImg` varchar(255) NOT NULL,
-  `gameName` varchar(255) NOT NULL
+  `gameName` varchar(255) NOT NULL,
+  `devLogID` int(11) NOT NULL,
+  `ReleaseDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `devlog`
 --
 
-INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `Tagline`, `Type`, `Visibility`, `devlogImg`, `gameName`) VALUES
-(86, '2022-12-15 05:43:06', 'bfbfb', 'bf', 'bf', 'Game Design', 'public', 'SS-bf.jpg', ''),
-(87, '2022-12-15 05:44:06', 'dwdw', 'dwd', 'ddw', 'Major Update', 'public', 'SS-dwd.jpg', ''),
-(88, '2022-12-15 06:29:23', 'btgrftgb ', 'dewjb ', 'frdfv', 'Tutorial', 'public', 'SS-dewjb .jpg', ''),
-(89, '2022-12-15 08:28:03', 'gjdhg fjrj hfk', 'devlog', 'new devlog', 'Tutorial', 'draft', 'SS-devlog.jpg', '');
+
+INSERT INTO `devlog` (`publishDate`, `description`, `name`, `Tagline`, `Type`, `Visibility`, `devlogImg`, `gameName`, `devLogID`, `ReleaseDate`) VALUES
+('2022-12-15 14:59:25', 'sfvdfbdf fdbdzgbdb fb dfxb df b dfbfdfb', 'devlog test', 'tagline vdfv', 'Tutorial', 'public', 'SS-devlog test.jpg', 'NFS', 9, NULL),
+('2022-12-15 15:05:45', 'jyjguyg', 'hgjk', 'lkkjnl', 'Tutorial', 'public', 'SS-hgjk.jpg', 'kk', 10, NULL),
+('2022-12-15 15:29:49', 'fbdfbcnb bcvn dfhbdfddgnfgn', 'devtest77', 'dghnfdg', 'Major Update', 'draft', 'SS-devtest77.jpg', 'IGI', 11, NULL),
+('2022-12-15 16:02:28', 'dsvvv xdvfvv ', 'dev6666', 'dsvfx', 'Tutorial', 'draft', 'SS-dev6666.jpg', 'saan', 12, '2023-01-02'),
+('2022-12-15 16:18:25', 'gdfgbdfb\r\nghgfhnv\r\ngygjhmvnmjk,\r\nhjghmjm', 'dev testing', 'dgdg', 'Tutorial', 'draft', 'SS-dev testing.jpg', 'IGI', 13, '2023-01-08');
+
 
 -- --------------------------------------------------------
 
@@ -188,17 +194,18 @@ CREATE TABLE `freeasset` (
   `assetVideoURL` varchar(255) NOT NULL,
   `assetType` varchar(30) NOT NULL,
   `assetStyle` varchar(20) NOT NULL,
-  `assetCreatorID` int(11) NOT NULL,
-  `created_date` date NOT NULL DEFAULT current_timestamp()
+  `assetCreatorID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `freeasset`
 --
 
+
 INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
 (55, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixelart, sprout lan', 'Asset-Sprout Lands.zip', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', 'pixelart', 12, '2022-12-15'),
 (56, 'New Asset', '', '', 'SS-New Asset-0.jpg,SS-New Asset-1.jpg', '', 'cute pixel pastel farming asset pack', '3d', 'released', 'food, sprites, icons', 'Asset-New Asset.zip', 'open-source', 'Cover-New Asset.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 13, '2022-12-15');
+
 
 -- --------------------------------------------------------
 
@@ -240,7 +247,15 @@ CREATE TABLE `freegame` (
 --
 
 INSERT INTO `freegame` (`gameID`, `gameName`, `releaseStatus`, `gameDetails`, `gameScreenshots`, `gameTrailor`, `gameTagline`, `gameClassification`, `gameTags`, `gameFeatures`, `gameFile`, `gameVisibility`, `gameCoverImg`, `gameDeveloperID`, `minOS`, `minProcessor`, `minMemory`, `minStorage`, `minGraphics`, `minOther`, `recommendOS`, `recommendProcessor`, `recommendMemory`, `recommendStorage`, `recommendGraphics`, `recommendOther`) VALUES
-(26, 'Stray', 'early access', 'Stray is a 2022 adventure game developed by BlueTwelve Studio and published by Annapurna Interactive. The story follows a stray cat who falls into a walled city populated by robots, machines, and mutant bacteria, and sets out to return to the surface with the help of a drone companion, B-12. The game is presented through a third-person perspective. The player traverses by leaping across platforms and climbing up obstacles, and can interact with the environment to open new paths. Using B-12, they can store items found throughout the world and hack into technology to solve puzzles. Throughout the game, the player must evade the antagonistic Zurks and Sentinels, which attempt to kill them.', 'SS-Stray.jpg', 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'follows a stray cat who falls into a walled city populated by robots, machines', 'action', 'cat, game, 3d', 'singleplayer', 'Game-Stray.zip', 0, 'Cover-Stray.jpg', 12, 'windows 7', 'Intel Core I3', '4 GB', '5 GB', 'mx330', 'English', 'windows 10', 'Intel Core I5', '8 GB', '10 GB', 'mx1650', 'English');
+(1, 'New Game', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'New Game 1', '', '', '', '', 'Download this ASAP', '', '', '', '', 0, 'Cover-New Game 1.jpg', 1, '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 'fregrt', '', '', '', '', 'grhrgbrt', '', '', '', '', 0, 'Cover-fregrt.jpg', 6, '', '', '', '', '', '', '', '', '', '', '', ''),
+(18, 'Ghost Of Tsushima', 'not released', 'mssssssssssssssssssssssssssssdddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffff', 'SS-Ghost Of Tsushima.png', '', 'A strikingly beautiful, featuring a gorgeous game world that is teeming with life and splendor, even during some truly dark story arcs.', 'simulation', 'ffffffffffffffffffffffffff', '', 'Game-Ghost Of Tsushima.zip', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(19, 'ndffgfhg', 'early access', 'cccccccccccccccccccccccccccccccccccc', 'SS-ndffgfhg.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'mnbjknmecrvvgb', 'RPG', 'cccccxz', '', '', 0, 'Cover-ndffgfhg.png', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(20, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(21, 'Ghost Of Tsushima', 'early access', 'qqqqqqqqqqqqqqqqsxxxxxxxxxxxxxlllllllllllllllllllll', 'SS-Ghost Of Tsushima.png', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', 'simulation', 'cccccxz', 'qaaaqqq', '', 0, '', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(22, 'Ghost Of Tsushima', 'early access', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'SS-Ghost Of Tsushima.jpg', 'https://www.youtube.com/watch?v=zqkhNPJuDIE', 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 'racing', 'cdcdcdc', 'qaaaqqq', '', 0, 'Cover-Ghost Of Tsushima.jpg', 7, 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', ' English Language Support', 'Windows10', 'Intel Core I5', '8 GB', '14 GB', 'Nvidia GeForce 1660', 'English Language Support'),
+(0, 'aaaaaa', 'released', 'aaaaaaaaa', 'SS-aaaaaa.jpg', 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'aaaaaaaa', 'action', 'a', 'a', 'Game-aaaaaa.zip', 0, 'Cover-aaaaaa.jpg', 5, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -294,7 +309,13 @@ CREATE TABLE `gamejam` (
 --
 
 INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, `jamContent`, `votingEndDate`, `jamTitle`, `jamTagline`, `jamType`, `jamCriteria`, `jamVisibility`, `maxParticipants`, `canJoinAfterStarted`, `jamHostID`, `jamVoters`, `jamTwitter`, `jamCoverImg`) VALUES
-(46, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hrth', '0000-00-00 00:00:00', 'thrt', 'thtr', '', 'thtrh', 'Draft', 0, 1, 12, 'Submitters Only', 'thr', 'Cover-thrt.png');
+(38, '2020-10-05 12:00:00', '2020-10-20 12:00:00', ' dsf fdvs', '2020-11-01 12:00:00', 'wreg', 'gergrs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Submitters Only', 'sfads', ''),
+(41, '2022-11-25 00:00:00', '2022-12-08 13:30:00', ' fre rfer', '2022-12-30 01:00:00', 'gtrgtrh', 'rgtrgrt', 'Non-Ranked', 'lhoil', 'Public', 10, 1, 6, 'Moderators Only', 'j,', ''),
+(42, '2022-11-30 00:00:00', '2022-12-08 13:30:00', ' fer', '2022-12-30 01:00:00', 'dsfd', 'vfdvs', 'Non-Ranked', 'qewfq erer', 'Public', 20, 1, 6, 'Moderators Only', '#gmtk', ''),
+(44, '2020-10-05 12:00:00', '2022-07-08 13:30:00', ' gfs ', '2020-11-01 12:00:00', 'efwreggg', 'gwr', 'Ranked', 'sdfv', 'Draft', 20, 1, 6, 'Submitters Only', 'svd', 'Cover-efwreggg.jpg'),
+(45, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' hththth', '0000-00-00 00:00:00', 'GTML', 'rgrger', 'Non-Ranked', 'grg', 'Draft', 0, 1, 5, 'Submitters Only', 'hh', 'Cover-GTML.png'),
+(0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' edef rgr rr', '0000-00-00 00:00:00', 'dededede', 'ded', 'Ranked', 'edef ', 'Public', 0, 1, 5, 'Public', 'edef', 'Cover-dededede.jpg'),
+(0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', ' a', '0000-00-00 00:00:00', 'hello', 'aaaaaa', 'Ranked', 'a', 'Public', 0, 0, 5, 'Public', 'a', 'Cover-hello.jpg');
 
 -- --------------------------------------------------------
 
@@ -305,23 +326,27 @@ INSERT INTO `gamejam` (`gameJamID`, `submissionStartDate`, `submissionEndDate`, 
 CREATE TABLE `gamer` (
   `gamerID` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `accountStatus` tinyint(1) NOT NULL,
   `avatar` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `loginDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `logoutTime` timestamp NOT NULL DEFAULT current_timestamp()
+  `logoutTime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `verified` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gamer`
 --
 
+
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
 (12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16'),
 (13, 'kavindupriyanath1@gmail.com', 'Kimalrasanka123!', 0, '', 'pren11', 'kavindu', 'Alwis', '2022-12-15 06:22:50', '2022-12-15 06:22:50');
+
 
 -- --------------------------------------------------------
 
@@ -582,336 +607,21 @@ ALTER TABLE `cart`
   ADD KEY `gamerID` (`gamerID`);
 
 --
--- Indexes for table `complaint`
---
-ALTER TABLE `complaint`
-  ADD PRIMARY KEY (`complaintID`),
-  ADD KEY `gamerID` (`gamerID`);
-
---
--- Indexes for table `crowdfund`
---
-ALTER TABLE `crowdfund`
-  ADD PRIMARY KEY (`crowdFundID`),
-  ADD KEY `gameDeveloperID` (`gameDeveloperID`),
-  ADD KEY `gameID` (`gameID`);
-
---
 -- Indexes for table `devlog`
 --
 ALTER TABLE `devlog`
   ADD PRIMARY KEY (`devLogID`);
 
 --
--- Indexes for table `downloadasset`
---
-ALTER TABLE `downloadasset`
-  ADD PRIMARY KEY (`assetID`,`gamerID`),
-  ADD KEY `gamerID` (`gamerID`);
-
---
--- Indexes for table `downloadgame`
---
-ALTER TABLE `downloadgame`
-  ADD PRIMARY KEY (`gamerID`,`gameID`),
-  ADD KEY `gameID` (`gameID`);
-
---
--- Indexes for table `freeasset`
---
-ALTER TABLE `freeasset`
-  ADD PRIMARY KEY (`assetID`),
-  ADD KEY `assetCreatorID` (`assetCreatorID`);
-
---
--- Indexes for table `freegame`
---
-ALTER TABLE `freegame`
-  ADD PRIMARY KEY (`gameID`),
-  ADD KEY `gameDeveloperID` (`gameDeveloperID`);
-
---
--- Indexes for table `gamecart`
---
-ALTER TABLE `gamecart`
-  ADD PRIMARY KEY (`gameID`,`cartID`),
-  ADD KEY `cartID` (`cartID`);
-
---
--- Indexes for table `gamegenre`
---
-ALTER TABLE `gamegenre`
-  ADD PRIMARY KEY (`gameID`);
-
---
--- Indexes for table `gamejam`
---
-ALTER TABLE `gamejam`
-  ADD PRIMARY KEY (`gameJamID`),
-  ADD KEY `jamHostID` (`jamHostID`);
-
---
--- Indexes for table `gamer`
---
-ALTER TABLE `gamer`
-  ADD PRIMARY KEY (`gamerID`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `gamesale`
---
-ALTER TABLE `gamesale`
-  ADD PRIMARY KEY (`gameSaleID`);
-
---
--- Indexes for table `gig`
---
-ALTER TABLE `gig`
-  ADD PRIMARY KEY (`gigID`),
-  ADD KEY `gameID` (`gameID`),
-  ADD KEY `gameDeveloperID` (`gameDeveloperID`),
-  ADD KEY `gamePublisherID` (`gamePublisherID`);
-
---
--- Indexes for table `handlecomplaint`
---
-ALTER TABLE `handlecomplaint`
-  ADD PRIMARY KEY (`complaintID`,`gamerID`),
-  ADD KEY `gamerID` (`gamerID`);
-
---
--- Indexes for table `joinjam`
---
-ALTER TABLE `joinjam`
-  ADD PRIMARY KEY (`gamerID`,`gameJamID`),
-  ADD KEY `gameJamID` (`gameJamID`);
-
---
--- Indexes for table `organizegamejam`
---
-ALTER TABLE `organizegamejam`
-  ADD PRIMARY KEY (`gameJamID`,`gameJamOrganizerID`),
-  ADD KEY `gameJamOrganizerID` (`gameJamOrganizerID`);
-
---
--- Indexes for table `paidasset`
---
-ALTER TABLE `paidasset`
-  ADD PRIMARY KEY (`assetID`),
-  ADD KEY `assetCreatorID` (`assetCreatorID`);
-
---
--- Indexes for table `paidgame`
---
-ALTER TABLE `paidgame`
-  ADD PRIMARY KEY (`gameID`),
-  ADD KEY `gameDeveloperID` (`gameDeveloperID`);
-
---
--- Indexes for table `participatecrowdfund`
---
-ALTER TABLE `participatecrowdfund`
-  ADD PRIMARY KEY (`crowdFundID`,`gamerID`),
-  ADD KEY `gamerID` (`gamerID`);
-
---
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`paymentID`),
-  ADD KEY `gameID` (`gameID`),
-  ADD KEY `assetID` (`assetID`),
-  ADD KEY `cartID` (`cartID`),
-  ADD KEY `crowdFundID` (`crowdFundID`),
-  ADD KEY `gigID` (`gigID`);
-
---
--- Indexes for table `portfolio`
---
-ALTER TABLE `portfolio`
-  ADD PRIMARY KEY (`portfolioID`),
-  ADD UNIQUE KEY `gamerID` (`gamerID`);
-
---
--- Indexes for table `rategame`
---
-ALTER TABLE `rategame`
-  ADD PRIMARY KEY (`gamerID`,`gameID`),
-  ADD KEY `gameID` (`gameID`);
-
---
--- Indexes for table `ratesubmission`
---
-ALTER TABLE `ratesubmission`
-  ADD PRIMARY KEY (`gamerID`,`submissionID`),
-  ADD KEY `submissionID` (`submissionID`);
-
---
--- Indexes for table `submission`
---
-ALTER TABLE `submission`
-  ADD PRIMARY KEY (`submissionID`),
-  ADD KEY `gameJamID` (`gameJamID`);
-
---
--- Indexes for table `usertype`
---
-ALTER TABLE `usertype`
-  ADD PRIMARY KEY (`gamerID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `assetsale`
---
-ALTER TABLE `assetsale`
-  MODIFY `assetSaleID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `complaint`
---
-ALTER TABLE `complaint`
-  MODIFY `complaintID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `crowdfund`
---
-ALTER TABLE `crowdfund`
-  MODIFY `crowdFundID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
---
--- AUTO_INCREMENT for table `freeasset`
---
-ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
-
---
--- AUTO_INCREMENT for table `freegame`
---
-ALTER TABLE `freegame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `gamejam`
---
-ALTER TABLE `gamejam`
-  MODIFY `gameJamID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `gamer`
---
-ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `gamesale`
---
-ALTER TABLE `gamesale`
-  MODIFY `gameSaleID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `gig`
---
-ALTER TABLE `gig`
-  MODIFY `gigID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `paidasset`
---
-ALTER TABLE `paidasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `paidgame`
---
-ALTER TABLE `paidgame`
-  MODIFY `gameID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `portfolio`
---
-ALTER TABLE `portfolio`
-  MODIFY `portfolioID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `submission`
---
-ALTER TABLE `submission`
-  MODIFY `submissionID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `addassetsale`
---
-ALTER TABLE `addassetsale`
-  ADD CONSTRAINT `addassetsale_ibfk_1` FOREIGN KEY (`assetID`) REFERENCES `paidasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `addgamesale`
---
-ALTER TABLE `addgamesale`
-  ADD CONSTRAINT `addgamesale_ibfk_1` FOREIGN KEY (`gameSaleID`) REFERENCES `gamesale` (`gameSaleID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `addgamesale_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `assetcart`
---
-ALTER TABLE `assetcart`
-  ADD CONSTRAINT `assetcart_ibfk_1` FOREIGN KEY (`assetID`) REFERENCES `freeasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `assetcart_ibfk_2` FOREIGN KEY (`assetID`) REFERENCES `paidasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `assetcart_ibfk_3` FOREIGN KEY (`cartID`) REFERENCES `cart` (`cartID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `complaint`
---
-ALTER TABLE `complaint`
-  ADD CONSTRAINT `complaint_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `crowdfund`
---
-ALTER TABLE `crowdfund`
-  ADD CONSTRAINT `crowdfund_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crowdfund_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `crowdfund_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `downloadasset`
---
-ALTER TABLE `downloadasset`
-  ADD CONSTRAINT `downloadasset_ibfk_1` FOREIGN KEY (`assetID`) REFERENCES `freeasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `downloadasset_ibfk_2` FOREIGN KEY (`assetID`) REFERENCES `paidasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `downloadasset_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

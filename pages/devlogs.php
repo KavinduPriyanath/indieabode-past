@@ -28,7 +28,7 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <!--Page Topic-->
 <div class="page-topic">
-    <h1>Devlogs</h1>
+    <h1>-Devlogs-</h1>
 </div>
 
 <!-- Filters-->
@@ -68,9 +68,9 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <i class="fa fa-angle-double-right" id="filter-off"></i>
         <i class="fa fa-angle-double-left" id="filter-on"></i> filters
     </div>
-    <div class="sort" id="sort">
-        <img src="images/assets/sort.png" alt="" /> sort by: <span>Release Date</span>
-    </div>
+    <a href="/indieabode/pages/devlogForm.php">
+    <button type="submit" name="submit" id="adddev">Add a devlog</button>
+</a>
 </div>
 
 <hr id="topic-break" />
@@ -96,7 +96,7 @@ $devlogs = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 </div>
                 <div class="post-title">
-                    <h3><?= $devlog['name'] ?></h3>
+                    <h3><?= $devlog['gameName'] ?></h3>
                 </div>
                 <div class="tagline">
                     <h3><?= $devlog['Tagline'] ?></h3>

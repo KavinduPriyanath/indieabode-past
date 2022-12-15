@@ -15,6 +15,8 @@ if (isset($_POST['submit'])) {
     $devVisibility = $_POST['dev-visibility'];
     $type = $_POST['type'];
     $tagline = $_POST['tagline'];
+    $dgameName= $_POST['gname'];
+    $rDate= $_POST['rdate'];
 
     $foreignKey = $_SESSION['id'];
 
@@ -39,7 +41,7 @@ if (isset($_POST['submit'])) {
 
 
     // -- upload to database
-    $sql = "INSERT INTO devlog (description,name,Visibility,Type,Tagline,devlogImg) VALUES ('$devLogContent','$devLogTitle','$devVisibility','$type','$tagline','$new_ss_img_name')";
+    $sql = "INSERT INTO devlog (description,name,Visibility,Type,Tagline,devlogImg,gameName,ReleaseDate) VALUES ('$devLogContent','$devLogTitle','$devVisibility','$type','$tagline','$new_ss_img_name','$dgameName','$rDate')";
 
 
 
@@ -68,10 +70,11 @@ if (isset($_POST['submit'])) {
     <?php include('../src/css/devlogform.css') ?>
 </style>
 
-<h1>Devlog Form</h1>
 
 <div class="form-container">
-
+<div class="page-tittle">
+    <p><h1>-Devlog Form-</h1></p>
+</div>
     <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
         <div class="card-details">
             <div class="left">
@@ -109,7 +112,12 @@ if (isset($_POST['submit'])) {
                 <div class="card-box">
                     <span class="details">Game Name</span>
                     <p>Game related with the devlog</p>
-                    <input type="text" name="gameName" placeholder="Optional">
+                    <input type="text" name="gname" placeholder="Optional">
+                </div>
+
+                <div class="card-box">
+                    <span class="details">Release Date</span>
+                    <input type="text" name="rdate" placeholder="Optional">
                 </div>
 
 
@@ -125,12 +133,12 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
             <div class="button">
-                <input type="submit" name="submit" value="Save & View Page">
+                <input type="submit" name="submit" id="devsubmit" value="Save & View Page">
             </div>
             <div class="right">
 
                 <div class="card-box">
-                    <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
+                    <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results   <br>   (Accept *.jpg,.jpeg,.png* formats files only)</p><br>
                     <input type="file" id="devlog_ss" name="devlog_ss" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
                 </div>
             </div>

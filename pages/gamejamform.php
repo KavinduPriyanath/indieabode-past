@@ -2,6 +2,12 @@
 
 session_start();
 
+if (isset($_SESSION['id'])) {
+    
+} else {
+    header("Location: login.php");
+}
+
 
 require '../db/database.php';
 
@@ -50,10 +56,11 @@ if (isset($_POST['submit'])) {
 
 
     if (mysqli_query($conn, $sql)) {
-        echo '<script>alert("Upload Successful!")</script>';
+        header("Location: gamejam.php");
+        
     } else {
-        echo '<script>alert("Upload Not Successful!")</script>';
-        echo '<script>alert("Please Try Again!")</script>';
+        echo '<script>alert("Upload Not Successful!Please Try Again!")</script>';
+        
     }
 }
 
@@ -62,7 +69,20 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 
+
+
 <html>
+
+<script>
+    function vote(x){
+        if(x==0)document.getElementById("voting").style.display= "block";
+        else document.getElementById("voting").style.display="none";
+        return;
+    }
+
+
+</script>
+
 <style>
     <?php include('../src/css/navbar.css') ?>
 </style>
@@ -97,8 +117,8 @@ if (isset($_POST['submit'])) {
                     <span class="circle-title">Type*</span>
                     <p>Select the kind of gamejam you are going to host<p>
                     <div class="category">
-                        <input type="radio" name="ranking" value="Non-Ranked" />Non-Ranked - Entries are just submitted<br>
-                        <input type="radio" name="ranking" value="Ranked" />Ranked - Entries are voted on and ranked
+                        <input type="radio" name="ranking" value="Non-Ranked" onclick = "vote(1)" />Non-Ranked - Entries are just submitted<br>
+                        <input type="radio" name="ranking" value="Ranked" onclick="vote(0)" checked/>Ranked - Entries are voted on and ranked
                     </div>
                 </div>
 
@@ -123,13 +143,14 @@ if (isset($_POST['submit'])) {
                     <textarea id="game-details" name="game-details" rows="9" cols="64" required></textarea><br><br>
                 </div>
 
+                <div class="circle-form" id= "voting">
                 <h3>Voter Settings</h3>
-                <div class="circle-form">
+                
                     <span class="circle-title">Who can vote on entries?</span>
                     <div class="category">
                         <input type="radio" name="voters" value="Submitters Only">Submitters Only - Only ones who joined the game jam could vote.<br>
                         <input type="radio" name="voters" value="Moderators Only">Moderators Only - Only ones added as moderators could vote.<br>
-                        <input type="radio" name="voters" value="Public">Public - Anyone can vote.
+                        <input type="radio" name="voters" value="Public" checked>Public - Anyone can vote.
                     </div>
                 </div>
 
@@ -137,7 +158,7 @@ if (isset($_POST['submit'])) {
                     <span class="box-details">Rstrictions</span>
                     <div class="checkboxT">
                         <input type="checkbox" name="Rstrictions1">Can join once game-jam started<br>
-                        <input type="checkbox" name="Rstrictions2">Limit Participant count
+                        <input type="checkbox" name="Rstrictions2" >Limit Participant count
                     </div>
                     <p>Max. Participant Count</p>
                     <input type="number" name="Max" placeholder="eg: 20">
