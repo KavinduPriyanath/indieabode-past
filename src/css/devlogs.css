@@ -4,8 +4,9 @@
 .page-topic {
     display: block;
     text-align: center;
-    color: rgb(76, 69, 69);
+    color: white;
     margin-top: 9px;
+    font-size: 15px;
 }
 
 
@@ -17,7 +18,26 @@
     margin: 0;
 }
 
-
+#adddev {
+    background-color: #284478; /* Green */
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 145px;
+    margin-top: 19px;
+    border-radius: 8px;
+  }
+ 
+#adddev:hover {
+    background-color: rgb(80, 105, 159);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+}  
 
 .side-nav {
     height: 100%;
@@ -128,7 +148,7 @@ input[type="radio"] {
 }
 
 .card {
-    background-color: gray;
+    background-color: #95B2C8;
     width: 282.5px;
     margin: 10px;
     border-radius: 10px;
@@ -172,6 +192,7 @@ input[type="radio"] {
 .tagline{
     padding: 10px;
     margin-bottom: 7px;
+    color: #475872;
     text-align: justify;
 }
 
