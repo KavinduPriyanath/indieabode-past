@@ -1,3 +1,4 @@
+
 //JS for opening and closing filters
 window.addEventListener("load", () => {
   document.getElementById("side-menu").style.width = "0";

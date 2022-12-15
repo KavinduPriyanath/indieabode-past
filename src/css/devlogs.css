@@ -1,3 +1,4 @@
+
 /* Page Topic*/
 
 .page-topic {
@@ -121,6 +122,11 @@ input[type="radio"] {
     transition: margin 0.3s ease;
 }
 
+.container a {
+    text-decoration: none;
+    color: black;
+}
+
 .card {
     background-color: gray;
     width: 282.5px;
@@ -229,3 +235,4 @@ input[type="radio"] {
     color: gray;
     border-radius: 5px;
   }
+

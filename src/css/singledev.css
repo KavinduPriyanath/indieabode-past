@@ -1,0 +1,521 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(209, 204, 204);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    font-size: 29px;
+    margin: 15px 20px 15px 180px;
+}
+
+.navbar-links .ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+
+.navbar-links a  {
+    text-decoration: none;
+    padding: 1.3rem;
+    font-size: 19px;
+    color: white;
+    display: block;
+}
+
+.droparrow {
+    padding-left: 3.4px;
+
+}
+
+.navbar-links a:hover {
+    background-color: darkgray;
+}
+
+.toggle-button {
+    position:absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content:space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links .ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links a {
+        text-align: center;
+    }
+
+    .navbar-links a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .logo {
+        margin: 15px;
+        transition: margin 200ms ease-in-out;
+    }
+}
+
+.dropdown {
+    position: relative
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100%);
+    background-color: rgb(138, 128, 128);
+    /*padding: 0px 80px 10px 20px;*/
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(84, 82, 82);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
+    z-index: 2;
+}
+
+
+.dropdown.active > a + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu .ulsub {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.dropdown-menu a  {
+    text-decoration: none;
+    padding: 5px 70px 2px 8px;
+    margin: 3px 4px 2px 5px;
+    border-radius: 5px;
+    font-size: 19px;
+    color: white;
+    display: flex;
+}
+
+.dropdown-menu a:hover {
+    background-color: darkgray;
+}
+
+.rightdown {
+    position: absolute;
+    right: 6px;
+}
+
+a .double {
+    display: none;
+}
+
+a:hover .single{
+    display: none;
+}
+
+a:hover .double{
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: rgb(138, 128, 128);
+    right: 30px;
+    top: -10px;
+    transform: rotate(45deg);
+    z-index: -10;
+}
+
+/*GameName*/
+
+.game-name {
+    display: block;
+    margin: 20px 0px 0px 180px;
+}
+
+.game-name h1 {
+    color: gray;
+}
+
+
+/*Slideshow and Overview*/
+
+.container {
+    display: flex;
+}
+
+.carousel {
+    width: 750px;
+    height: 430px;
+    position: relative;
+    margin: 5px 20px 20px 180px;
+}
+
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slide {
+    position: absolute;
+    width: 1150px;
+    height: 430px;
+    /*inset: 0;*/
+    opacity: 0;
+}
+
+.slide[data-active] {
+    opacity: 1;
+}
+
+.slide > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+    background-color: rgba(0, 0, 0, .1);
+  }
+  
+  .carousel-button:hover,
+  .carousel-button:focus {
+    color: white;
+    background-color: rgba(0, 0, 0, .2);
+  }
+  
+  .carousel-button:focus {
+    outline: 1px solid black;
+  }
+  
+  .carousel-button.prev {
+    left: 1rem;
+  }
+  
+  .carousel-button.next {
+    right: 1rem;
+  }
+
+  .card {
+    background-color: rgb(182, 179, 179);
+    position: relative;
+    width: 350px;
+    margin: 475px 150px 10px 30px;
+    border-radius: 10px;
+    padding: 8px;
+    left: 775px;
+    
+}
+
+.card-image {
+    background-color: rgb(173, 169, 163);
+    height: 200px;
+    margin-bottom: 12px;
+    background-size: cover;
+    border-radius: 10px 10px;
+    position: relative;
+}
+
+.game {
+    background-image: url('../images/singlegame/Cover.jpg');
+}
+
+
+.category {
+    display: inline-block;
+    padding: 6px;
+    background-color: rgb(154, 148, 148);
+    border-radius: 7px;
+    margin: 1px 10px 7px 10px;
+}
+
+.card h3 {
+    margin: 4px 10px 10px;
+}
+
+.buy-btn {
+    display: block;
+    margin: 10px 12px 7px 12px;
+    text-align: center;
+    padding: 14px;
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(81, 71, 71);
+    border-radius: 8px;
+    background-color: rgb(125, 188, 169);
+}
+
+.buy-btn:hover {
+    color: rgb(38, 35, 30);
+    cursor:pointer
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 8px 0px 12px;
+    font-size: 21px;
+}
+
+.row p{
+    margin-bottom: 3px;
+}
+
+.sub-title {
+    color: rgb(73, 66, 66);
+}
+
+.card hr {
+    margin: 2px 12px;
+    border: 0.8px solid gray;
+    opacity: 0.5;
+}
+
+.devTitle{
+    left: 50;
+    position: absolute;
+    top: 450px;
+}
+
+
+
+.devdate {
+    left:2px;
+    position: absolute;
+    top:490px;
+}
+
+
+.views-downloads img {
+    width: 20px;
+    height: 20px;
+}
+
+.views-downloads {
+    position: absolute;
+    display: flex;
+    right: 0px;
+    bottom: -40px;
+    align-items: center;
+}
+
+.views-downloads p{
+    margin-left: 5px;
+}
+
+#views {
+    margin-right: 10px;
+}
+
+
+/* Description */
+
+.description {
+    position: absolute;
+    top: 480px;
+    left:180px;
+    right: 900px;
+    padding: 4px 8px;
+    width: 780px;
+    margin-bottom: 10px; 
+    margin-top:120px; 
+    border-radius: 7px;
+    background-color: rgb(204, 191, 191);
+}
+
+
+/*Reviews*/
+
+
+.reviews {
+    position: absolute;
+    top: 1050px;
+    width: 750px;
+    margin-left: 180px;
+    margin-bottom: 30px;
+}
+
+.review {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    margin: 10px 3px;
+    padding: 8px;
+    border-radius: 9px;
+    background-color: rgb(180, 182, 183);
+}
+
+.left {
+    margin: 30px 130px 30px 20px;
+}
+
+.left img {
+    width: 40px;
+    height: 40px;
+}
+
+.left p{
+    margin: 2px;
+}
+
+.assets-count {
+    color: rgb(118, 101, 101);
+}
+
+.reviews-count {
+    color: rgb(118, 101, 101);
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+}
+
+.rating-stars img {
+    margin: 1.2px;
+    width: 20px;
+    height: 20px;
+}
+
+.rating-stars p {
+    margin-left: 17px;
+}
+
+.review-title {
+    margin: 1px;
+}
+
+.like-buttons img{
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.like-buttons img:hover {
+    transform: scale(1.03);
+}
+
+
+
+/*Review Form*/
+
+
+.review-form {
+    font-size: 20px;
+    display: none;
+}
+
+.review-form p {
+    font-size: 18px;
+    display: inline;
+}
+
+.review-form h2 {
+    color: rgb(90, 83, 83);
+}
+
+.review-form input[type=text], textarea {
+    width: 100%;
+    margin: 6px 0px;
+    padding: 10px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(174, 174, 174, 0.905);
+}
+
+.review-form label {
+    font-weight: bold;
+}
+
+form {
+    margin-top: 15px;
+    margin-bottom:15px;
+}
+
+
+textarea {
+    height: 200px;
+    resize: none;
+}
+
+input[type=submit] {
+    background-color: rgb(92, 97, 92);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    font-weight: bold;
+}
+
+

@@ -3,6 +3,9 @@ const captcha = document.querySelector(".preview"),
   inputField = document.getElementById("captcha-input"),
   submitBtn = document.getElementById("submitBtn"),
   statusTxt = document.querySelector(".status-text");
+const logBtn = document.getElementById("login");
+
+logBtn.disabled = true;
 
 //storing all captcha characters in array
 let allCharacters = [
@@ -98,23 +101,6 @@ submitBtn.addEventListener("click", (e) => {
     statusTxt.style.color = "#ff0000";
     statusTxt.innerText = "Captcha not matched. Please try again!";
   }
-  //else if (inputVal == captcha.innerText) {
-
-  // }
-
-  // if (inputVal == captcha.innerText) {
-  //   //if captcha matched
-  //   statusTxt.style.color = "#4db2ec";
-  //   statusTxt.innerText = "Nice! You don't appear to be a robot.";
-  //   setTimeout(() => {
-  //     //calling removeContent & getCaptcha after 2 seconds
-  //     removeContent();
-  //     getCaptcha();
-  //   }, 2000);
-  // } else {
-  //   statusTxt.style.color = "#ff0000";
-  //   statusTxt.innerText = "Captcha not matched. Please try again!";
-  // }
 });
 
 function removeContent() {
@@ -129,8 +115,39 @@ function checkboxClicked() {
   const captchaBox = document.getElementById("captcha");
 
   if (checkbox.checked) {
+    console.log("ji");
     captchaBox.style.display = "block";
+    logBtn.style.backgroundColor = "#7FAFDB";
+    logBtn.style.cursor = "pointer";
+    logBtn.disabled = false;
   } else {
     captchaBox.style.display = "none";
+    logBtn.style.backgroundColor = "#9eb7cf";
+    logBtn.style.cursor = "none";
+    logBtn.disabled = true;
   }
 }
+
+//for error messages of login form
+const errorDisplay = document.getElementById("errors");
+//const error = document.getElementById("error-msg");
+
+if (errorDisplay.innerHTML == "") {
+  errorDisplay.style.display = "none";
+  console.log("Error");
+} else if (errorDisplay.innerHTML != "") {
+  errorDisplay.style.display = "block";
+  console.log("Error");
+}
+
+//active login button
+// const robotCheckbox = document.getElementById("robot");
+// const logBtn = document.getElementById("login");
+
+// function checkboxClicked() {
+//   if (robotCheckbox.checked) {
+//     logBtn.style.backgroundColor = "#7FAFDB";
+//   } else {
+//     logBtn.style.backgroundColor = "#9eb7cf";
+//   }
+// }

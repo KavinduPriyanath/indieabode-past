@@ -39,6 +39,7 @@ if (isset($_GET['id'])) {
 </style>
 
 
+<br><br>
 
 <!--Slideshow and Overview-->
 
@@ -87,7 +88,7 @@ if (isset($_GET['id'])) {
 
         <div class="info-box">
             <button id="rate-btn" onclick="AddReview()">Rate this Asset</button>
-            <button id="all-btn">View all by Render Kight</button>
+            <button id="all-btn">View all by <?= $gamer['username']; ?></button>
         </div>
     </div>
 
