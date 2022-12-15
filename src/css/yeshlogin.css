@@ -9,7 +9,7 @@
     height: 100%;
     width: 100%;
     place-items: center;
-    background: rgb(136, 136, 240);
+    background:rgb(51,88,121);
   }
   ::selection{
     background: #17010b;
@@ -19,7 +19,7 @@
     overflow: hidden;
     max-width: 590px;
     height: 700px;
-    background: rgb(57, 55, 109);
+    background:rgb(149,178,200);
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
@@ -27,6 +27,7 @@
   .wrapper .title-text{
     display: flex;
     width: 200%;
+    color: rgb(25, 16, 115);
   }
   .wrapper .title{
     width: 50%;
@@ -43,16 +44,9 @@
     overflow: hidden;
     margin: 30px 0 10px 0;
     justify-content: space-between;
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
   }
-
-  .title-text{
-    color: rgb(98, 92, 173);
-
-
-  }
-
 
   .slide-controls .slide{
     height: 100%;
@@ -76,7 +70,7 @@
     left: 0;
     z-index: 0;
     border-radius: 5px;
-    background: rgb(63, 97, 199);
+    background: rgb(35, 57, 123);
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
   }
   input[type="radio"]{
@@ -94,7 +88,7 @@
     color: #000;
   }
   #login:checked ~ label.register{
-    color: rgb(212, 212, 212);
+    color: rgb(0, 0, 0);
   }
   #login:checked ~ label.login{
     cursor: default;
@@ -162,15 +156,16 @@
     width: 100%;
     z-index: 1;
     position: relative;
-    background: rgb(41, 37, 102);
+    background: rgb(35, 57, 123);
     border: none;
-    color: rgb(132, 132, 167);
+    color: rgb(2, 2, 3);
     padding-left: 0;
     border-radius: 5px;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+    text-decoration: bold;
   }
   button:hover{
-    background: rgba(42, 31, 31, 0.767);
+    background: rgba(47, 41, 225, 0.73);
   }

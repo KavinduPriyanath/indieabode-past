@@ -2,28 +2,42 @@
 
 require '../db/database.php';
 
+$error_msg = null;
+
+
 if (isset($_POST['submitL'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+   $email = $_POST['email'];
+   $password = $_POST['password'];
 
-    //check with db
-    $sql = "SELECT * FROM gamer WHERE email = '$email' AND password = '$password'";
-    $user = mysqli_query($conn, $sql) or die("Couldn't proceed");
+   
+   $user_matched = false;
 
-    $row = mysqli_fetch_assoc($user);
 
-    if (is_array($row) && !empty($row)) {
-        $_SESSION['valid'] = $row['username'];
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['id'] = $row['gamerID'];
-    } else {
-        echo "Invalid Username or password";
-    }
+   $sql = "SELECT * FROM gamer WHERE email = '$email'";
+   $user = mysqli_query($conn, $sql) or die("Couldn't proceed");
 
-    if (isset($_SESSION['valid'])) {
-        header('Location: ../index.php');
-    }
+   $row = mysqli_fetch_assoc($user);
+
+   if (empty($row)) {
+       $error_msg = "Invalid Username or Email";
+   } else if ($password == null) {
+       $error_msg = "Empty password";
+   } else if ($password != $row['password']) {
+       $error_msg = "Invalid password";
+   } else {
+       $user_matched = true;
+   }
+
+
+   if (is_array($row) && $user_matched) {
+       $_SESSION['valid'] = $row['username'];
+       $_SESSION['username'] = $row['username'];
+       $_SESSION['id'] = $row['gamerID'];
+       header('Location: ../index.php');
+   }
 }
+
+
 
 if (isset($_POST['submit'])) {
     $fname = $_POST['firstname'];
@@ -80,14 +94,23 @@ if (isset($_POST['submit'])) {
             <div class="form-inner">
                <form action="#" class="login" method="POST">
                   <div class="field">
-                     <input type="text" placeholder="Email Address" required>
+                     <input type="text" id="username" name="email" placeholder="Email Address" required>
                   </div>
                   <div class="field">
-                     <input type="password" placeholder="Password" required>
+                     <input type="password" id="password" name="password" placeholder="Password" required>
                   </div>
                   <div class="pass-link">
                      <a href="/indieabode/pages/resetpassword.php">Forgot password?</a>
                   </div>
+
+                  <?php if ($error_msg != null) { ?>
+                     <div class="errors-display" id="errors">
+                        <?php echo $error_msg; ?>
+                     </div>
+                  <?php } ?>
+
+
+
                   <div class="field btn">
                      <button type="submitL" name="submitL">Login</button>
                   </div>
@@ -97,47 +120,47 @@ if (isset($_POST['submit'])) {
                </form>
                <form action="#" method="POST">
                     <div class="field">
-                     <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
+                        <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
                     </div>
                     <div class="field">
-                     <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
+                        <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
                     </div>
                     <div class="field">
-                     <input type="text" name="username" id="username" placeholder="Username" required>
+                        <input type="text" name="username" id="username" placeholder="Username" required>
                     </div>
                     <div class="field">
-                     <input type="text" name="email" id="email" placeholder="Email Address" required>
+                        <input type="text" name="email" id="email" placeholder="Email Address" required>
                      </div>
                     <div class="field">
-                     <input type="password" name="password" id="password" placeholder="Password" required>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <div class="field">
-                     <input type="password" name="conpassword" id="conpassword" placeholder="Confirm password" required>
+                        <input type="password" name="conpassword" id="conpassword" placeholder="Confirm password" required>
                     </div>
                     <div class="field btn">
-                    <button type="submit" name="submit">Register</button>
+                        <button type="submit" name="submit">Register</button>
                     </div>
-<?php
+                    <?php
                     
-if (isset($_POST['submit'])) {
-    $fname = $_POST['firstname'];
-    $lname = $_POST['lastname'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+                     if (isset($_POST['submit'])) {
+                        $fname = $_POST['firstname'];
+                        $lname = $_POST['lastname'];
+                        $username = $_POST['username'];
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
 
-    //insert into db
-    $sql = "INSERT INTO gamer(firstName, lastName, username, email, password) VALUES ('$fname', '$lname', '$username', '$email', '$password')";
+                        //insert into db
+                        $sql = "INSERT INTO gamer(firstName, lastName, username, email, password) VALUES ('$fname', '$lname', '$username', '$email', '$password')";
 
-    if (mysqli_query($conn, $sql)) {
-        header('Location: yeshlogin.php');
-    } else {
-        echo "error";
-    }
-   
-}
+                        if (mysqli_query($conn, $sql)) {
+                           header('Location: yeshlogin.php');
+                        } else {
+                           echo "error";
+                        }
+                        
+                     }
 
-?>
+                     ?>
                </form>
             </div>
          </div>

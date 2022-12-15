@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 08:06 AM
+-- Generation Time: Dec 15, 2022 at 05:34 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -129,30 +129,21 @@ CREATE TABLE `devlog` (
   `gameDeveloperID` int(11) NOT NULL,
   `Tagline` varchar(255) NOT NULL,
   `Type` varchar(50) NOT NULL,
-  `Visibility` varchar(255) NOT NULL
+  `Visibility` varchar(255) NOT NULL,
+  `devlogImg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `devlog`
 --
 
-INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`) VALUES
-(8, '2022-11-11 08:53:53', 'pojpoo', 'yyy', 0, 6, '', '', ''),
-(9, '2022-11-11 10:10:08', 'jyyfyutfyuss', 'yetee', 0, 6, '', '', ''),
-(10, '2022-11-11 10:10:54', 'jgk', 'y33', 0, 6, '', '', ''),
-(11, '2022-11-11 10:11:23', 'yjtuj', 'd44gf', 0, 6, '', '', ''),
-(12, '2022-11-11 10:12:48', 'nhmn', 'd5', 0, 6, '', '', ''),
-(13, '2022-11-11 10:17:36', 'jyyxcfyutfyusregs', 'y6', 0, 6, '', '', ''),
-(14, '2022-11-11 10:20:13', 'uigi', 'yy7', 0, 6, '', '', 'public'),
-(15, '2022-11-11 10:20:53', 'ihhosidiuf', 'yy8', 0, 6, '', '', 'draft'),
-(16, '2022-11-11 10:31:32', 'hi4i', 'yy8', 0, 6, '', 'Tutorial', 'draft'),
-(17, '2022-11-11 10:32:00', 'teesrees', 'yy9', 0, 6, '', 'Major Update', 'public'),
-(18, '2022-11-11 10:32:31', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(19, '2022-11-11 12:11:59', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(20, '2022-11-11 12:12:55', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(21, '2022-11-11 12:18:44', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(22, '2022-11-11 12:32:11', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public'),
-(23, '2022-11-11 12:34:20', 'trr655e65', 'yy10', 0, 6, '', 'Game Design', 'public');
+INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`, `devlogImg`) VALUES
+(53, '2022-11-13 02:49:01', 'jjfvs', 'ss dev', 0, 6, 'hdc', 'Game Design', 'public', 'SS-ss dev.jpg'),
+(54, '2022-11-13 03:00:01', 'hihc', 'New devlog 01', 0, 6, 'upcoming', 'Tutorial', 'draft', 'SS-New devlog 01.jpg'),
+(55, '2022-11-13 03:04:26', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
+(69, '2022-11-14 06:28:45', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
+(75, '2022-12-14 14:17:34', 'oijfev fkoeorlkm lklkefclerk lkemldc', 'dev43', 0, 10, 'uhfui oief', 'Tutorial', 'public', 'SS-dev43.jpg'),
+(76, '2022-12-15 04:28:51', 'fefeeff', 'ife', 0, 8, 'fefefef', 'Game Design', 'public', 'SS-ife.jpg');
 
 -- --------------------------------------------------------
 
@@ -345,7 +336,9 @@ CREATE TABLE `gamer` (
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
 (1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20'),
 (5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23'),
-(6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35');
+(6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35'),
+(8, 'yp6@gmail.com', '12345', 0, '', 'yesh', 'yeshan', 'pasindu', '2022-12-04 02:22:47', '2022-12-04 02:22:47'),
+(10, 'ypasindu112@gmail.com', '123456', 0, '', 'yeshhgfg', 'yeshanhbj', 'pasinduiiuh', '2022-12-04 02:39:06', '2022-12-04 02:39:06');
 
 -- --------------------------------------------------------
 
@@ -818,7 +811,7 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
@@ -842,7 +835,7 @@ ALTER TABLE `gamejam`
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `gamesale`
