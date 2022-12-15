@@ -3,8 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-
--- Generation Time: Dec 15, 2022 at 12:32 AM
+-- Generation Time: Dec 15, 2022 at 06:49 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -126,27 +125,23 @@ CREATE TABLE `devlog` (
   `publishDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `description` text NOT NULL,
   `name` varchar(50) NOT NULL,
-  `gameID` int(11) NOT NULL,
-  `gameDeveloperID` int(11) NOT NULL,
-
   `Tagline` varchar(255) NOT NULL,
   `Type` varchar(50) NOT NULL,
   `Visibility` varchar(255) NOT NULL,
-  `devlogImg` varchar(255) NOT NULL
+  `devlogImg` varchar(255) NOT NULL,
+  `gameName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `devlog`
 --
 
-INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`, `devlogImg`) VALUES
-(53, '2022-11-13 02:49:01', 'jjfvs', 'ss dev', 0, 6, 'hdc', 'Game Design', 'public', 'SS-ss dev.jpg'),
-(54, '2022-11-13 03:00:01', 'hihc', 'New devlog 01', 0, 6, 'upcoming', 'Tutorial', 'draft', 'SS-New devlog 01.jpg'),
-(55, '2022-11-13 03:04:26', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
-(69, '2022-11-14 06:28:45', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
-(75, '2022-12-14 14:17:34', 'oijfev fkoeorlkm lklkefclerk lkemldc', 'dev43', 0, 10, 'uhfui oief', 'Tutorial', 'public', 'SS-dev43.jpg'),
-(76, '2022-12-15 04:28:51', 'fefeeff', 'ife', 0, 8, 'fefefef', 'Game Design', 'public', 'SS-ife.jpg');
-
+INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `Tagline`, `Type`, `Visibility`, `devlogImg`, `gameName`) VALUES
+(83, '2022-12-15 05:30:53', 'fef', 'df', 'f', 'Game Design', 'public', '', 'fef'),
+(84, '2022-12-15 05:32:47', 'geg', 'fg', 'ge', 'Tutorial', 'public', '$SS-fg.jpg', 'geg'),
+(85, '2022-12-15 05:34:05', 'geg', 'fg', 'ge', 'Tutorial', 'public', '$SS-fg.jpg', 'geg'),
+(86, '2022-12-15 05:43:06', 'bfbfb', 'bf', 'bf', 'Game Design', 'public', 'SS-bf.jpg', ''),
+(87, '2022-12-15 05:44:06', 'dwdw', 'dwd', 'ddw', 'Major Update', 'public', 'SS-dwd.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -325,9 +320,7 @@ CREATE TABLE `gamer` (
 --
 
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
-
 (12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16');
-
 
 -- --------------------------------------------------------
 
@@ -606,9 +599,7 @@ ALTER TABLE `crowdfund`
 -- Indexes for table `devlog`
 --
 ALTER TABLE `devlog`
-  ADD PRIMARY KEY (`devLogID`),
-  ADD KEY `gameID` (`gameID`),
-  ADD KEY `gameDeveloperID` (`gameDeveloperID`);
+  ADD PRIMARY KEY (`devLogID`);
 
 --
 -- Indexes for table `downloadasset`
@@ -800,9 +791,7 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
@@ -826,9 +815,7 @@ ALTER TABLE `gamejam`
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-
   MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 
 --
 -- AUTO_INCREMENT for table `gamesale`
@@ -918,149 +905,12 @@ ALTER TABLE `crowdfund`
   ADD CONSTRAINT `crowdfund_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `devlog`
---
-ALTER TABLE `devlog`
-  ADD CONSTRAINT `devlog_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `devlog_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `devlog_ibfk_3` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `downloadasset`
 --
 ALTER TABLE `downloadasset`
   ADD CONSTRAINT `downloadasset_ibfk_1` FOREIGN KEY (`assetID`) REFERENCES `freeasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `downloadasset_ibfk_2` FOREIGN KEY (`assetID`) REFERENCES `paidasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `downloadasset_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `downloadgame`
---
-ALTER TABLE `downloadgame`
-  ADD CONSTRAINT `downloadgame_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `downloadgame_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `downloadgame_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `freeasset`
---
-ALTER TABLE `freeasset`
-  ADD CONSTRAINT `freeasset_ibfk_1` FOREIGN KEY (`assetCreatorID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `freegame`
---
-ALTER TABLE `freegame`
-  ADD CONSTRAINT `freegame_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `gamecart`
---
-ALTER TABLE `gamecart`
-  ADD CONSTRAINT `gamecart_ibfk_1` FOREIGN KEY (`cartID`) REFERENCES `cart` (`cartID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gamecart_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gamecart_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `gamegenre`
---
-ALTER TABLE `gamegenre`
-  ADD CONSTRAINT `gamegenre_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gamegenre_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `gamejam`
---
-ALTER TABLE `gamejam`
-  ADD CONSTRAINT `gamejam_ibfk_1` FOREIGN KEY (`jamHostID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `gig`
---
-ALTER TABLE `gig`
-  ADD CONSTRAINT `gig_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gig_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gig_ibfk_3` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `gig_ibfk_4` FOREIGN KEY (`gamePublisherID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `handlecomplaint`
---
-ALTER TABLE `handlecomplaint`
-  ADD CONSTRAINT `handlecomplaint_ibfk_1` FOREIGN KEY (`complaintID`) REFERENCES `complaint` (`complaintID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `handlecomplaint_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `joinjam`
---
-ALTER TABLE `joinjam`
-  ADD CONSTRAINT `joinjam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `joinjam_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `usertype` (`gamerID`);
-
---
--- Constraints for table `organizegamejam`
---
-ALTER TABLE `organizegamejam`
-  ADD CONSTRAINT `organizegamejam_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `organizegamejam_ibfk_2` FOREIGN KEY (`gameJamOrganizerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `paidasset`
---
-ALTER TABLE `paidasset`
-  ADD CONSTRAINT `paidasset_ibfk_1` FOREIGN KEY (`assetCreatorID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `paidgame`
---
-ALTER TABLE `paidgame`
-  ADD CONSTRAINT `paidgame_ibfk_1` FOREIGN KEY (`gameDeveloperID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `participatecrowdfund`
---
-ALTER TABLE `participatecrowdfund`
-  ADD CONSTRAINT `participatecrowdfund_ibfk_1` FOREIGN KEY (`crowdFundID`) REFERENCES `crowdfund` (`crowdFundID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `participatecrowdfund_ibfk_2` FOREIGN KEY (`gamerID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `participatecrowdfund_ibfk_3` FOREIGN KEY (`gamerID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`assetID`) REFERENCES `paidasset` (`assetID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`cartID`) REFERENCES `cart` (`cartID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_4` FOREIGN KEY (`crowdFundID`) REFERENCES `crowdfund` (`crowdFundID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_5` FOREIGN KEY (`gigID`) REFERENCES `gig` (`gigID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `portfolio`
---
-ALTER TABLE `portfolio`
-  ADD CONSTRAINT `portfolio_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `rategame`
---
-ALTER TABLE `rategame`
-  ADD CONSTRAINT `rategame_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rategame_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `freegame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rategame_ibfk_3` FOREIGN KEY (`gameID`) REFERENCES `paidgame` (`gameID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `ratesubmission`
---
-ALTER TABLE `ratesubmission`
-  ADD CONSTRAINT `ratesubmission_ibfk_1` FOREIGN KEY (`gamerID`) REFERENCES `gamer` (`gamerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ratesubmission_ibfk_2` FOREIGN KEY (`submissionID`) REFERENCES `submission` (`submissionID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `submission`
---
-ALTER TABLE `submission`
-  ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`gameJamID`) REFERENCES `gamejam` (`gameJamID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
