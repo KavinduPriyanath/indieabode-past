@@ -3,6 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Dec 15, 2022 at 12:32 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
@@ -127,11 +128,25 @@ CREATE TABLE `devlog` (
   `name` varchar(50) NOT NULL,
   `gameID` int(11) NOT NULL,
   `gameDeveloperID` int(11) NOT NULL,
-  `tagline` varchar(255) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `visibility` varchar(50) NOT NULL,
+
+  `Tagline` varchar(255) NOT NULL,
+  `Type` varchar(50) NOT NULL,
+  `Visibility` varchar(255) NOT NULL,
   `devlogImg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `devlog`
+--
+
+INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `gameID`, `gameDeveloperID`, `Tagline`, `Type`, `Visibility`, `devlogImg`) VALUES
+(53, '2022-11-13 02:49:01', 'jjfvs', 'ss dev', 0, 6, 'hdc', 'Game Design', 'public', 'SS-ss dev.jpg'),
+(54, '2022-11-13 03:00:01', 'hihc', 'New devlog 01', 0, 6, 'upcoming', 'Tutorial', 'draft', 'SS-New devlog 01.jpg'),
+(55, '2022-11-13 03:04:26', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
+(69, '2022-11-14 06:28:45', 'hhckdk', 'Devlog 02', 0, 6, 'tagline 2', 'Tutorial', 'public', 'SS-Devlog 02.jpg'),
+(75, '2022-12-14 14:17:34', 'oijfev fkoeorlkm lklkefclerk lkemldc', 'dev43', 0, 10, 'uhfui oief', 'Tutorial', 'public', 'SS-dev43.jpg'),
+(76, '2022-12-15 04:28:51', 'fefeeff', 'ife', 0, 8, 'fefefef', 'Game Design', 'public', 'SS-ife.jpg');
+
 
 -- --------------------------------------------------------
 
@@ -310,7 +325,9 @@ CREATE TABLE `gamer` (
 --
 
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
+
 (12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16');
+
 
 -- --------------------------------------------------------
 
@@ -783,7 +800,9 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
+
   MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
 -- AUTO_INCREMENT for table `freeasset`
@@ -807,7 +826,9 @@ ALTER TABLE `gamejam`
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
+
   MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 
 --
 -- AUTO_INCREMENT for table `gamesale`
