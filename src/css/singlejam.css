@@ -1,16 +1,16 @@
 .container {
 
-    width: 100%;
-
-    border-radius: 25px;
-    background: #b6b6b6;
+    /* width: 100%; */
+    margin: 0 100px 0 100px;
+    /* border-radius: 25px; */
+    background-color: rgb(51, 88, 121);
 }
 
 .card {
     width: 100%;
     box-sizing: inherit;
     box-align: center;
-    background-color: rgb(124, 124, 124);
+    background-color: #bad3e192;
     border-radius: 25px;
     display: flex;
     justify-content: center;
@@ -25,11 +25,24 @@
     justify-content: center;
 }
 
+.box h1{
+    color: #A0CCDA;
+}
+
+.box p {
+    color: #dcf1f8;
+}
+
 
 .card-box1 {
     text-align: center;
     position: relative;
 }
+
+.card-box1 h2{
+    color: #A0CCDA;
+}
+
 
 .card-box2 {
     width: 100%;
@@ -60,6 +73,13 @@ img {
     text-align: center;
 }
 
+.block h2{
+    color: #A0CCDA;
+}
+
+.block p{
+    color: #dcf1f8;
+}
 .launch-time{
     display: flex;
     word-spacing: 80px;

@@ -39,6 +39,7 @@ if(isset($_GET['id'])){
     <?php include('../src/css/singlejam.css') ?>
 </style>
 
+
 <div class="container">
     
         
@@ -146,7 +147,7 @@ if(isset($_GET['id'])){
 
 
 
-
+    </div>
 <script type = "text/javascript" >
     var count_id = "<?php echo $gamejams['submissionStartDate'];?>";
     var countDownDate = new Date(count_id).getTime();

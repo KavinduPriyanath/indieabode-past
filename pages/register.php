@@ -38,12 +38,12 @@ if (isset($_POST['submit'])) {
     $emailQuery = mysqli_query($conn, $emailSql) or die("fialed");
     $emailError = mysqli_fetch_assoc($emailQuery);
 
-    if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
-        $passwordNotStrongError = 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-    } else if (!empty($usernameError)) {
+    if (!empty($usernameError)) {
         $usernameExistsError = 'This username already exists';
     } else if (!empty($emailError)) {
         $emailExistsError = 'This email already exists';
+    } else if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+        $passwordNotStrongError = 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
     } else if ($password != $_POST['confirmPassword']) {
         $passwordsDoNotMatchError = 'Passwords do not match';
     } else if (mysqli_query($conn, $sql)) {
