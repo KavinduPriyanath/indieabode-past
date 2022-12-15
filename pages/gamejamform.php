@@ -2,9 +2,12 @@
 
 session_start();
 
+
 require '../db/database.php';
 
 $allowed_exts = array("jpg", "jpeg", "png");
+
+
 
 if (isset($_POST['submit'])) {
     $gamejamTitle = $_POST['title'];
@@ -47,9 +50,10 @@ if (isset($_POST['submit'])) {
 
 
     if (mysqli_query($conn, $sql)) {
-        echo "Upload successful!";
+        echo '<script>alert("Upload Successful!")</script>';
     } else {
-        echo "error";
+        echo '<script>alert("Upload Not Successful!")</script>';
+        echo '<script>alert("Please Try Again!")</script>';
     }
 }
 
@@ -69,6 +73,7 @@ if (isset($_POST['submit'])) {
     <?php include('../src/css/gamejamform.css') ?>
 </style>
 
+<!-- Submission form -->
 <div class="form-container">
     <div class="heading">Host a New Jam</div>
     <hr id="topic-break" />
@@ -78,8 +83,8 @@ if (isset($_POST['submit'])) {
             
             <div class="left">
                 <div class="card-box">
-                    <span class="details">Title</span>
-                    <input type="text" name="title">
+                    <span class="details">Title*</span>
+                    <input type="text" name="title" required>
                 </div>
 
                 <div class="card-box">
@@ -89,7 +94,8 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="circle-form">
-                    <span class="circle-title">Type</span>
+                    <span class="circle-title">Type*</span>
+                    <p>Select the kind of gamejam you are going to host<p>
                     <div class="category">
                         <input type="radio" name="ranking" value="Non-Ranked" />Non-Ranked - Entries are just submitted<br>
                         <input type="radio" name="ranking" value="Ranked" />Ranked - Entries are voted on and ranked
@@ -97,24 +103,24 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="card-box">
-                    <span class="details">Start Date & Time</span>
-                    <input type="datetime_local" name="Sdate" placeholder="yyyy/mm/dd 00:00">
+                    <span class="details">Start Date & Time*</span>
+                    <input type="datetime_local" name="Sdate" placeholder="yyyy/mm/dd 00:00" required>
                 </div>
 
                 <div class="card-box">
-                    <span class="details">End Date & Time</span>
-                    <input type="datetime_local" name="Edate" placeholder="yyyy/mm/dd 00:00">
+                    <span class="details">End Date & Time*</span>
+                    <input type="datetime_local" name="Edate" placeholder="yyyy/mm/dd 00:00" required>
                 </div>
 
                 <div class="card-box">
                     <span class="details">Voting End Date & Time</span>
-                    <input type="datetime_local" name="V_E_Date" placeholder="yyyy/mm/dd 00:00">
+                    <input type="datetime_local" name="V_E_Date" placeholder="yyyy/mm/dd 00:00" >
                 </div>
 
                 <div class="card-box">
-                    <span class="details">Content</span>
+                    <span class="details">Content*</span>
                     <p>Makes up the content of your jam page</p>
-                    <textarea id="game-details" name="game-details" rows="9" cols="64"></textarea><br><br>
+                    <textarea id="game-details" name="game-details" rows="9" cols="64" required></textarea><br><br>
                 </div>
 
                 <h3>Voter Settings</h3>
@@ -164,9 +170,9 @@ if (isset($_POST['submit'])) {
             <div class="right">
 
                 <div class="card-box">
-                    <span class="details">Upload Cover Image</span>
+                    <span class="details">Upload Cover Image*</span>
 
-                    <input type="file" name= "coverImg" >
+                    <input type="file" id= "coverImg" name= "coverImg"  required>
                 </div>
 
                 </div>
@@ -174,13 +180,20 @@ if (isset($_POST['submit'])) {
 
         
 
-        <div class="button">
-            <input type="submit" name="submit" value="Save & View Page">
+        <!-- <div class="button"> -->
+            <!-- <input type="submit" name="submit" value="Save & View Page"> -->
+            <button class="submit" name="submit" >Save & View Page</button>
+        <!-- </div> -->
+
+        <div class="conditions">
+            <p>* These Fields must be filled. <p>
         </div>
+
 
     </form>
     </div>
 
+    
 </div>
 
 
