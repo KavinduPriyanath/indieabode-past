@@ -5,52 +5,43 @@ session_start();
 require '../db/database.php';
 
 $allowed_exts = array("jpg", "jpeg", "png");
-$foreignKey = $_SESSION['id'];
-$gamesSql = "SELECT * FROM freegame WHERE gameDeveloperID = '$foreignKey'";
-$result = mysqli_query($conn, $gamesSql);
-
-$games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['submit'])) {
 
     // $date = date('Y-m-d H:i:s');
     $devLogTitle = $_POST['title'];
-    $devTagline = $_POST['tagline'];
+    // $devTagline = $_POST['tagline'];
     $devLogContent = $_POST['devLog-details'];
     $devVisibility = $_POST['dev-visibility'];
     $type = $_POST['type'];
-
     $tagline = $_POST['tagline'];
+    $dgameName= $_POST['gname'];
+    $rDate= $_POST['rdate'];
 
     $foreignKey = $_SESSION['id'];
 
     // //upload cover photo
 
 
-    // $ss_img_name = $_FILES['devlog_ss']['name'];
-    // $ss_img_temp_name = $_FILES['devlog_ss']['tmp_name'];
+    $ss_img_name = $_FILES['devlog_ss']['name'];
+    $ss_img_temp_name = $_FILES['devlog_ss']['tmp_name'];
 
-    // $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
+    $ss_img_ext = strtolower(pathinfo($ss_img_name, PATHINFO_EXTENSION));
 
-    // if (in_array($ss_img_ext, $allowed_exts)) {
-    //     $new_ss_img_name = "SS-" . $devLogTitle . '.' . $ss_img_ext;
-    //     $ss_upload_path = '../uploads/devlog/' . $new_ss_img_name;
-    //     move_uploaded_file($ss_img_temp_name, $ss_upload_path);
-    // }
-
-
-    // $devlog_cover_img_ext = strtolower(pathinfo($devlog_cover_img_name, PATHINFO_EXTENSION));
+    if (in_array($ss_img_ext, $allowed_exts)) {
+        $new_ss_img_name = "SS-" . $devLogTitle . '.' . $ss_img_ext;
+        $ss_upload_path = '../uploads/devlog/' . $new_ss_img_name;
+        move_uploaded_file($ss_img_temp_name, $ss_upload_path);
+    }
 
 
-    $gamesQuery = "SELECT * FROM freegame WHERE gameDeveloperID = '$foreignKey'";
-    $gamesD = mysqli_query($conn, $gamesQuery);
-
-
+    // $gamesQuery = "SELECT * FROM freegame WHERE gameDeveloperID = '$foreignKey'";
+    // $gamesD = mysqli_query($conn, $gamesQuery);
 
 
 
     // -- upload to database
-    $sql = "INSERT INTO devlog (description,name,Visibility,Type,Tagline) VALUES ('$devLogContent','$devLogTitle','$devVisibility','$type','$tagline')";
+    $sql = "INSERT INTO devlog (description,name,Visibility,Type,Tagline,devlogImg,gameName,ReleaseDate) VALUES ('$devLogContent','$devLogTitle','$devVisibility','$type','$tagline','$new_ss_img_name','$dgameName','$rDate')";
 
 
 
@@ -79,15 +70,14 @@ if (isset($_POST['submit'])) {
     <?php include('../src/css/devlogform.css') ?>
 </style>
 
-<h1>Devlog Form</h1>
 
 <div class="form-container">
-
-
+<div class="page-tittle">
+    <p><h1>-Devlog Form-</h1></p>
+</div>
     <form method="POST" id="upload-game" class="input-upload-group" enctype="multipart/form-data">
         <div class="card-details">
             <div class="left">
-
                 <div class="card-box">
                     <span class="details">Title</span>
                     <input type="text" name="title">
@@ -101,6 +91,7 @@ if (isset($_POST['submit'])) {
 
 
                 <div class="card-box">
+
                     <span class="details">Type</span>
                     <select id="type" name="type">
                         <option value="Game Design">Game Design</option>
@@ -108,6 +99,7 @@ if (isset($_POST['submit'])) {
                         <option value="Major Update">Major Update</option>
 
                     </select><br><br>
+
                 </div>
 
 
@@ -118,13 +110,14 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="card-box">
-                    <span class="details">Games</span>
-                    <select id="game" name="game">
-                        <option>None</option>
-                        <?php foreach ($games as $game) { ?>
-                            <option value="<?= $game['gameID']; ?>"><?= $game['gameName']; ?></option>
-                        <?php } ?>
-                    </select><br><br>
+                    <span class="details">Game Name</span>
+                    <p>Game related with the devlog</p>
+                    <input type="text" name="gname" placeholder="Optional">
+                </div>
+
+                <div class="card-box">
+                    <span class="details">Release Date</span>
+                    <input type="text" name="rdate" placeholder="Optional">
                 </div>
 
 
@@ -132,36 +125,28 @@ if (isset($_POST['submit'])) {
                     <span class="circle-title">Visibility</span>
                     <p>Decide when is your page ready for the public.</p>
                     <div class="category">
-
                         <input type="radio" id="dev-draft" name="dev-visibility" value="draft">
                         <label for="dev-draft">Draft - Only those who can edit the project can view the page</label><br>
                         <input type="radio" id="dev-public" name="dev-visibility" value="public">
                         <label for="dev-public">Public - Anyone can view the page, you can enable this after you've saved</label><br>
-
                     </div>
                 </div>
-
             </div>
             <div class="button">
-                <input type="submit" name="submit" value="Save & View Page">
+                <input type="submit" name="submit" id="devsubmit" value="Save & View Page">
             </div>
             <div class="right">
 
                 <div class="card-box">
-                    <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>
+                    <p>These will appear on your asset's page. Optional but highly recommended. Upload 3 to 5 for best results   <br>   (Accept *.jpg,.jpeg,.png* formats files only)</p><br>
                     <input type="file" id="devlog_ss" name="devlog_ss" accept=".jpg,.jpeg,.png" multiple="multiple"><br><br>
-
                 </div>
             </div>
 
-
-
-
-
+        </div>
 
 
     </form>
-
 </div>
 
 
@@ -172,11 +157,9 @@ if (isset($_POST['submit'])) {
 
 <?php include('../components/footer.php') ?>
 
-<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-    <script src="../src/js/navbar.js"></script>
-<?php } else { ?>
-    <script src="../src/js/navbarcopy.js"></script>
-<?php } ?>
+<script>
+    <?php include('../src/js/navbar.js') ?>
+</script>
 
 
 </html>

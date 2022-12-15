@@ -9,7 +9,9 @@
 
 require '../db/database.php';
 
+
 $error_msg = null;
+
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
