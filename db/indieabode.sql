@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2022 at 06:49 AM
+-- Generation Time: Dec 15, 2022 at 06:46 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -137,11 +137,10 @@ CREATE TABLE `devlog` (
 --
 
 INSERT INTO `devlog` (`devLogID`, `publishDate`, `description`, `name`, `Tagline`, `Type`, `Visibility`, `devlogImg`, `gameName`) VALUES
-(83, '2022-12-15 05:30:53', 'fef', 'df', 'f', 'Game Design', 'public', '', 'fef'),
-(84, '2022-12-15 05:32:47', 'geg', 'fg', 'ge', 'Tutorial', 'public', '$SS-fg.jpg', 'geg'),
-(85, '2022-12-15 05:34:05', 'geg', 'fg', 'ge', 'Tutorial', 'public', '$SS-fg.jpg', 'geg'),
 (86, '2022-12-15 05:43:06', 'bfbfb', 'bf', 'bf', 'Game Design', 'public', 'SS-bf.jpg', ''),
-(87, '2022-12-15 05:44:06', 'dwdw', 'dwd', 'ddw', 'Major Update', 'public', 'SS-dwd.jpg', '');
+(87, '2022-12-15 05:44:06', 'dwdw', 'dwd', 'ddw', 'Major Update', 'public', 'SS-dwd.jpg', ''),
+(88, '2022-12-15 06:29:23', 'btgrftgb ', 'dewjb ', 'frdfv', 'Tutorial', 'public', 'SS-dewjb .jpg', ''),
+(89, '2022-12-15 08:28:03', 'gjdhg fjrj hfk', 'devlog', 'new devlog', 'Tutorial', 'draft', 'SS-devlog.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -198,7 +197,8 @@ CREATE TABLE `freeasset` (
 --
 
 INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
-(55, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixelart, sprout lan', 'Asset-Sprout Lands.zip', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', 'pixelart', 12, '2022-12-15');
+(55, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixelart, sprout lan', 'Asset-Sprout Lands.zip', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', 'pixelart', 12, '2022-12-15'),
+(56, 'New Asset', '', '', 'SS-New Asset-0.jpg,SS-New Asset-1.jpg', '', 'cute pixel pastel farming asset pack', '3d', 'released', 'food, sprites, icons', 'Asset-New Asset.zip', 'open-source', 'Cover-New Asset.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 13, '2022-12-15');
 
 -- --------------------------------------------------------
 
@@ -320,7 +320,8 @@ CREATE TABLE `gamer` (
 --
 
 INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
-(12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16');
+(12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16'),
+(13, 'kavindupriyanath1@gmail.com', 'Kimalrasanka123!', 0, '', 'pren11', 'kavindu', 'Alwis', '2022-12-15 06:22:50', '2022-12-15 06:22:50');
 
 -- --------------------------------------------------------
 
@@ -791,13 +792,13 @@ ALTER TABLE `crowdfund`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
-  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `freeasset`
 --
 ALTER TABLE `freeasset`
-  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `assetID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `freegame`
@@ -815,7 +816,7 @@ ALTER TABLE `gamejam`
 -- AUTO_INCREMENT for table `gamer`
 --
 ALTER TABLE `gamer`
-  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `gamerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `gamesale`

@@ -62,10 +62,35 @@ hr{
     font-size: 20px;
 }
 
-
-#btn{
+#btn {
     top:0;
     left:0;
+    position:absolute;
+    align-items: center;
+    width:160px;
+    height:41px;
+    border-radius: 7px;
+    border-width:2px;
+    transition:.5s;
+}
+
+#game-active{
+    top:0;
+    left:0;
+    position:absolute;
+    align-items: center;
+    width:160px;
+    height:41px;
+    background: #749ABD;
+    border-radius: 7px;
+    border-width:2px;
+    transition:.5s;
+}
+
+
+#asset-active{
+    top:0;
+    right:0;
     position:absolute;
     align-items: center;
     width:160px;
