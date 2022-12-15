@@ -15,7 +15,10 @@ if (isset($_GET['id'])) {
 
   $result1 = mysqli_query($conn, $gamerSql);
   $gamer = mysqli_fetch_assoc($result1);
-
+  
+    $ss = $game['gameScreenshots'];
+    $screenshots = explode(',', $ss);
+    $n = count($screenshots);
   $coverImg = $game['gameCoverImg'];
   $addressCoverImg = '../uploads/games/cover/' . $coverImg;
 }
@@ -29,42 +32,42 @@ if (isset($_GET['id'])) {
 <html lang="en">
 
 <body>
-  <!--Including Navbar-->
-  <style>
-    <?php
-    include('../src/css/navbar.css');
-    include('../src/css/singlegame.css');
-    ?>
-  </style>
-  <?php include("../components/navbar.php"); ?>
+<!--Including Navbar-->
+<style>
+  <?php
+  include('../src/css/navbar.css');
+  include('../src/css/singlegame.css');
+  ?>
+</style>
+<?php include("../components/navbar.php"); ?>
 
-  <div class="game-name">
-    <h1>Genshin Impact</h1>
-  </div>
+<div class="game-name">
+  <h1>Genshin Impact</h1>
+</div>
 
-  <!--Slideshow and Overview-->
+<!--Slideshow and Overview-->
 
-  <div class="container">
-    <!--Slideshow-->
+<div class="container">
+  <!--Slideshow-->
 
-    <div class="carousel" data-carousel>
-      <button class="carousel-button prev" data-carousel-button="prev">
-        &#8656;
-      </button>
-      <button class="carousel-button next" data-carousel-button="next">
-        &#8658;
-      </button>
-      <ul data-slides>
-        <li class="slide" data-active>
-          <img src="../images/singlegame/1.jpg" alt="Nature Image #1" />
-        </li>
-        <li class="slide">
-          <img src="../images/singlegame/2.jpeg" alt="Nature Image #2" />
-        </li>
-        <li class="slide">
-          <img src="../images/singlegame/3.jpg" alt="Nature Image #3" />
-        </li>
-      </ul>
+  <div class="carousel" data-carousel>
+    <button class="carousel-button prev" data-carousel-button="prev">
+      &#8656;
+    </button>
+    <button class="carousel-button next" data-carousel-button="next">
+      &#8658;
+    </button>
+    <ul data-slides>
+      <li class="slide" data-active>
+        <img src="../uploads/games/ss/<?= $screenshots[0]; ?>" alt="Nature Image #1" />
+        <!-- <img src="../images/singlegame/1.jpg" alt="Nature Image #1" /> -->
+      </li>
+      <?php for ($i = 1; $i < $n; $i++) { ?>
+          <li class="slide">
+              <img src="../uploads/games/ss/<?= $screenshots[$i]; ?>" alt="Nature Image #2" />
+          </li>
+        <?php } ?>
+    </ul>
 
       <div class="tagline">
         <p>
@@ -370,12 +373,13 @@ if (isset($_GET['id'])) {
   </style>
   <?php include("../components/footer.php"); ?>
 
-  <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
-    <script src="../src/js/navbar.js"></script>
-  <?php } else { ?>
-    <script src="../src/js/navbarcopy.js"></script>
-  <?php } ?>
-  <script src="../src/js/singlegame.js"></script>
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+  <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+  <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
+<script src="../src/js/singlegame.js"></script>
+
 </body>
 
 </html>

@@ -129,9 +129,9 @@ if (isset($_POST['asset-submit'])) {
         </div>
         <hr>
         <div class="btn-box">
-            <div id="btn"></div>
+            <div id="asset-btn"></div>
             <button type="button" class="toggle-btn" onclick="uploadGame()">Game</button>
-            <button type="button" class="toggle-btn" id="asset-active">Assets</button>
+            <button type="button" class="toggle-btn" id="asset-active" style="background-color:#749ABD">Assets</button>
         </div><br>
 
 
@@ -154,10 +154,10 @@ if (isset($_POST['asset-submit'])) {
 
                 <div class="upload-col">
                     <label id="asset-title" for="asset-title">Title</label><br>
-                    <input type="text" name="asset-title" id="asset-title" /><br><br>
+                    <input type="text" name="asset-title" id="asset-title" placeholder="Asset Title"/><br><br>
 
                     <label id="asset-tagline" for="asset-tagline">Tagline</label><br>
-                    <input type="text" name="asset-tagline" id="asset-tagline" placeholder="Optional" /><br><br>
+                    <input type="text" name="asset-tagline" id="asset-tagline" placeholder="Optional"/><br><br>
 
                     <!--classification details-->
                     <label id="asset-classification" for="asset-classification">Classification</label><br>
@@ -224,7 +224,7 @@ if (isset($_POST['asset-submit'])) {
                         <!--Content-->
                         <div class="content-box" id="redactor" contenteditable="true"></div>
                     </div>
-                    <input type="hidden" name="asset-details" id="asset-details">
+                    <input type="hidden" name="asset-details" id="asset-details" placeholder="Enter asset details">
 
 
 
@@ -249,6 +249,7 @@ if (isset($_POST['asset-submit'])) {
                     <input type="text" id="asset-price-val" name="asset-price-val" /><br><br>
 
                     <label id="upload-asset" for="upload-asset">Upload Assets</label><br>
+                    <p>(Required file types : .zip, .rar, .blend)</p><br>
                     <input type="file" id="upload-asset" name="upload-asset"><br><br>
 
                     <!--License-->
@@ -307,7 +308,7 @@ if (isset($_POST['asset-submit'])) {
                 </div>
             </div>
             <br><br>
-            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="uploadAsset()" id="asset-submit">Save & View Page</button>
+            <button type="submit" class="submit-btn" name="asset-submit" onsubmit="uploadAsset()" id="asset-submit">Upload Asset</button>
         </form>
     </div>
 </div>
