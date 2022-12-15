@@ -173,7 +173,7 @@ if (isset($_POST['game-submit'])) {
             <div class="upload-row">
                 <div class="upload-col">
 
-                    <label id="game-title" for="game-title">Title</label><br>
+                    <label id="game-title" for="game-title">Title</label><span>*</span><br>
                     <input type="text" name="game-title" id="game-title" placeholder="game title" required /><br><br>
 
                     <label id="game-tagline" for="game-tagline">Tagline</label><br>
@@ -181,9 +181,9 @@ if (isset($_POST['game-submit'])) {
                     <input type="text" name="game-tagline" id="game-tagline" placeholder="Short Description about your game" /><br><br>
 
                     <!--classification details-->
-                    <label id="game-classification" for="game-classification">Classification</label><br>
+                    <label id="game-classification" for="game-classification">Classification</label><span>*</span><br>
                     <p>Choose the category your game suits the most</p>
-                    <select id="game-classification" name="game-classification">
+                    <select id="game-classification" name="game-classification" required>
                         <option value="adventure">Adventure Games</option>
                         <option value="action" selected>Action Games</option>
                         <option value="RPG">RPG Games</option>
@@ -193,8 +193,8 @@ if (isset($_POST['game-submit'])) {
                     </select><br><br>
 
                     <!--Releasing status-->
-                    <label id="game-status" for="game-status">Release Status</label><br>
-                    <select id="game-status" name="game-status">
+                    <label id="game-status" for="game-status">Release Status</label><span>*</span><br>
+                    <select id="game-status" name="game-status" required>
                         <option value="released" selected>Released</option>
                         <option value="early access">Early Access</option>
                         <option value="upcoming">Upcoming</option>
@@ -241,18 +241,18 @@ if (isset($_POST['game-submit'])) {
                         <div class="game-spec-item-details">
 
 
-                            <label id="min-game-OS" for="min-game-OS">OS</label><br>
-                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10" /><br><br>
-                            <label id="min-game-processor" for="min-game-processor">Processor</label><br>
-                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5" /><br><br>
-                            <label id="min-game-memory" for=" min-game-memory">Memory</label><br>
-                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB" /><br><br>
-                            <label id="min-game-storage" for="min-game-storage">Storage</label><br>
-                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB" /><br><br>
-                            <label id="min-game-graphics" for="min-game-graphics">Graphics</label><br>
-                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660" /><br><br>
-                            <label id="min-game-other" for="min-game-other">Other</label><br>
-                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support" /><br><br>
+                            <label id="min-game-OS" for="min-game-OS">OS</label><span>*</span><br>
+                            <input type="text" name="min-game-OS" id="min-game-OS" placeholder="Windows 10" required /><br><br>
+                            <label id="min-game-processor" for="min-game-processor">Processor</label><span>*</span><br>
+                            <input type="text" name="min-game-processor" id="min-game-processor" placeholder="Intel Core I5" required/><br><br>
+                            <label id="min-game-memory" for=" min-game-memory">Memory</label><span>*</span><br>
+                            <input type="text" name="min-game-memory" id="min-game-memory" placeholder="8 GB" required/><br><br>
+                            <label id="min-game-storage" for="min-game-storage">Storage</label><span>*</span><br>
+                            <input type="text" name="min-game-storage" id="min-game-storage" placeholder="14 GB" required/><br><br>
+                            <label id="min-game-graphics" for="min-game-graphics">Graphics</label><span>*</span><br>
+                            <input type="text" name="min-game-graphics" id="min-game-graphics" placeholder="NVIDIA GeForce 1660" required/><br><br>
+                            <label id="min-game-other" for="min-game-other">Other</label><span>*</span><br>
+                            <input type="text" name="min-game-other" id="min-game-other" placeholder="English Language Support" required/><br><br>
 
                         </div>
                         <div class="game-spec-item-details">
@@ -273,7 +273,7 @@ if (isset($_POST['game-submit'])) {
                         </div>
                     </div>
 
-                    <label id="game-visibility" for="game-visibility">Visibility</label><br>
+                    <label id="game-visibility" for="game-visibility">Visibility</label><span>*</span><br>
                     <div class="visibility">
                         <p>Decide when is your page ready for the public</p><br>
                         <input type="radio" id="game-draft" name="game-visibility" value="draft" checked>
@@ -294,9 +294,9 @@ if (isset($_POST['game-submit'])) {
                     <p>Add the link to your Youtube video</p><br>
                     <input type="url" id="game-illustration-vedio" name="game-illustration-vedio" placeholder="eg: https://www.youtube.com/"><br><br>
 
-                    <label id="upload-game" for="upload-game">Upload Game</label><br>
+                    <label id="upload-game" for="upload-game">Upload Game</label><span>*</span><br>
                     <p>(Required file types : .zip, .rar, .blend)</p><br>
-                    <input type="file" id="upload-game" name="upload-game"><br><br>
+                    <input type="file" id="upload-game" name="upload-game" required><br><br>
 
                     <label id="game-screenshots" for="game-screenshots">Screenshots</label><br>
                     <p>These will appear on your game's page. Optional but highly recommended. Upload 3 to 5 for best results</p><br>

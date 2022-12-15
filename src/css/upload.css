@@ -250,4 +250,8 @@ select option{
     height: 30px;
     padding: 4px;
   }
-  
+
+span{
+    color:red;
+    font-size:1.5em;
+}
