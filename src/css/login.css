@@ -1,127 +1,260 @@
-*{
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;600;700&display=swap');
+
+* {
   box-sizing: border-box;
-}
-body{
-  background: #eeeff0;
+  padding: 0;
+  margin: 0;
 }
 
-a{
-    text-decoration: none;
-    color:white;
+body {
+  background-color: #335879;
 }
-.wrapper{
-  width: 40%;
-  padding: 2rem 0 1rem 0;
+
+.wrapper {
+  display: block;
   margin: 50px auto;
-  margin-bottom:0;
-  padding-bottom: 0;
-  background: #fff;
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 45%;
+  background: rgb(138, 155, 198, 0.44);
+  border-radius: 8px;
 }
 
-form input{
-  width:65%;
-  outline: none;
-  border: none;
-  background: #dfe9f5;
-  padding: 12px 14px;
-  margin-top:2%;
-  border-radius: 10px;
+.navbar {
+  display: block;
+  height: 70px;
+  text-align: center;
+  background-color: #2C4862;
+  color: white;
 }
 
-fieldset{
-    width:65%;
-    padding:12px 14px;
-    border-radius:10px ;
-    margin-left:50px;
+
+.logo {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  padding: 15px;
 }
-button{
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  padding: 8px 0;
-  border-radius: 5px;
-  outline: none;
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.toggle-btn {
+  display: inline-block;
+  width: 150px;
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
+  margin: 40px 20px;
+  background-color: #84AED4;
   border: none;
-  width: 55%;
-  background: rgb(156, 150, 150);
-  color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.form-login-label {
+  text-align: left;
+  display: block;
+  color: white;
+  font-size: 22px;
+  /* margin: 10px 70px 0px 100px; */
+  margin: 2% 5% 2% 8%;
+
+}
+
+#username {
+  margin-top: 20px;
+}
+
+
+/*Normal Form Input*/
+form input[type=text], input[type=password] {
+
+  display: inline-block;
+  height: 40px;
+  width: 80%;
+  margin: -10px 100px 10px 100px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 10px;
+  background-color: rgb(115, 170, 193, 0.72);
+}
+
+#form ::placeholder {
+  color: rgb(72, 95, 117, 0.6);
+  font-size: 17px;
+  font-family: 'Kreon', serif;
+}
+
+
+#login {
+  color: #0D3860;
+  background-color: #7FAFDB;
+  width: 200px;
+  padding: 10px;
+  border: none;
+
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 18px;
+
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
+}
+
+
+#register {
+  color: #0D3860;
+  background-color: #9eb7cf;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  font-size: 25px;
+  font-family: 'Kreon', serif;
+  font-weight: bold;
+}
+
+
+
+.forgot-pw {
+  width: 100%;
+  height: 70px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 7%;
+  background-color: rgba(138, 155, 198, 0.44);
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.forgot-pw a {
+  color: #372372;
+
+}
+
+.forgot-pw div {
+  color: white;
+
+}
+
+.full-name {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.full-name input[type=text] {
+  display: inline-block;
+  height: 40px;
+  width: 232.5px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 10px;
+  background-color: rgb(115, 170, 193, 0.72);
+}
+
+.full-name #firstname {
+  margin: 10px 0px 0px 100px;
+}
+
+.full-name #lastname {
+  margin: 10px 0px 0px 30px;
+}
+
+form input[type=checkbox] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #8CB8D1;
+  color: #8CB8D1;
+}
+
+#tos {
+  display: inline-block;
+  font-size: 18px;
+  color: white;
+}
+
+.captcha label {
+  display: block;
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 3px;
+
+}
+
+.captcha {
+  margin: 15px 0px;
+  display: none;
+}
+
+.captcha .preview {
+  color: rgb(222, 207, 207);
+  width: 250px;
+  text-align: center;
+  height: 40px;
+  margin-left: 100px;
+  line-height: 40px;
+  letter-spacing: 8px;
+  background-color: rgba(115, 170, 193, 0.4);
+  /* border: 1px dashed rgb(15, 66, 129); */
+  border-radius: 8px 8px 0px 0px;
+  font-family: monospace;
+}
+
+.captcha .preview span {
+  display: inline-block;
+  user-select: none;
+}
+
+.captcha .captcha-form {
+  display: flex;
+}
+
+.captcha .captcha-form input {
+  width: 210px;
+  padding: 8px;
+  margin-top: 0px;
+  margin-right: 0px;
+  border-radius: 0px 0px 0px 8px;
+  /* border: 1px solid rgb(38, 103, 183); */
+}
+
+.captcha .captcha-form .captcha-refresh {
+  width: 40px;
+  border: none;
+  outline: none;
+  background-color: rgb(42, 79, 126);
+  color: rgb(176, 223, 232);
+  height: 40px;
   cursor: pointer;
-}
-button:hover{
-  background: rgba(42, 31, 31, 0.767);
-}
-.or{
-  font-size: 0.8rem;
-  margin-top: 1.5rem;
+  border-radius: 0px 0px 8px 0px;
 }
 
-.forgot-pw{
-  font-size: 0.8rem;
-  margin-top: 1.4rem;
-  padding:5%;
-  background-color: darkgray;
-}
-.forgot-pw a{
-  color: tomato;
+.check-bar {
+  text-align: left;
+  margin-left: 100px;
 }
 
-.btn-box button{
-    width:30%;
-    margin-top:0;
-    margin-bottom:10%;
-    border-radius:30px;
-    background:rgb(69, 66, 66);
+#robotlabel {
+  display: inline-block;
+  font-size: 18px;
+  color: white;
+
 }
 
-.about-you{
-    margin:5% 18% 5% 18%;
-    display:block;
-    position:relative;
-    font-size:1.1em;
-    border-style:groove;
-    text-align:left;
-    padding:4%;
-    border-radius:10px;
-}
-
-input[type="checkbox"]{
-    width:auto;
-}
-
-label{
-    text-align:left;
-    font-size:.7em;
-}
-.about-you label{
-    font-size:.7em;
-}
-
-p{
-    text-align:left;
-    margin:0 19% 0 19%;
-    font-size:.7em;
-    color:grey;
-}
-
-.about-you p{
-    margin:0;
-    font-size:.7em;
-    color:grey;
-}
-
-.full-name{
-    margin:0 18% 5% 18%;
-    display:flex;   
-}
-
-#firstname{
-    margin-right:3%;
-}
-
-#rp-p{
-    font-size:.9em;
+.errors-display {
+  font-size: 17px;
+  display: block;
+  color: rgb(213, 69, 69);
+  background-color: rgb(115, 170, 193, 0.72);
+  margin: 25px 90px 0px 100px;
+  border-radius: 7px;
+  height: 30px;
+  padding: 4px;
 }

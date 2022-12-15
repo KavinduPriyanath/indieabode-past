@@ -1,10 +1,30 @@
+body {
+    background-color: rgb(51, 88, 121);
+}
+
 /* Page Topic*/
 
 .page-topic {
+
+    /* -GameJams- */
     display: block;
     text-align: center;
-    color: rgb(76, 69, 69);
-    margin-top: 9px;
+    
+    /*margin-top: 20px;*/
+    padding-top: 20px;
+    
+    
+    
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 200;        
+    font-size: 15px;
+    line-height: 22px;
+        /* identical to box height */
+    
+    
+    color: #FFFFFF;
+    
 }
 
 
@@ -70,22 +90,40 @@ input[type="radio"] {
 .trigger {
     display: inline-block;
     font-size: 19px;
-    background-color: rgb(195, 194, 194);
-    font-family: 'Times New Roman', Times, serif;
+    /*background-color: rgb(195, 194, 194);
+    font-family: 'Times New Roman', Times, serif;*/
     padding: 10px 20px 10px 15px;
     margin: 25px 15px 5px 175px;
     border-radius: 3.5px;
+
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 29px;
+        /* identical to box height */
+    
+    
+    color: #FFFFFF;
 }
 
 .sort {
     display: inline-block;
     font-size: 19px;
-    background-color: rgb(195, 194, 194);
-    font-family: 'Times New Roman', Times, serif;
+    /*background-color: rgb(195, 194, 194);
+    font-family: 'Times New Roman', Times, serif;*/
     padding: 10px 20px 10px 15px;
     margin: 25px 150px 5px 15px;
     border-radius: 3.5px;
     transition: margin 0.3s;
+
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    
+    color: #FFFFFF;
 }
 
 .sort img {
@@ -96,7 +134,13 @@ input[type="radio"] {
 }
 
 .sort span {
-    color: grey;
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    
+    color: #94B6D6;
 }
 
 .upper-break {
@@ -105,7 +149,11 @@ input[type="radio"] {
 }
 
 #topic-break {
+   
     margin: 5px 150px 15px 175px;
+    color: #86AFEC;
+    
+    border: 1px solid #86AFEC;
 }
 
 #filter-on {
@@ -122,16 +170,13 @@ input[type="radio"] {
 }
 
 .card {
-    background-color: gray;
+    background-color: #95B2C8;
     width: 282.5px;
-    height: 200px;
     margin: 10px;
     border-radius: 10px;
-    position: relative;
 }
 
 .first-row {
-    display: flex;
     margin: 15px;
     align-items: center;
 
@@ -139,13 +184,11 @@ input[type="radio"] {
 
 .card-image {
     background-color: rgb(173, 169, 163);
-    display: inline-block;
-    height: 65px;
-    width: 100px;
-    margin-right: 15px;
+    height: 150px;
     background-size: cover;
-    border-radius: 10px;
+    
     position: relative;
+    
 }
 
 .card-image img {
@@ -155,12 +198,37 @@ input[type="radio"] {
     height: 100%;
 }
 
+.jam-name {
+    display: flex;
+    font-size: 20px;
+    color: #1F1E1E;
+    justify-content: space-between;
+    margin: 7px 10px 2px 10px;
+}
+
 .tagline {
-    margin-top: 7px;
+    padding: 3px 10px;
+    font-size: 17px;
+    color: #475872;
+    margin-bottom: 7px;
+    text-align: justify;
 }
 
 .details {
-    margin: 15px;
+    padding: 3px 10px;
+    font-size: 17px;
+    color: #475872;
+    margin-bottom: 7px;
+    text-align: justify;
+    line-height: 70%;
+}
+
+.host-name{
+    display: flex;
+    font-size: 24px;
+    justify-content: space-between;
+    display: inline-block;
+    
 }
 
 .details>div {
@@ -178,7 +246,7 @@ input[type="radio"] {
     display: block;
     text-align: center;
     margin: 20px 50px;
-    text-decoration: none;
+    text-decoration:none;
 }
 
 .card:hover {
@@ -198,14 +266,14 @@ input[type="radio"] {
 }
 
 .pagination a {
-    color: black;
+    color: rgb(138, 190, 237);
     padding: 8px 12px;
     text-decoration: none;
 }
 
 .pagination a.active {
-    background-color: #bec4be;
-    border: 2px solid black;
+    background-color: rgba(217, 217, 217, 0.11);
+    border: 2px solid rgba(217, 217, 217, 0.11);
     border-radius: 5px;
 }
 
@@ -221,3 +289,4 @@ input[type="radio"] {
     height: 25px;
     width: 25px;
 }
+

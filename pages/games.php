@@ -30,7 +30,7 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </style>
 
 <div class="page-topic">
-    <h1>Games</h1>
+    <h1>-Games-</h1>
 </div>
 
 <!-- Filters-->
@@ -159,16 +159,17 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <div class="container" id="card-container">
 
     <?php foreach ($games as $game) { ?>
-        <div class="card">
-            <div class="card-image game"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
+        <a href="singlegame.php?id=<?= $game['gameID']; ?>">
+            <div class="card">
+                <div class="card-image"> <img src="../uploads/games/cover/<?= $game['gameCoverImg'] ?>" alt="">
+                </div>
+                <div class="game-intro">
+                    <h3><?= $game['gameName'] ?></h3>
+                    <p>Free</p>
+                </div>
+                <div class="tagline"><?= $game['gameTagline'] ?></div>
             </div>
-            <div class="game-intro">
-                <h3><?= $game['gameName'] ?></h3>
-                <p>Free</p>
-            </div>
-            <div class="tagline"><?= $game['gameTagline'] ?></div>
-        </div>
-    <?php } ?>
+        <?php } ?>
 
 
 </div>
@@ -195,7 +196,12 @@ $games = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 <script src="../src/js/games.js"></script>
-<script src="../src/js/navbar.js"></script>
+
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
 
 
 </html>

@@ -1,11 +1,15 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kreon';
+    font-style: normal;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(209, 204, 204);
+    background-color:#335879;
 }
 
 .navbar {
@@ -187,11 +191,9 @@ a:hover .double{
 
 .game-name {
     display: block;
-    margin: 20px 0px 0px 180px;
-}
-
-.game-name h1 {
-    color: gray;
+    margin: 2% 0px 0px 12%;
+    font-size: 1.1em;
+    color: #A0CCDA;
 }
 
 
@@ -233,6 +235,7 @@ a:hover .double{
     object-fit: cover;
     object-position: center;
     border-radius: 10px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .carousel-button {
@@ -247,7 +250,7 @@ a:hover .double{
     cursor: pointer;
     border-radius: .25rem;
     padding: 0 .5rem;
-    background-color: rgba(0, 0, 0, .1);
+    background-color: #2C4862;
   }
   
   .carousel-button:hover,
@@ -269,7 +272,7 @@ a:hover .double{
   }
 
   .card {
-    background-color: rgb(182, 179, 179);
+    background-color:rgba(115, 143, 164, 0.15);
     position: relative;
     width: 350px;
     margin: 5px 180px 10px 10px;
@@ -283,25 +286,23 @@ a:hover .double{
     height: 200px;
     margin-bottom: 12px;
     background-size: cover;
-    border-radius: 10px 10px;
+    border-radius:10px;
     position: relative;
-}
-
-.game {
-    background-image: url('../images/singlegame/Cover.jpg');
 }
 
 
 .category {
     display: inline-block;
     padding: 6px;
-    background-color: rgb(154, 148, 148);
-    border-radius: 7px;
+    background-color: #678EA4;
+    border-radius: 8px;
     margin: 1px 10px 7px 10px;
+    color:#274F60;
 }
 
 .card h3 {
     margin: 4px 10px 10px;
+    color:#8BB4DA;
 }
 
 .buy-btn {
@@ -311,9 +312,9 @@ a:hover .double{
     padding: 14px;
     font-weight: bold;
     font-size: 23px;
-    color: rgb(81, 71, 71);
-    border-radius: 8px;
-    background-color: rgb(125, 188, 169);
+    color:#132759;
+    border-radius: 6px;
+    background-color: #A5B9BD;
 }
 
 .buy-btn:hover {
@@ -326,6 +327,7 @@ a:hover .double{
     justify-content: space-between;
     margin: 3px 8px 0px 12px;
     font-size: 21px;
+    color:#6DA0C6;
 }
 
 .row p{
@@ -333,13 +335,12 @@ a:hover .double{
 }
 
 .sub-title {
-    color: rgb(73, 66, 66);
+    color: #6DA0C6;
 }
 
 .card hr {
     margin: 2px 12px;
-    border: 0.8px solid gray;
-    opacity: 0.5;
+    border: 2px solid #618D9F;
 }
 
 
@@ -399,17 +400,16 @@ a:hover .double{
     display: block;
     width: 750px;
     height: 128px;
-
 }
 
 #rate-btn {
-    margin: 40px 50px 60px 140px;
+    margin: 2% 35% 2%;
 }
 
-.info-box button {
-    background-color: #4CAF50; /* Green */
+.rate-game button {
+    background-color: #87ABBF;
     border: none;
-    color: white;
+    color: #234752;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -417,22 +417,38 @@ a:hover .double{
     border-radius: 7px;
     display: inline-block;
     font-size: 16px;
+    font-weight: 700;
 }
 
 .tagline {
     position: absolute;
-    bottom: -260px;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     width: 100%;
     text-align: justify;
+    margin-top:60%;
+    color:#FFFFFF;
 }
 
+.genre-feature{
+    position:absolute;
+    display:flex;
+    width:100%;
+    text-align:justify;
+    margin-top:70%;
+    column-gap:30%;
+    color:#ACCADB;
 
+}
 
+.genre-feature p{
+    color:#C8D6DE;
+}
 
-
-
+.genre, .feature{
+    padding-left: 2%;
+    border-left: 2px solid rgba(89, 158, 173, 0.48);
+}
 
 /* Description */
 
@@ -443,10 +459,9 @@ a:hover .double{
     min-height: 100px;
     overflow-y: auto;
     margin-left: 180px;
-    margin-bottom: 10px; 
-    margin-top:120px; 
+    margin-bottom: 10px;  
     border-radius: 7px;
-    background-color: rgb(204, 191, 191);
+    background-color:#738FA4;
 }
 
 
@@ -466,7 +481,16 @@ a:hover .double{
     margin: 10px 3px;
     padding: 8px;
     border-radius: 9px;
-    background-color: rgb(180, 182, 183);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: rgba(115, 143, 164, 0.15);
+}
+
+.reviews h3{
+    color:white;
+}
+
+.review-detail{
+    color:#A7C5CC;
 }
 
 .left {
@@ -482,13 +506,13 @@ a:hover .double{
     margin: 2px;
 }
 
-.assets-count {
-    color: rgb(118, 101, 101);
+.assets-count , .reviews-count{
+    color:#BAD3E1;
 }
-
+/* 
 .reviews-count {
     color: rgb(118, 101, 101);
-}
+} */
 
 .rating-stars {
     display: flex;
@@ -503,10 +527,16 @@ a:hover .double{
 
 .rating-stars p {
     margin-left: 17px;
+    color: #A2C0C7;
 }
 
 .review-title {
     margin: 1px;
+    color:#A4E1EE;
+}
+
+.username{
+    color:#77A9C6;
 }
 
 .like-buttons img{
@@ -528,33 +558,48 @@ a:hover .double{
 .review-form {
     font-size: 20px;
     display: none;
+    margin-top:2%;
+    margin-bottom:2%;
+    padding: 5%;
+    border-radius: 9px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: rgba(115, 143, 164, 0.15);
 }
 
 .review-form p {
     font-size: 18px;
     display: inline;
+    color:#A7C5CC;
 }
 
-.review-form h2 {
-    color: rgb(90, 83, 83);
+.review-form h4 {
+    color:white;
 }
 
 .review-form input[type=text], textarea {
     width: 100%;
     margin: 6px 0px;
     padding: 10px 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #6289AC;
     border-radius: 4px;
-    background-color: rgba(174, 174, 174, 0.905);
+    background-color: rgba(116, 156, 185, .2);
+    outline: none;
+}
+
+input::placeholder, textarea::placeholder{
+    color:#A7C5CC;
+    padding-left:2%;
+    font-weight:800;
 }
 
 .review-form label {
     font-weight: bold;
+    color: #77A9C6;
+    font-size: 1.1rem;
 }
 
 form {
     margin-top: 15px;
-    margin-bottom:15px;
 }
 
 
@@ -564,16 +609,58 @@ textarea {
 }
 
 input[type=submit] {
-    background-color: rgb(92, 97, 92);
+    background-color: #87ABBF;
     border: none;
-    color: white;
     padding: 12px 20px;
     border-radius: 7px;
     cursor: pointer;
+    color: #234752;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 2%;
 }
 
 input[type=submit]:hover {
     font-weight: bold;
 }
 
+.game-spec-details{
+    background-color: rgba(116, 156, 185, .35);
+    margin-top: 2%;
+    display: block;
+    padding: 5%;
+    border-radius: 9px;
+}
 
+.game-spec-details hr{
+    color:#6289AC;
+    border:0.75px solid #6289AC;
+    margin-bottom: 3%;
+}
+
+table{
+    width:100%;
+}
+
+th{
+    text-align: left;
+    color: #9AB6D7;
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 29px;
+}
+
+th,td{
+    padding:0.5rem;
+    font-weight: 500;
+}
+
+table p{
+    color:#9AB6D7;
+}
+
+td{
+    color:#E5EFFB;
+}

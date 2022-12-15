@@ -32,7 +32,7 @@ $assets = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <!--Page Topic-->
 <div class="page-topic">
-    <h1>Assets</h1>
+    <h1>-Assets-</h1>
 </div>
 
 <!-- Filters-->
@@ -203,7 +203,13 @@ $assets = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 <script src="../src/js/assets.js"></script>
-<script src="../src/js/navbar.js"></script>
+
+<?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) { ?>
+    <script src="../src/js/navbar.js"></script>
+<?php } else { ?>
+    <script src="../src/js/navbarcopy.js"></script>
+<?php } ?>
+
 </body>
 
 </html>
