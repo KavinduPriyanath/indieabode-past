@@ -3,9 +3,11 @@ const captcha = document.querySelector(".preview"),
   inputField = document.getElementById("captcha-input"),
   submitBtn = document.getElementById("submitBtn"),
   statusTxt = document.querySelector(".status-text");
+//const errorDisplay = document.getElementById("errors");
 const logBtn = document.getElementById("login");
 
 logBtn.disabled = true;
+logBtn.style.backgroundColor = "#9eb7cf";
 
 //storing all captcha characters in array
 let allCharacters = [
@@ -99,7 +101,7 @@ submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     statusTxt.style.display = "block";
     statusTxt.style.color = "#ff0000";
-    statusTxt.innerText = "Captcha not matched. Please try again!";
+    errorDisplay.innerText = "Captcha not matched. Please try again!";
   }
 });
 
@@ -115,13 +117,12 @@ function checkboxClicked() {
   const captchaBox = document.getElementById("captcha");
 
   if (checkbox.checked) {
-    console.log("ji");
-    captchaBox.style.display = "block";
+    //captchaBox.style.display = "block";
     logBtn.style.backgroundColor = "#7FAFDB";
     logBtn.style.cursor = "pointer";
     logBtn.disabled = false;
   } else {
-    captchaBox.style.display = "none";
+    //captchaBox.style.display = "none";
     logBtn.style.backgroundColor = "#9eb7cf";
     logBtn.style.cursor = "none";
     logBtn.disabled = true;

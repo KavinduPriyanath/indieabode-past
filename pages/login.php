@@ -1,11 +1,5 @@
 <?php session_start();
 
-// if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
-//     session_destroy();
-// } else {
-//     session_start();
-// }
-
 
 require '../db/database.php';
 

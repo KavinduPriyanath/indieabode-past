@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2022 at 07:11 PM
+
+-- Generation Time: Dec 15, 2022 at 06:46 PM
+
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -137,12 +139,14 @@ CREATE TABLE `devlog` (
 -- Dumping data for table `devlog`
 --
 
+
 INSERT INTO `devlog` (`publishDate`, `description`, `name`, `Tagline`, `Type`, `Visibility`, `devlogImg`, `gameName`, `devLogID`, `ReleaseDate`) VALUES
 ('2022-12-15 14:59:25', 'sfvdfbdf fdbdzgbdb fb dfxb df b dfbfdfb', 'devlog test', 'tagline vdfv', 'Tutorial', 'public', 'SS-devlog test.jpg', 'NFS', 9, NULL),
 ('2022-12-15 15:05:45', 'jyjguyg', 'hgjk', 'lkkjnl', 'Tutorial', 'public', 'SS-hgjk.jpg', 'kk', 10, NULL),
 ('2022-12-15 15:29:49', 'fbdfbcnb bcvn dfhbdfddgnfgn', 'devtest77', 'dghnfdg', 'Major Update', 'draft', 'SS-devtest77.jpg', 'IGI', 11, NULL),
 ('2022-12-15 16:02:28', 'dsvvv xdvfvv ', 'dev6666', 'dsvfx', 'Tutorial', 'draft', 'SS-dev6666.jpg', 'saan', 12, '2023-01-02'),
 ('2022-12-15 16:18:25', 'gdfgbdfb\r\nghgfhnv\r\ngygjhmvnmjk,\r\nhjghmjm', 'dev testing', 'dgdg', 'Tutorial', 'draft', 'SS-dev testing.jpg', 'IGI', 13, '2023-01-08');
+
 
 -- --------------------------------------------------------
 
@@ -197,30 +201,11 @@ CREATE TABLE `freeasset` (
 -- Dumping data for table `freeasset`
 --
 
-INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`) VALUES
-(1, 'Skybox pack for Unity', '', '', '', '', 'This consists of various skyboxes', '', '', '', '', '', '', 0, '', 'Skybox', '', 1),
-(14, 'New Asset', '', '', '', '', 'Buy thus one', '', '', '', '', '', '', 0, '', '', '', 5),
-(16, 'New Asset 1', '', '', '', '', 'hytjytjtyjytjy', '', '', '', '', '', '', 0, '', '', '', 5),
-(20, 'New Asset 2', '', '', '', '', 'h9', '', '', '', '', '', '', 0, '', '', '', 5),
-(22, 'New Assets 4', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', '', 0, '', '', '', 5),
-(23, 'New Assets 5', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', '', 0, '', '', '', 5),
-(24, 'New Assets 6', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 6.jpg', 0, '', '', '', 5),
-(25, 'New Assets 7', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 7.jpg', 0, '', '', '', 5),
-(26, 'sword pack', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-sword pack.jpg', 0, '', '', '', 5),
-(27, 'Red Hat Boy', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-Red Hat Boy.png', 0, '', '', '', 5),
-(28, 'Lisa Model', '', '', '', '', 'Hi Cutie', '', '', '', '', '', 'Cover-Lisa Model.jpg', 0, '', '', '', 1),
-(29, 'New Assets 11', '', '', '', '', 'Buy this one ASAP', '', '', '', '', '', 'Cover-New Assets 11.jpg', 0, '', '', '', 1),
-(30, 'New Asset 12', '', '', '', '', 'Buy this one ASAP', 'visualEffects', '', '', '', '', 'Cover-New Asset 12.jpg', 0, '', '', '', 1),
-(31, 'Food Icons', '', 'Food Icons - 50+ Stylized Anime Food Art Pack contains 50+ food icons:\r\n\r\n\r\nFeatures:\r\n\r\n- 53 Food Icons\r\n\r\n- Sorted named, easy to read\r\n\r\n- Hand Painted Stylized\r\n\r\n- High and low-resolution sizes\r\n\r\n- Mobile Ready\r\n\r\n- Demo Scene', 'Cover-Food Icons.png', '', '50+ Stylized Anime Food Art Pack', '2d', 'Prototype', 'food, sprites, icons', '', 'copyleft', 'Cover-Food Icons.png', 0, '', '', '', 5),
-(32, 'Food Icons 2', '', '50+ Stylized Anime Food Art Pack', 'SS-Food Icons 2.png', '', '50+ Stylized Anime Food Art Pack', 'textures', 'Prototype', 'food, sprites, icons', '', 'permissive', 'Cover-Food Icons 2.png', 0, '', '', '', 5),
-(33, 'New Asset 44', '', 'gtehyjr j  jyj yjy jyjyj y', '', '', 'Buy this one ASAP', '2d', 'released', 'j jyjyj', '', 'proprietary', '', 0, '', '', '', 5),
-(34, 'New Asset 44', '', 'gtehyjr j  jyj yjy jyjyj y', 'SS-New Asset 44.jpg', '', 'Buy this one ASAP', '2d', 'released', 'j jyjyj', '', 'proprietary', '', 0, '', '', '', 5),
-(35, 'e frgeg', '', 'thy5jh uju', 'SS-e frgeg.png', '', 'ggethth', '2d', 'Prototype', 'j uju', '', 'proprietary', 'Cover-e frgeg.png', 0, '', '', '', 5),
-(36, 'New Asset 23', '', 'tyj k k k ki kik i', 'SS-New Asset 23.png', '', '5h5jk jk', '2d', 'Prototype', 'h h hyjyj jyj', '', 'proprietary', 'Cover-New Asset 23.png', 0, '', '', '', 5),
-(37, 'New Asset 333', '', 'gh h jukj kiki l oil ', 'SS-New Asset 333.png', '', 'Buy this one ASAP', '2d', 'Upcoming', 'h hy jjuj ', '', 'permissive', 'Cover-New Asset 333.png', 0, '', '', '', 5),
-(38, 'fe feg', '', 'tr htrh h yhj y j', 'SS-fe feg.png', '', 'rgrgr', '2d', 'Prototype', 'yt jj', 'Asset-fe feg.txt', 'proprietary', 'Cover-fe feg.png', 0, '', '', '', 5),
-(39, 'New Asset 15', '', '', 'SS-New Asset 15-0.jpg', '', 'jkkkkkkkkkkkkkkkkkkk', 'visualEffects', 'Prototype', 'm mmrfmlr', '', 'permissive', 'Cover-New Asset 15.jpg', 0, '', 'character', '16bit', 9),
-(0, 'aaaaaa', '', '', 'SS-aaaaaa-0.jpg,SS-aaaaaa-1.jpg,SS-aaaaaa-2.jpg', '', 'aaaaaaaaaa', '3d', 'released', 'aaaaaaaaaaa', 'Asset-aaaaaa.zip', 'open-source', 'Cover-aaaaaa.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 5);
+
+INSERT INTO `freeasset` (`assetID`, `assetName`, `assetGenre`, `assetDetails`, `assetScreenshots`, `assetTitle`, `assetTagline`, `assetClasification`, `assetReleaseStatus`, `assetTags`, `assetFile`, `assetLicense`, `assetCoverImg`, `assetVisibility`, `assetVideoURL`, `assetType`, `assetStyle`, `assetCreatorID`, `created_date`) VALUES
+(55, 'Sprout Lands', '', '', 'SS-Sprout Lands-0.png,SS-Sprout Lands-1.png', '', 'cute pixel pastel farming asset pack', '2d', 'released', 'pixelart, sprout lan', 'Asset-Sprout Lands.zip', 'open-source', 'Cover-Sprout Lands.png', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'tileset', 'pixelart', 12, '2022-12-15'),
+(56, 'New Asset', '', '', 'SS-New Asset-0.jpg,SS-New Asset-1.jpg', '', 'cute pixel pastel farming asset pack', '3d', 'released', 'food, sprites, icons', 'Asset-New Asset.zip', 'open-source', 'Cover-New Asset.jpg', 0, 'https://www.youtube.com/watch?v=dnJUE2ptB5U', 'sprite', 'pixelart', 13, '2022-12-15');
+
 
 -- --------------------------------------------------------
 
@@ -357,14 +342,11 @@ CREATE TABLE `gamer` (
 -- Dumping data for table `gamer`
 --
 
-INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`, `verified`, `token`) VALUES
-(1, '7prend@gmail.com', '1234', 0, '', 'prend', 'kavindu', 'priyanath', '2022-11-07 12:13:20', '2022-11-07 12:13:20', '', ''),
-(5, 'kavindupriyanath@gmail.com', '1234', 0, '', 'pren', 'kimal', 'rasanka', '2022-11-07 16:34:23', '2022-11-07 16:34:23', '', ''),
-(6, 'Hima@gmail.com', '1234', 0, '', 'Hima', 'ds', 'as', '2022-11-09 07:14:35', '2022-11-09 07:14:35', '', ''),
-(7, 'nadeedarshi1999@gmail.com', '1234', 0, '', 'darshi', 'nadee', 'darshika', '2022-11-10 20:59:51', '2022-11-10 20:59:51', '', ''),
-(8, 'ruwanhanska99@gmail.com', '$2y$10$TopLDJh0cj5QpTInxA', 0, '', 'nadee_darshika', '', '', '2022-12-15 00:54:45', '2022-12-15 00:54:45', '', 'cd7e19e6f7f9052401c702779aa9e55099f749ccbe321c6aeb8509576cfc378b8a1dc6b8663a4fd44786a23cecc3f8d438bd'),
-(9, 'sandaru@gmail.com', '$2y$10$jb5pQ6XABhahq5AoikJlX.7xMOrOokm70wR0aweGHvAYaQ1TQA46W', 0, '', 'sandaru', '', '', '2022-12-15 01:02:02', '2022-12-15 01:02:02', '', '1d7e1f28864e6fae354d895a57faaafb1d3837b691cfd45856d9a2e8d6cd1c3ca7582fa16b4a8fca2e827b5cdd105db1baed'),
-(12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16', '', '');
+
+INSERT INTO `gamer` (`gamerID`, `email`, `password`, `accountStatus`, `avatar`, `username`, `firstName`, `lastName`, `loginDate`, `logoutTime`) VALUES
+(12, 'kavindupriyanath@gmail.com', 'Kimalrasanka123!', 0, '', 'prend', 'kavindu', 'priyanath', '2022-12-14 15:12:16', '2022-12-14 15:12:16'),
+(13, 'kavindupriyanath1@gmail.com', 'Kimalrasanka123!', 0, '', 'pren11', 'kavindu', 'Alwis', '2022-12-15 06:22:50', '2022-12-15 06:22:50');
+
 
 -- --------------------------------------------------------
 
@@ -638,6 +620,7 @@ ALTER TABLE `devlog`
 -- AUTO_INCREMENT for table `devlog`
 --
 ALTER TABLE `devlog`
+
   MODIFY `devLogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
